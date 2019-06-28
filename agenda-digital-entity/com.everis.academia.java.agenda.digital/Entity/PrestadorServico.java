@@ -1,57 +1,55 @@
 package Entity;
 
+import java.util.Set;
+
 import Enums.Estado;
 import Enums.TipoLogradouro;
+import Entity.Telefone;
+import Entity.TipoServico;
 
 public class PrestadorServico {
-	
+
 //	@Id
 //	@Column(name="id")
 	private Integer codigo;
-		
+
 //	@Column(name="nome")
 	private String nome;
-	
+
 //	@Column(name="cidade")
 	private Cidade cidade;
-	
+
 //	@Column(name="bairro")
 	private String bairro;
-	
+
 //	@Column(name="cep")
 	private String cep;
-	
+
 //	@Column(name="tipoLogradouro")
 	private TipoLogradouro tipoLogradouro;
-	
+
 //	@Column(name="logradouro")
 	private String logradouro;
-	
+
 //	@Column(name="complemento")
 	private String complemento;
-	
+
 //	@Column(name="numero")
 	private String numero;
-	
+
 //	@Column(name="email")
 	private String email;
-	
-	
 
-	public PrestadorServico(Integer codigo, String nome, Cidade cidade, String bairro, String cep,
-		TipoLogradouro tipoLogradouro, String logradouro, String complemento, String numero, String email) {
-	super();
-	this.codigo = codigo;
-	this.nome = nome;
-	this.cidade = cidade;
-	this.bairro = bairro;
-	this.cep = cep;
-	this.tipoLogradouro = tipoLogradouro;
-	this.logradouro = logradouro;
-	this.complemento = complemento;
-	this.numero = numero;
-	this.email = email;
-}
+	private Set<Telefone> telefones;
+
+	private Set<TipoServico> tiposServicos;
+
+	private Set<PrestacaoServico> prestacoesServicos;
+
+	public PrestadorServico(Integer codigo) {
+		super();
+		this.codigo = codigo;
+	}
 
 	public Integer getCodigo() {
 		return codigo;
@@ -132,6 +130,29 @@ public class PrestadorServico {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
-	
+
+	public Set<Telefone> getTelefones() {
+		return telefones;
+	}
+
+	public void setTelefones(Set<Telefone> telefones) {
+		this.telefones = telefones;
+	}
+
+	public Set<TipoServico> getTiposServicos() {
+		return tiposServicos;
+	}
+
+	public void setTiposServicos(Set<TipoServico> tiposServicos) {
+		this.tiposServicos = tiposServicos;
+	}
+
+	public Set<PrestacaoServico> getPrestacoesServicos() {
+		return prestacoesServicos;
+	}
+
+	public void setPrestacoesServicos(Set<PrestacaoServico> prestacoesServicos) {
+		this.prestacoesServicos = prestacoesServicos;
+	}
+
 }

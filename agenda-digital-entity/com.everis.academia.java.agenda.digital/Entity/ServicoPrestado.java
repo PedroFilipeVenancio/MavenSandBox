@@ -3,25 +3,39 @@ package Entity;
 //@Entity
 //@Table(name="servicoPrestado")
 public class ServicoPrestado {
-	
+
 //	@Id
+//	@Column(name="id")
+	private Integer codigo;
+
 //	@Column(name="prestacaoServico")
 	private PrestacaoServico prestacaoServico;
-		
+
 //	@Column(name="tipoServico")
 	private TipoServico tipoServico;
-	
-//	@Column(name="valor")
-	private Double valor;
-	
-	
 
-	public ServicoPrestado(PrestacaoServico prestacaoServico, TipoServico tipoServico, Double valor) {
-	super();
-	this.prestacaoServico = prestacaoServico;
-	this.tipoServico = tipoServico;
-	this.valor = valor;
-}
+//	@Column(name="valor")
+	private Float valor;
+
+	public ServicoPrestado(Integer codigo) {
+		super();
+		this.codigo = codigo;
+	}
+
+	public ServicoPrestado(PrestacaoServico prestacaoServico, TipoServico tipoServico, Float valor) {
+		super();
+		this.prestacaoServico = prestacaoServico;
+		this.tipoServico = tipoServico;
+		this.valor = valor;
+	}
+
+	public Integer getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(Integer codigo) {
+		this.codigo = codigo;
+	}
 
 	public PrestacaoServico getPrestacaoServico() {
 		return prestacaoServico;
@@ -39,12 +53,12 @@ public class ServicoPrestado {
 		this.tipoServico = tipoServico;
 	}
 
-	public Double getValor() {
+	public Float getValor() {
 		return valor;
 	}
 
-	public void setValor(Double valor) {
+	public void setValor(Float valor) {
 		this.valor = valor;
 	}
-	
+
 }

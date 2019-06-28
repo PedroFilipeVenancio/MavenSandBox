@@ -14,15 +14,20 @@ public class Cidade {
 	private String nome;
 	
 //	@Column(name="estado")
-	private Estado estado;
+//	private Estado estado;
 	
-	
+	public Cidade(Integer codigo) {
+		super();
+		this.codigo = codigo;
+//		this.nome = nome;
+//		this.estado = estado;
+	}
 
-	public Cidade(Integer codigo, String nome, Estado estado) {
+	public Cidade(Integer codigo, String nome) {
 		super();
 		this.codigo = codigo;
 		this.nome = nome;
-		this.estado = estado;
+//		this.estado = estado;
 	}
 
 	public Integer getCodigo() {
@@ -41,13 +46,13 @@ public class Cidade {
 		this.nome = nome;
 	}
 
-	public Estado getEstado() {
-		return estado;
-	}
-
-	public void setEstado(Estado estado) {
-		this.estado = estado;
-	}
+//	public Estado getEstado() {
+//		return estado;
+//	}
+//
+//	public void setEstado(Estado estado) {
+//		this.estado = estado;
+//	}
 
 }
 

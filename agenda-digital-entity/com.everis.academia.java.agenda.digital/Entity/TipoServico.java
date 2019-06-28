@@ -1,23 +1,29 @@
 package Entity;
 
+import Entity.PrestadorServico;
+
 //@Entity
 //@Table(name="tipoServico")
 public class TipoServico {
-	
+
 //	@Id
 //	@Column(name="id")
 	private Integer codigo;
-		
+
 //	@Column(name="descricao")
 	private String descricao;
+
+//	private PrestadorServico prestadorServico;
 	
-	
+	public TipoServico() {
+		super();
+	}
 
 	public TipoServico(Integer codigo, String descricao) {
-	super();
-	this.codigo = codigo;
-	this.descricao = descricao;
-}
+		super();
+		this.codigo = codigo;
+		this.descricao = descricao;
+	}
 
 	public Integer getCodigo() {
 		return codigo;
@@ -34,6 +40,13 @@ public class TipoServico {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-	
-	
+
+//	public PrestadorServico getPrestadorServico() {
+//		return prestadorServico;
+//	}
+//
+//	public void setPrestadorServico(PrestadorServico prestadorServico) {
+//		this.prestadorServico = prestadorServico;
+//	}
+
 }

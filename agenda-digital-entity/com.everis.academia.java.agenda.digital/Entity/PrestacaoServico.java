@@ -1,6 +1,7 @@
 package Entity;
 
 import java.util.Date;
+import java.util.Set;
 
 //@Entity
 //@Table(name="prestacaoServico")
@@ -15,6 +16,8 @@ public class PrestacaoServico {
 	
 //	@Column(name="prestador")
 	private PrestadorServico prestador;
+
+	private Set<ServicoPrestado> servicoPrestados;
 	
 	
 
@@ -48,6 +51,18 @@ public class PrestacaoServico {
 	public void setPrestador(PrestadorServico prestador) {
 		this.prestador = prestador;
 	}
+
+	public Set<ServicoPrestado> getServicoPrestados() {
+		return servicoPrestados;
+	}
+
+	public void setServicoPrestados(Set<ServicoPrestado> servicoPrestados) {
+		this.servicoPrestados = servicoPrestados;
+	}
+
+
+	
+	
 	
 	
 }

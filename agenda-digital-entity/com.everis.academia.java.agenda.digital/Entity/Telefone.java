@@ -1,6 +1,6 @@
 package Entity;
 
-
+import Entity.PrestadorServico;
 
 //@Entity
 //@Table(name="telefone")
@@ -16,10 +16,16 @@ public class Telefone {
 	private Integer ddd;
 	
 //	@Column(name="numero")
-	private Integer numero;
+	private Byte numero;
 	
+	private PrestadorServico prestadorServico;
+	
+	public Telefone(Integer codigo) {
+	super();
+	this.codigo = codigo;
+}
 
-	public Telefone(Integer codigo, Integer ddd, Integer numero) {
+	public Telefone(Integer codigo, Integer ddd, Byte numero) {
 	super();
 	this.codigo = codigo;
 	this.ddd = ddd;
@@ -42,14 +48,21 @@ public class Telefone {
 		this.ddd = ddd;
 	}
 
-	public Integer getNumero() {
+	public Byte getNumero() {
 		return numero;
 	}
 
-	public void setNumero(Integer numero) {
+	public void setNumero(Byte numero) {
 		this.numero = numero;
 	}
 	
+	public PrestadorServico getPrestadorServico() {
+		return prestadorServico;
+	}
+
+	public void setPrestadorServico(PrestadorServico prestadorServico) {
+		this.prestadorServico = prestadorServico;
+	}
 	
 	
 	
