@@ -6,6 +6,8 @@ package Entity;
 //@Table(name="telefone")
 public class Telefone {
 	
+	
+	
 //	@Id
 //	@Column(name="id")
 	private Integer codigo;
@@ -15,6 +17,14 @@ public class Telefone {
 	
 //	@Column(name="numero")
 	private Integer numero;
+	
+
+	public Telefone(Integer codigo, Integer ddd, Integer numero) {
+	super();
+	this.codigo = codigo;
+	this.ddd = ddd;
+	this.numero = numero;
+}
 
 	public Integer getCodigo() {
 		return codigo;
@@ -39,6 +49,10 @@ public class Telefone {
 	public void setNumero(Integer numero) {
 		this.numero = numero;
 	}
+	
+	
+	
+	
 	
 	
 }

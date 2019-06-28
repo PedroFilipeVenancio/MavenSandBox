@@ -15,6 +15,15 @@ public class PrestacaoServico {
 	
 //	@Column(name="prestador")
 	private PrestadorServico prestador;
+	
+	
+
+	public PrestacaoServico(Integer codigo, Date data, PrestadorServico prestador) {
+	super();
+	this.codigo = codigo;
+	this.data = data;
+	this.prestador = prestador;
+}
 
 	public Integer getCodigo() {
 		return codigo;

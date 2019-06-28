@@ -13,6 +13,15 @@ public class ServicoPrestado {
 	
 //	@Column(name="valor")
 	private Double valor;
+	
+	
+
+	public ServicoPrestado(PrestacaoServico prestacaoServico, TipoServico tipoServico, Double valor) {
+	super();
+	this.prestacaoServico = prestacaoServico;
+	this.tipoServico = tipoServico;
+	this.valor = valor;
+}
 
 	public PrestacaoServico getPrestacaoServico() {
 		return prestacaoServico;

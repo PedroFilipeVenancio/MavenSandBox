@@ -15,6 +15,15 @@ public class Cidade {
 	
 //	@Column(name="estado")
 	private Estado estado;
+	
+	
+
+	public Cidade(Integer codigo, String nome, Estado estado) {
+		super();
+		this.codigo = codigo;
+		this.nome = nome;
+		this.estado = estado;
+	}
 
 	public Integer getCodigo() {
 		return codigo;
