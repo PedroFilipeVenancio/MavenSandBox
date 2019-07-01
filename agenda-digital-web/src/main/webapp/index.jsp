@@ -1,6 +1,9 @@
 <html>
 <body>
-<h2>Hello World333333333333333333!</h2>
+<h2>Pagina Xpto</h2>
+<button onclick="window.location.href='/agenda-digital-web/cidade'">Crie uma cidade</button>
+<button onclick="window.location.href='/agenda-digital-web/controllerCidade'">Veja as cidades disponiveis</button>
+<button onclick="window.location.href='/agenda-digital-web/updateCidade'">Faça update</button>
 </body>
 </html>
 

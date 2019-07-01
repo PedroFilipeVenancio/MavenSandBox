@@ -22,6 +22,13 @@ public class Cidade {
 //		this.nome = nome;
 //		this.estado = estado;
 	}
+	
+	public Cidade(String nome) {
+		super();
+		this.nome = nome;
+//		this.nome = nome;
+//		this.estado = estado;
+	}
 
 	public Cidade(Integer codigo, String nome) {
 		super();

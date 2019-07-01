@@ -5,6 +5,9 @@
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/java"/>
+        <dependent-module archiveName="agenda-digital-entity-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/agenda-digital-entity/agenda-digital-entity">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <property name="context-root" value="agenda-digital-web"/>
         <property name="java-output-path" value="/agenda-digital-web/target/classes"/>
     </wb-module>
