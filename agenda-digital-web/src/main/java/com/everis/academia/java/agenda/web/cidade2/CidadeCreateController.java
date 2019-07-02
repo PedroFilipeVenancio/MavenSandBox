@@ -25,17 +25,37 @@ public class CidadeCreateController extends HttpServlet {
 		
 		String nome = req.getParameter("nome");
 		
-		Cidade novaCidade = new Cidade(nome);
+		
+//		if (!(req.getParameter("nome") == null) && (!(Integer.valueOf(req.getParameter("id")) == null))) {
+//		listaCidades.add(new Cidade(Integer.valueOf(req.getParameter("id")), req.getParameter("nome")));	
+//	}
+		if (nome == null || nome.trim().isEmpty()) {
+			throw new ServletException("É obrigatorio");	
+		}
+		
+//		if (req.getParameter("update").equals("ok")) {
+//			Integer codigo =Integer.valueOf(req.getParameter("codigo"))  ;
+//			CidadeDao.update(new Cidade(codigo,nome));
+//		}
+		
+		CidadeDao.create(nome);
 		
 		PrintWriter out = resp.getWriter();
 		out.println("<html>");
 		out.println("<body bgcolorW7tFF0000\">");
 		out.println("<table border=\"1\">");
-		out.println("<tr><td colspan=\"2\">Parametros Recebidos</td></tr>");
-		out.println("<tr><td>Nome:</td><td>" + nome + "</td></tr>");
+		out.println("<tr><td colspan=\"2\">Cidade Adicionada</td></tr>");
+		for (Cidade cidade : CidadeDao.read()) {
+			out.println("<tr><td>Id:</td><td>" + cidade.getCodigo() + "</td></tr>");
+			out.println("<tr><td>Nome:</td><td>" + cidade.getNome() + "</td></tr>");						
+		}		
 		out.println("</table>");
+		out.println("<button onclick=\"window.location.href='/agenda-digital-web'\">Volte ao inicio</button>");
 		out.println("</body>");
 		out.println("</html>");
+		
+		
+		
 
 	}
 }

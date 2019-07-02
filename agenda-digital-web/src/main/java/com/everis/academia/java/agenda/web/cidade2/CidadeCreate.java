@@ -20,11 +20,11 @@ public class CidadeCreate extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		
+	
 		PrintWriter out = resp.getWriter();
 		out.println("<html>"); 
 		out.println("<body >"); 
-		out.println("<form action=\"controllerCidade\">"); 
+		out.println("<form action=\"CidadeCreateController\">"); 
 		out.println("<table border=\"1\">"); 
 		out.println("<tr><td colspan=\"2\">Crie a sua cidade</td></tr>"); 
 //		out.println( "<tr><td>Id:</td><td><input type=\"text\" name=\"id\"/></td></tr>"); 

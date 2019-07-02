@@ -5,20 +5,31 @@ import java.util.Set;
 
 import Entity.Cidade;
 
-public final class CidadeDao {
+//public final class CidadeDao Extends CidadeRepository {
+	public class CidadeDao implements CidadeDaoInterface {
 	
 	public static Set<Cidade> listaCidades = new HashSet<Cidade>();
+	private static Integer id = 0;
 	
-	public static void  delete(short id) {	
+	@Override
+	public static void  delete(Cidade cidade) {	
+		listaCidades.remove(cidade);
 	}
 	
-	public static void  update(short id) {	
+	@Override
+	public static void  update(Cidade cidade) {	
 	}
 	
-	public static void  create(short id) {	
+	@Override
+	public static void  create(String name) {
+		id++;
+		listaCidades.add(new Cidade(id,name));
+		System.out.println(listaCidades.size());	
 	}
 	
-	public static void  read(short id) {	
+	@Override
+	public static Set<Cidade>  read() {
+	return listaCidades;
 	}
 
 }
