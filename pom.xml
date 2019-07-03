@@ -14,6 +14,8 @@
 	<modules>
 		<module>agenda-digital-entity</module>
 		<module>agenda-digital-web</module>
+		<module>agenda-digital-dao</module>
+		<module>agenda-digital-business</module>
 	</modules>
 
 	<properties>
@@ -24,9 +26,25 @@
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
+				<groupId>com.everis.academia.java</groupId>
+				<artifactId>agenda-digital-entity</artifactId>
+				<version>0.0.1-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.everis.academia.java</groupId>
+				<artifactId>agenda-digital-dao</artifactId>
+				<version>0.0.1-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.everis.academia.java</groupId>
+				<artifactId>agenda-digital-business</artifactId>
+				<version>0.0.1-SNAPSHOT</version>
+			</dependency>
+			<dependency>
 				<groupId>javax.servlet</groupId>
 				<artifactId>javax.servlet-api</artifactId>
 				<version>3.0.1</version>
+				<scope>provided</scope>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>

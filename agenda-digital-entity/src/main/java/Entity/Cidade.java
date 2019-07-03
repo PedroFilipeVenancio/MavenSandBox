@@ -16,6 +16,9 @@ public class Cidade {
 //	@Column(name="estado")
 //	private Estado estado;
 	
+	public Cidade() {
+	}
+	
 	public Cidade(Integer codigo) {
 		super();
 		this.codigo = codigo;
@@ -77,6 +80,8 @@ public class Cidade {
 			return false;
 		return true;
 	}
+	
+	
 
 //	public Estado getEstado() {
 //		return estado;

@@ -23,4 +23,13 @@
 <!-- 		<servlet-name>formulario</servlet-name> -->
 <!-- 		<url-pattern>\controller</url-pattern> -->
 <!-- 	</servlet-mapping> -->
+
+<error-page>
+	<exception-type>com.everis.academia.java.agenda.web.cidade2.exceptions.CidadeException</exception-type>
+	<location>/CidadeException</location>
+</error-page>
+<error-page>
+	<exception-type>com.everis.academia.java.agenda.digital.business.BusinessException</exception-type>
+	<location>/CidadeException</location>
+</error-page>
 </web-app>
