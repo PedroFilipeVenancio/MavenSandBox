@@ -6,12 +6,13 @@ import com.everis.academia.java.agenda.digital.business.BusinessException;
 import com.everis.academia.java.agenda.digital.business.ICidadeBusiness;
 import com.everis.academia.java.agenda.digital.dao.ICidadeDAO;
 import com.everis.academia.java.agenda.digital.dao.impl.CidadeDAO;
+import com.everis.academia.java.agenda.digital.dao.impl.CidadeDAO2;
 
 import Entity.Cidade;
 
 public class CidadeBusiness implements ICidadeBusiness<Cidade> {
 
-	ICidadeDAO<Cidade> dao = new CidadeDAO();
+	ICidadeDAO<Cidade> dao = new CidadeDAO2();
 
 	@Override
 	public Boolean delete(Cidade cidade) {

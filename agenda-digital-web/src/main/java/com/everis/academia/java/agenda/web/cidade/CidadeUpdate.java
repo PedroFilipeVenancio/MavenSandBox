@@ -63,6 +63,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.everis.academia.java.agenda.digital.dao.ICidadeDAO;
 import com.everis.academia.java.agenda.digital.dao.impl.CidadeDAO;
+import com.everis.academia.java.agenda.digital.dao.impl.CidadeDAO2;
 
 import Entity.Cidade;
 
@@ -84,8 +85,16 @@ public class CidadeUpdate extends HttpServlet {
 //		int indexOf = CidadeDAO.cidades.indexOf(new Cidade(codigo));
 //		Cidade cidade = CidadeDAO.cidades.get(indexOf);
 		
-		int indexOf = dao.read().indexOf(new Cidade(codigo));
-		Cidade cidade = dao.read().get(indexOf);
+		Cidade cidade = null;
+		
+				for (Cidade cidade2 : CidadeDAO2.cidades) {
+					if (cidade2.equals(new Cidade(codigo))) {
+						cidade = cidade2;
+					}
+				}
+		
+//		int indexOf = dao.read().indexOf(new Cidade(codigo));
+//		Cidade cidade = dao.read().get(indexOf);
 
 		PrintWriter writer = resp.getWriter();
 		writer.write("<html>");

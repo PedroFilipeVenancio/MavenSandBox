@@ -17,6 +17,7 @@ import com.everis.academia.java.agenda.digital.business.ICidadeBusiness;
 import com.everis.academia.java.agenda.digital.business.impl.CidadeBusiness;
 import com.everis.academia.java.agenda.digital.dao.ICidadeDAO;
 import com.everis.academia.java.agenda.digital.dao.impl.CidadeDAO;
+import com.everis.academia.java.agenda.digital.dao.impl.CidadeDAO2;
 import com.everis.academia.java.agenda.web.cidade2.exceptions.CidadeException;
 
 import Entity.Cidade;
@@ -27,7 +28,7 @@ public class CidadeCreateController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	private ICidadeBusiness<Cidade> business = new CidadeBusiness();
-	private ICidadeDAO<Cidade> dao = new CidadeDAO();
+	private ICidadeDAO<Cidade> dao = new CidadeDAO2();
 
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -58,6 +59,7 @@ public class CidadeCreateController extends HttpServlet {
 			cidade.setNome(nome);
 
 			business.create(cidade);
+//			resp.sendRedirect(req.getContextPath() + "/teste");
 
 //		CidadeDao.SingleCidade.create(nome);
 

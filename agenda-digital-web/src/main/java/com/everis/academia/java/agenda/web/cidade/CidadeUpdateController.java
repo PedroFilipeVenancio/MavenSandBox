@@ -74,6 +74,7 @@ import com.everis.academia.java.agenda.digital.business.ICidadeBusiness;
 import com.everis.academia.java.agenda.digital.business.impl.CidadeBusiness;
 import com.everis.academia.java.agenda.digital.dao.ICidadeDAO;
 import com.everis.academia.java.agenda.digital.dao.impl.CidadeDAO;
+import com.everis.academia.java.agenda.digital.dao.impl.CidadeDAO2;
 import com.everis.academia.java.agenda.digital.web.servlet.Cidade.ValidationException;
 
 import Entity.Cidade;
@@ -82,7 +83,7 @@ import Entity.Cidade;
 public class CidadeUpdateController extends HttpServlet {
 
 	private ICidadeBusiness<Cidade> business = new CidadeBusiness();
-	private ICidadeDAO<Cidade> dao = new CidadeDAO();
+	private ICidadeDAO<Cidade> dao = new CidadeDAO2();
 
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
