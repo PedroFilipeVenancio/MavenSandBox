@@ -40,7 +40,8 @@ public class Filtro1 implements Filter {
 
 		for (Enumeration<String> e = request.getParameterNames(); e.hasMoreElements();) {
 			String name = e.nextElement();
-    		System.out.println("Olha o request:" +urRequest + ", e o parametro é o : " + name + ", e o seu valor é: " + (request.getParameter(name)==null ? "nulo" : request.getParameter(name)));
+			String value = (request.getParameter(name) == null ? "nulo" : request.getParameter(name));
+;    		System.out.println("Olha o request:" +urRequest + ", e o parametro é o : " + name + ", e o seu valor é: " + value);
 		}
 
 	}
