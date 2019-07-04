@@ -1,6 +1,9 @@
 package com.everis.academia.java.agenda.web.cidade;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Enumeration;
+import java.util.List;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -28,13 +31,18 @@ public class Filtro1 implements Filter {
 			throws IOException, ServletException {
 		String nome = request.getParameter("nome");
 		String codigo = request.getParameter("codigo");
+		request.getAttributeNames();
 		chain.doFilter(request, response);
 		String urRequest = ((HttpServletRequest) request).getRequestURI();
 		Integer urResponse = ((HttpServletResponse) response).getStatus();
-		
-		System.out.println("Olha o request:" +urRequest + ", e o nome é: " + nome + ", e o ID é : " + codigo);
-		System.out.println(urResponse);
-		System.out.println();
+
+		Enumeration<String> names = request.getParameterNames();
+
+		for (Enumeration<String> e = request.getParameterNames(); e.hasMoreElements();) {
+			String name = e.nextElement();
+    		System.out.println("Olha o request:" +urRequest + ", e o parametro é o : " + name + ", e o seu valor é: " + (request.getParameter(name)==null ? "nulo" : request.getParameter(name)));
+		}
+
 	}
 
 	@Override
