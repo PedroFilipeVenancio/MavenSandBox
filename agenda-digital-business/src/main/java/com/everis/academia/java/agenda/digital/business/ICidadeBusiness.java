@@ -1,6 +1,9 @@
 package com.everis.academia.java.agenda.digital.business;
 
+import java.util.Collection;
 import java.util.List;
+
+import Entity.Cidade;
 
 public interface ICidadeBusiness<T> {
 	Boolean delete(T cidade);
@@ -11,5 +14,7 @@ public interface ICidadeBusiness<T> {
 	
 //	Set<T> read();
 	
-	List<T> read();
+	Collection<T> read();
+	
+	Cidade getById(Integer id);
 }

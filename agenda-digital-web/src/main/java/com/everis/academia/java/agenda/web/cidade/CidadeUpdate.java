@@ -61,6 +61,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.everis.academia.java.agenda.digital.business.ICidadeBusiness;
+import com.everis.academia.java.agenda.digital.business.impl.CidadeBusiness;
 import com.everis.academia.java.agenda.digital.dao.ICidadeDAO;
 import com.everis.academia.java.agenda.digital.dao.impl.CidadeDAO;
 import com.everis.academia.java.agenda.digital.dao.impl.CidadeDAO2;
@@ -71,7 +73,7 @@ import Entity.Cidade;
 public class CidadeUpdate extends HttpServlet {
 
 
-	private ICidadeDAO<Cidade> dao = new CidadeDAO();
+	private ICidadeBusiness<Cidade> business = new CidadeBusiness();
 	
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp)
@@ -85,13 +87,13 @@ public class CidadeUpdate extends HttpServlet {
 //		int indexOf = CidadeDAO.cidades.indexOf(new Cidade(codigo));
 //		Cidade cidade = CidadeDAO.cidades.get(indexOf);
 		
-		Cidade cidade = null;
+		Cidade cidade = business.getById(codigo);
 		
-				for (Cidade cidade2 : CidadeDAO2.cidades) {
-					if (cidade2.equals(new Cidade(codigo))) {
-						cidade = cidade2;
-					}
-				}
+//				for (Cidade cidade2 : business.read()) {
+//					if (cidade2.equals(new Cidade(codigo))) {
+//						cidade = cidade2;
+//					}
+//				}
 		
 //		int indexOf = dao.read().indexOf(new Cidade(codigo));
 //		Cidade cidade = dao.read().get(indexOf);

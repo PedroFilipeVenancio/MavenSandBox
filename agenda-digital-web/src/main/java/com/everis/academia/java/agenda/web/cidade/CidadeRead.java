@@ -23,7 +23,7 @@ public class CidadeRead extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
 	
-	private ICidadeDAO<Cidade> dao = new CidadeDAO2();
+	private ICidadeBusiness<Cidade> business = new CidadeBusiness();
 
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -35,7 +35,7 @@ public class CidadeRead extends HttpServlet {
 		out.println("<form action=\"CidadeReadController\">"); 
 		out.println("<table border=\"1\">"); 
 		out.println("<tr><td colspan=\"2\">Cidades Disponiveis</td></tr>"); 
-		for (Cidade cidade : dao.read()) {
+		for (Cidade cidade : business.read()) {
 			out.println("<tr><td>Id:</td><td>" + cidade.getCodigo() + "</td></tr>");
 			out.println("<tr><td>Nome:</td><td>" + cidade.getNome() + "</td><td><a href=\"CidadeReadController?delete=ok&codigo=" + cidade.getCodigo() +"&nome=" + cidade.getNome() + "\">Delete</td>"
 					+"<td><a href=\"CidadeUpdate?update=ok&codigo=" + cidade.getCodigo() +"&nome=" + cidade.getNome() + "\">Update</td>"

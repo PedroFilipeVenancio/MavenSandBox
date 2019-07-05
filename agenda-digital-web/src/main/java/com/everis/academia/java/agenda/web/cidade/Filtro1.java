@@ -29,9 +29,6 @@ public class Filtro1 implements Filter {
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
-		String nome = request.getParameter("nome");
-		String codigo = request.getParameter("codigo");
-		request.getAttributeNames();
 		chain.doFilter(request, response);
 		String urRequest = ((HttpServletRequest) request).getRequestURI();
 		Integer urResponse = ((HttpServletResponse) response).getStatus();
@@ -41,7 +38,7 @@ public class Filtro1 implements Filter {
 		for (Enumeration<String> e = request.getParameterNames(); e.hasMoreElements();) {
 			String name = e.nextElement();
 			String value = (request.getParameter(name) == null ? "nulo" : request.getParameter(name));
-;    		System.out.println("Olha o request:" +urRequest + ", e o parametro é o : " + name + ", e o seu valor é: " + value);
+			System.out.println("Olha o request é o: " +urRequest + ", e o nome do parametro é o : " + name + ", e o seu valor é: " + value);
 		}
 
 	}

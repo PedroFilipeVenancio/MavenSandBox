@@ -1,5 +1,6 @@
 package com.everis.academia.java.agenda.digital.business.impl;
 
+import java.util.Collection;
 import java.util.List;
 
 import com.everis.academia.java.agenda.digital.business.BusinessException;
@@ -57,9 +58,20 @@ public class CidadeBusiness implements ICidadeBusiness<Cidade> {
 	}
 
 	@Override
-	public List<Cidade> read() {
+	public Collection<Cidade> read() {
 		// TODO Auto-generated method stub
-		return null;
+		return dao.read();
+	}
+
+	@Override
+	public Cidade getById(Integer codigo) {
+		Cidade cidadeFound = null;
+		for (Cidade cidade : dao.read()) {
+			if (cidade.equals(new Cidade(codigo))) {
+				cidadeFound = cidade;
+			}
+		}
+		return cidadeFound;
 	}
 
 }

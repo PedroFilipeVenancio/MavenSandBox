@@ -45,7 +45,7 @@ public class CidadeDAO2 implements ICidadeDAO<Cidade> {
 	@Override
 	public Boolean jaExiste(String nome) {
 		
-		for (Cidade cidade : CidadeDAO.cidades) {
+		for (Cidade cidade : cidades) {
 			if (cidade.getNome().trim().equalsIgnoreCase(nome)) {
 				return Boolean.TRUE;
 			}
@@ -55,7 +55,6 @@ public class CidadeDAO2 implements ICidadeDAO<Cidade> {
 
 	@Override
 	public Collection<Cidade> read() {
-		// TODO Auto-generated method stub
 		return cidades;
 	}
 
