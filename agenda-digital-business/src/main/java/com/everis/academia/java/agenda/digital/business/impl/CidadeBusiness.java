@@ -16,13 +16,13 @@ public class CidadeBusiness implements ICidadeBusiness<Cidade> {
 	ICidadeDAO<Cidade> dao = new CidadeDAO2();
 
 	@Override
-	public Boolean delete(Cidade cidade) {
-		// TODO Auto-generated method stub
-		return null;
+	public void delete(Cidade cidade) {
+		dao.delete(cidade);
 	}
 
 	@Override
 	public void update(Cidade cidade) throws BusinessException {
+		System.out.println(cidade.getCodigo() + "estou no update business");
 		// valida parametros
 		if (cidade.getNome() == null || cidade.getNome().trim().isEmpty()) {
 			throw new BusinessException("É obrigatorio");

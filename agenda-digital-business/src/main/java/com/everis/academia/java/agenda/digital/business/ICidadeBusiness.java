@@ -6,7 +6,7 @@ import java.util.List;
 import Entity.Cidade;
 
 public interface ICidadeBusiness<T> {
-	Boolean delete(T cidade);
+	void delete(T cidade);
 
 	void update(T cidade) throws BusinessException;
 

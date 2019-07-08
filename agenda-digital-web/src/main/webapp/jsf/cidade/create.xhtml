@@ -9,8 +9,9 @@
 <h:body>
 	<h:form>
 		<h:outputLabel for="nome" value="Digite o nome da cidade:" />
-		<h:inputText id="nome" value="#{createJSF.name}" />
-		<h:commandButton value="Ok" action="#{createJSF.addCity}" outcome="#{creatJSF.url}" />
+		<h:inputText id="nome" value="#{createJSF.cidade.nome}" />
+		<h:commandButton value="gravar" action="#{createJSF.addCity}" />
+		<h:commandButton value="limpar" action="#{createJSF.limpar}" />
 <!-- 		<h:commandButton action="another.xhtml" value="Go to another page" /> -->
 <!-- 		<h:button outcome="another.xhtml" value="Go to another page" /> -->
 		

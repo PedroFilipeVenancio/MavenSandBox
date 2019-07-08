@@ -1,0 +1,30 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Academia Java 2019</title>
+</h:head>
+<h:body>
+	<h:form>
+		<h:outputLabel for="codigo" value="Digite o codigo da cidade:" />
+		<h:inputText id="codigo" value="#{updateJSF.cidade.codigo}"/>
+		<br/>
+		<h:outputLabel for="nome" value="Digite o nome da cidade:" />
+		<h:inputText id="nome" value="#{updateJSF.cidade.nome}" />
+		<h:commandButton value="Update" action="#{updateJSF.updateCity}" />
+		<h:commandButton value="limpar" action="#{updateJSF.limpar}" />
+
+	</h:form>
+
+</h:body>
+
+</html>
+
+
+
+
+
+
+

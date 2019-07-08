@@ -10,31 +10,31 @@ import Entity.Cidade;
 
 @ManagedBean(name = "createJSF")
 public class CreateJSF {
-	private  String name;
-	private String url;
-	
+//	private String url;
+	Cidade cidade = new Cidade();
+
 	ICidadeBusiness<Cidade> cidadebusiness = new CidadeBusiness();
 
-
-	public String getName() {
-		return name;
+	public Cidade getCidade() {
+		return cidade;
 	}
 
-
-	public void setName(String name) {
-		this.name = name;
+	public void setCidade(Cidade cidade) {
+		this.cidade = cidade;
 	}
-
 
 	public String addCity() throws BusinessException {
-		Cidade cidade = new Cidade();
-		cidade.setNome(this.name);
 		cidadebusiness.create(cidade);
-		String ok = "/agenda-digital-web/CidadeCreateController2?nome=" + name;
-		System.out.println(ok);
-		url = ok;
-		return ok;
+//		String ok = "/agenda-digital-web/CidadeCreateController2?nome=" + name;
+//		System.out.println(ok);
+//		url = ok;
+		return "read";
+	}
+
+	public String limpar() {
+		this.cidade = new Cidade();
+
+		return null;
 	}
 
 }
-
