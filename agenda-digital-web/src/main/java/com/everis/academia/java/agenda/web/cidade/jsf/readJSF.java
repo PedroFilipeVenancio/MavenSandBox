@@ -4,8 +4,10 @@ import java.util.Collection;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
 
 import com.everis.academia.java.agenda.digital.business.BusinessException;
 import com.everis.academia.java.agenda.digital.business.ICidadeBusiness;
@@ -36,7 +38,14 @@ public class readJSF {
 	}
 
 	public String delete(Cidade cidade) {
-		cidadebusiness.delete(cidade);
+		try {
+			cidadebusiness.delete(cidade);
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO,"Cidade apagada com sucesso",""));
+		} catch (Exception e) {
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO,"Cidade não apagada",""));
+
+			e.printStackTrace();
+		}
 		return null;
 	}
 
@@ -44,9 +53,6 @@ public class readJSF {
 		return "update";
 	}
 	
-//	public String deleteSemParam() {
-//		cidadebusiness.delete(cidade);
-//		return null;
-//	}
+
 
 }

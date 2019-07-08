@@ -21,15 +21,13 @@
 			<p:column headerText="Accões">
 				<h:commandButton value="delete" action="#{readJSF.delete(cidade)}" />
 				<h:commandButton value="updade" action="#{updateJSF.updateOK(cidade)}" />
-				
-				
-
-				
-				
 			</p:column>
 
 		</p:dataTable>
 	</h:form>
+	<h:messages showSummary="true" showDetail="" warnClass="" infoClass=""
+			errorClass="" fatalClass="" />
+<!-- 	<h:message for="nome" errorStyle="color:red;"/> -->
 
 
 </h:body>

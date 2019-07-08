@@ -1,6 +1,8 @@
 package com.everis.academia.java.agenda.web.cidade.jsf;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.context.FacesContext;
 
 import com.everis.academia.java.agenda.digital.business.BusinessException;
 import com.everis.academia.java.agenda.digital.business.ICidadeBusiness;
@@ -10,7 +12,7 @@ import Entity.Cidade;
 
 @ManagedBean(name = "createJSF")
 public class CreateJSF {
-//	private String url;
+
 	Cidade cidade = new Cidade();
 
 	ICidadeBusiness<Cidade> cidadebusiness = new CidadeBusiness();
@@ -24,11 +26,19 @@ public class CreateJSF {
 	}
 
 	public String addCity() throws BusinessException {
-		cidadebusiness.create(cidade);
-//		String ok = "/agenda-digital-web/CidadeCreateController2?nome=" + name;
-//		System.out.println(ok);
-//		url = ok;
-		return "read";
+		try {
+			cidadebusiness.create(cidade);
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO,"Cidade adicionada com sucesso","Detalhe...?"));
+//			FacesContext.getCurrentInstance().addMessage("nome", new FacesMessage(FacesMessage.SEVERITY_ERROR,"Cidade adicionada com sucesso no nomeeeeee","Detalhe...?"));
+//			TODO: troquei o null pelo "nome", que é o id do xhtml a qual este erro se refere, na linhas n:14.
+//			FacesContext.getCurrentInstance().addMessage("nome", new FacesMessage(FacesMessage.SEVERITY_INFO,"Cidade adicionada com sucesso","Detalhe...?"));
+			return "read";
+		} catch (Exception e) {
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,"Deu erro",e.getLocalizedMessage()));
+			e.printStackTrace();
+			return "create";
+		}
+		
 	}
 
 	public String limpar() {
