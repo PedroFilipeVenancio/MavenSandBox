@@ -47,36 +47,26 @@ public interface CidadeSOAP {
     /**
      * 
      * @param cidade
-     * @throws BusinessException_Exception
      */
     @WebMethod
     @RequestWrapper(localName = "delete", targetNamespace = "http://soap.cidade.web.agenda.java.academia.everis.com/", className = "com.everis.academia.java.agenda.web.cidade.soap.generated.Delete")
     @ResponseWrapper(localName = "deleteResponse", targetNamespace = "http://soap.cidade.web.agenda.java.academia.everis.com/", className = "com.everis.academia.java.agenda.web.cidade.soap.generated.DeleteResponse")
-    @Action(input = "http://soap.cidade.web.agenda.java.academia.everis.com/CidadeSOAP/deleteRequest", output = "http://soap.cidade.web.agenda.java.academia.everis.com/CidadeSOAP/deleteResponse", fault = {
-        @FaultAction(className = BusinessException_Exception.class, value = "http://soap.cidade.web.agenda.java.academia.everis.com/CidadeSOAP/delete/Fault/BusinessException")
-    })
+    @Action(input = "http://soap.cidade.web.agenda.java.academia.everis.com/CidadeSOAP/deleteRequest", output = "http://soap.cidade.web.agenda.java.academia.everis.com/CidadeSOAP/deleteResponse")
     public void delete(
         @WebParam(name = "cidade", targetNamespace = "")
-        Cidade cidade)
-        throws BusinessException_Exception
-    ;
+        Cidade cidade);
 
     /**
      * 
      * @return
      *     returns java.util.List<com.everis.academia.java.agenda.web.cidade.soap.generated.Cidade>
-     * @throws BusinessException_Exception
      */
     @WebMethod
     @WebResult(name = "cidade", targetNamespace = "")
     @RequestWrapper(localName = "read", targetNamespace = "http://soap.cidade.web.agenda.java.academia.everis.com/", className = "com.everis.academia.java.agenda.web.cidade.soap.generated.Read")
     @ResponseWrapper(localName = "readResponse", targetNamespace = "http://soap.cidade.web.agenda.java.academia.everis.com/", className = "com.everis.academia.java.agenda.web.cidade.soap.generated.ReadResponse")
-    @Action(input = "http://soap.cidade.web.agenda.java.academia.everis.com/CidadeSOAP/readRequest", output = "http://soap.cidade.web.agenda.java.academia.everis.com/CidadeSOAP/readResponse", fault = {
-        @FaultAction(className = BusinessException_Exception.class, value = "http://soap.cidade.web.agenda.java.academia.everis.com/CidadeSOAP/read/Fault/BusinessException")
-    })
-    public List<Cidade> read()
-        throws BusinessException_Exception
-    ;
+    @Action(input = "http://soap.cidade.web.agenda.java.academia.everis.com/CidadeSOAP/readRequest", output = "http://soap.cidade.web.agenda.java.academia.everis.com/CidadeSOAP/readResponse")
+    public List<Cidade> read();
 
     /**
      * 

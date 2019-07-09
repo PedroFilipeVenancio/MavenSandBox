@@ -31,13 +31,13 @@ public class CidadeSOAP {
 
 	@WebMethod(operationName = "delete")
 	@WebResult(name = "cidade")
-	public void delete(@WebParam(name = "cidade", mode = Mode.IN) Cidade cidade) throws BusinessException {
+	public void delete(@WebParam(name = "cidade", mode = Mode.IN) Cidade cidade) {
 		business.delete(cidade);
 	}
 	
 	@WebMethod(operationName = "read")
 	@WebResult(name = "cidade")
-	public Collection<Cidade> read() throws BusinessException {	
+	public Collection<Cidade> read() {	
 		return business.read();
 	}
 	

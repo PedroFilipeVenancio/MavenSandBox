@@ -5,16 +5,14 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
-public interface ICidadeDAO <T> {
-	void delete(T cidade);
+public interface IGeralDAO <T> {
+	void delete(T var);
 
-	void update(T cidade);
+	void update(T var);
 
-	void create(T cidade);
+	void create(T var);
 	
 	Collection<T> read();
-	
-//	List<T> read();
 		
-	Boolean jaExiste(String nome);
+<Optional>	Boolean jaExiste(T var );
 }

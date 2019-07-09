@@ -10,6 +10,13 @@
 	<artifactId>agenda-digital-ws-client</artifactId>
 	<name>agenda-digital-ws-client</name>
 
+	<dependencies>
+		<dependency>
+			<groupId>com.everis.academia.java</groupId>
+			<artifactId>agenda-digital-entity</artifactId>
+		</dependency>
+	</dependencies>
+
 	<build>
 		<plugins>
 			<plugin>

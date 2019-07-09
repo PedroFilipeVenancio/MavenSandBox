@@ -1,4 +1,4 @@
-package com.everis.academia.java.agenda.digital.business.impl;
+package com.everis.academia.java.agenda.digital.business.PrestadorServiços;
 
 import java.util.Collection;
 
@@ -9,7 +9,7 @@ import com.everis.academia.java.agenda.digital.dao.Cidade.CidadeDAO;
 
 import Entity.Cidade;
 
-public class CidadeBusiness implements IGeralBusiness<Cidade> {
+public class PrestadorServiçosBusiness implements IGeralBusiness<Cidade> {
 
 	IGeralDAO<Cidade> dao = new CidadeDAO();
 
@@ -72,3 +72,4 @@ public class CidadeBusiness implements IGeralBusiness<Cidade> {
 	}
 
 }
+

@@ -1,4 +1,4 @@
-package com.everis.academia.java.agenda.digital.dao.impl;
+package com.everis.academia.java.agenda.digital.dao.TipoServiço;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -6,11 +6,11 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import com.everis.academia.java.agenda.digital.dao.ICidadeDAO;
+import com.everis.academia.java.agenda.digital.dao.IGeralDAO;
 
 import Entity.Cidade;
 
-public class CidadeDAO2 implements ICidadeDAO<Cidade> {
+public class TipoServiçoDAO implements IGeralDAO<Cidade> {
 	
 //	public static List<Cidade> cidades = new ArrayList<Cidade>();
 	public static Collection<Cidade> cidades = new HashSet<Cidade>();
@@ -59,3 +59,5 @@ public class CidadeDAO2 implements ICidadeDAO<Cidade> {
 	}
 
 }
+
+

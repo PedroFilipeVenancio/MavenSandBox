@@ -12,9 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.everis.academia.java.agenda.digital.business.ICidadeBusiness;
 import com.everis.academia.java.agenda.digital.business.impl.CidadeBusiness;
-import com.everis.academia.java.agenda.digital.dao.ICidadeDAO;
-import com.everis.academia.java.agenda.digital.dao.impl.CidadeDAO;
-import com.everis.academia.java.agenda.digital.dao.impl.CidadeDAO2;
+import com.everis.academia.java.agenda.digital.dao.IGeralDAO;
+import com.everis.academia.java.agenda.digital.dao.Cidade.CidadeDAO;
 
 import Entity.Cidade;
 
