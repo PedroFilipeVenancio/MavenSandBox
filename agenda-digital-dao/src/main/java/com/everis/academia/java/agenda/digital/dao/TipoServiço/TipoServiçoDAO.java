@@ -8,45 +8,39 @@ import java.util.Set;
 
 import com.everis.academia.java.agenda.digital.dao.IGeralDAO;
 
-import Entity.Cidade;
+import Entity.TipoServico;
 
-public class TipoServiçoDAO implements IGeralDAO<Cidade> {
+public class TipoServiçoDAO implements IGeralDAO<TipoServico> {
 	
-//	public static List<Cidade> cidades = new ArrayList<Cidade>();
-	public static Collection<Cidade> cidades = new HashSet<Cidade>();
+//	public static List<TipoServico> TipoServicos = new ArrayList<TipoServico>();
+	public static Collection<TipoServico> tipoServicosColl = new HashSet<TipoServico>();
 
 	private static int id = 0;
 
 	@Override
-	public void delete(Cidade cidade) {
-		cidades.remove(cidade);
+	public void delete(TipoServico tipoServicoVar) {
+		tipoServicosColl.remove(tipoServicoVar);
 	}
 
 	@Override
-	public void update(Cidade cidade) {
-		
-		
-		int indexOf = cidade.getCodigo();
-		cidades.remove(cidade);
-		cidades.add(cidade);
-//		int indexOf = cidades. indexOf(cidade);
-//		cidades.set(indexOf, cidade);
+	public void update(TipoServico tipoServicoVar) {
+		tipoServicosColl.remove(tipoServicoVar);
+		tipoServicosColl.add(tipoServicoVar);
 	}
 
 	@Override
-	public void create(Cidade cidade) {
+	public void create(TipoServico tipoServicoVar) {
 		id++;
-		cidade.setCodigo(id);
-		cidades.add(cidade);
-		
+		tipoServicoVar.setCodigo(id);
+		tipoServicosColl.add(tipoServicoVar);	
 	}
 
 
 	@Override
-	public Boolean jaExiste(String nome) {
+	public Boolean jaExiste(TipoServico tipoServicoVar) {
 		
-		for (Cidade cidade : cidades) {
-			if (cidade.getNome().trim().equalsIgnoreCase(nome)) {
+		for (TipoServico tipoServico : tipoServicosColl) {
+			if (tipoServico.getCodigo().equals(tipoServicoVar.getCodigo())) {
 				return Boolean.TRUE;
 			}
 		}
@@ -54,8 +48,8 @@ public class TipoServiçoDAO implements IGeralDAO<Cidade> {
 	}
 
 	@Override
-	public Collection<Cidade> read() {
-		return cidades;
+	public Collection<TipoServico> read() {
+		return tipoServicosColl;
 	}
 
 }

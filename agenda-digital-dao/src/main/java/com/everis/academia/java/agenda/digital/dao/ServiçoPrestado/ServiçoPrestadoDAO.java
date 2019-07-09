@@ -2,51 +2,47 @@ package com.everis.academia.java.agenda.digital.dao.ServiçoPrestado;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
-
 import com.everis.academia.java.agenda.digital.dao.IGeralDAO;
+import Entity.ServicoPrestado;
 
-import Entity.Cidade;
-
-public class ServiçoPrestadoDAO implements IGeralDAO<Cidade> {
+public class ServiçoPrestadoDAO implements IGeralDAO<ServicoPrestado> {
 	
-//	public static List<Cidade> cidades = new ArrayList<Cidade>();
-	public static Collection<Cidade> cidades = new HashSet<Cidade>();
+	public static List<ServicoPrestado> servicoPrestadoColl = new ArrayList<ServicoPrestado>();
+//	public static Collection<ServicoPrestado> servicoPrestadoColl = new HashSet<ServicoPrestado>();
 
 	private static int id = 0;
 
 	@Override
-	public void delete(Cidade cidade) {
-		cidades.remove(cidade);
+	public void delete(ServicoPrestado servicoPrestadoVar) {
+		servicoPrestadoColl.remove(servicoPrestadoVar);
 	}
 
 	@Override
-	public void update(Cidade cidade) {
+	public void update(ServicoPrestado servicoPrestadoVar) {
 		
 		
-		int indexOf = cidade.getCodigo();
-		cidades.remove(cidade);
-		cidades.add(cidade);
-//		int indexOf = cidades. indexOf(cidade);
-//		cidades.set(indexOf, cidade);
+		int indexOf = servicoPrestadoVar.getCodigo();
+		servicoPrestadoColl.remove(servicoPrestadoVar);
+		servicoPrestadoColl.add(servicoPrestadoVar);
+//		Integer indexOf = servicoPrestadoVar. indexOf(servicoPrestadoVar);
+//		servicoPrestadoVar.set(indexOf, servicoPrestadoVar);
 	}
 
 	@Override
-	public void create(Cidade cidade) {
+	public void create(ServicoPrestado servicoPrestadoVar) {
 		id++;
-		cidade.setCodigo(id);
-		cidades.add(cidade);
+		servicoPrestadoVar.setCodigo(id);
+		servicoPrestadoColl.add(servicoPrestadoVar);
 		
 	}
 
 
 	@Override
-	public Boolean jaExiste(String nome) {
+	public Boolean jaExiste(ServicoPrestado servicoPrestadoVar) {
 		
-		for (Cidade cidade : cidades) {
-			if (cidade.getNome().trim().equalsIgnoreCase(nome)) {
+		for (ServicoPrestado servicoPrestado : servicoPrestadoColl) {
+			if (servicoPrestado.getCodigo().equals(servicoPrestadoVar.getCodigo())) {
 				return Boolean.TRUE;
 			}
 		}
@@ -54,8 +50,8 @@ public class ServiçoPrestadoDAO implements IGeralDAO<Cidade> {
 	}
 
 	@Override
-	public Collection<Cidade> read() {
-		return cidades;
+	public Collection<ServicoPrestado> read() {
+		return servicoPrestadoColl;
 	}
 
 }

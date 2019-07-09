@@ -12,6 +12,6 @@ public interface IGeralBusiness<T> {
 	
 	Collection<T> read();
 	
-	<Optional>T getById(Integer id);
+	T getById(Integer id);
 }
 

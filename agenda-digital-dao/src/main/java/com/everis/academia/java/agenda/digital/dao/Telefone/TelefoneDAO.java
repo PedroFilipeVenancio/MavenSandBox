@@ -1,52 +1,44 @@
 package com.everis.academia.java.agenda.digital.dao.Telefone;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 
 import com.everis.academia.java.agenda.digital.dao.IGeralDAO;
 
-import Entity.Cidade;
+import Entity.Telefone;
 
-public class TelefoneDAO implements IGeralDAO<Cidade> {
+public class TelefoneDAO implements IGeralDAO<Telefone> {
 	
-//	public static List<Cidade> cidades = new ArrayList<Cidade>();
-	public static Collection<Cidade> cidades = new HashSet<Cidade>();
+//	public static List<Telefone> telefoneColl = new ArrayList<Telefone>();
+	public static Collection<Telefone> telefoneColl = new HashSet<Telefone>();
 
 	private static int id = 0;
 
 	@Override
-	public void delete(Cidade cidade) {
-		cidades.remove(cidade);
+	public void delete(Telefone telefoneVar) {
+		telefoneColl.remove(telefoneVar);
 	}
 
 	@Override
-	public void update(Cidade cidade) {
-		
-		
-		int indexOf = cidade.getCodigo();
-		cidades.remove(cidade);
-		cidades.add(cidade);
-//		int indexOf = cidades. indexOf(cidade);
-//		cidades.set(indexOf, cidade);
+	public void update(Telefone telefoneVar) {
+		telefoneColl.remove(telefoneVar);
+		telefoneColl.add(telefoneVar);
 	}
 
 	@Override
-	public void create(Cidade cidade) {
+	public void create(Telefone telefoneVar) {
 		id++;
-		cidade.setCodigo(id);
-		cidades.add(cidade);
+		telefoneVar.setCodigo(id);
+		telefoneColl.add(telefoneVar);
 		
 	}
 
 
 	@Override
-	public Boolean jaExiste(String nome) {
+	public Boolean jaExiste(Telefone telefoneVar) {
 		
-		for (Cidade cidade : cidades) {
-			if (cidade.getNome().trim().equalsIgnoreCase(nome)) {
+		for (Telefone telefone : telefoneColl) {
+			if (telefone.getCodigo().equals(telefoneVar.getCodigo())) {
 				return Boolean.TRUE;
 			}
 		}
@@ -54,8 +46,8 @@ public class TelefoneDAO implements IGeralDAO<Cidade> {
 	}
 
 	@Override
-	public Collection<Cidade> read() {
-		return cidades;
+	public Collection<Telefone> read() {
+		return telefoneColl;
 	}
 
 }

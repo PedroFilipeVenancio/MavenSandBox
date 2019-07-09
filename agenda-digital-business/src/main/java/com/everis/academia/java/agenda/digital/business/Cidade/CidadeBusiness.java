@@ -1,4 +1,4 @@
-package com.everis.academia.java.agenda.digital.business.impl;
+package com.everis.academia.java.agenda.digital.business.Cidade;
 
 import java.util.Collection;
 
@@ -26,7 +26,7 @@ public class CidadeBusiness implements IGeralBusiness<Cidade> {
 		}
 
 		// verifica se já existe
-		if (dao.jaExiste(cidade.getNome())) {
+		if (dao.jaExiste(cidade)) {
 			throw new BusinessException("já existe");
 		}
 		
@@ -42,7 +42,7 @@ public class CidadeBusiness implements IGeralBusiness<Cidade> {
 		}
 
 		// verifica se já existe
-		if (dao.jaExiste(cidade.getNome())) {
+		if (dao.jaExiste(cidade)) {
 			throw new BusinessException("já existe");
 		}
 

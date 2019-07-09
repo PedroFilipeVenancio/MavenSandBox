@@ -1,4 +1,4 @@
-<%@page import="com.everis.academia.java.agenda.digital.business.impl.CidadeBusiness"%>
+<%@page import="com.everis.academia.java.agenda.digital.business.Cidade.CidadeBusiness"%>
 <%@page import="com.everis.academia.java.agenda.digital.business.ICidadeBusiness"%>
 <%@page import="Entity.Cidade"%>
 <%@page import="com.everis.academia.java.agenda.digital.dao.*"%>
@@ -16,7 +16,7 @@
 			<th>Nome</th>
 			<th colspan="2">Ação</th>
 		</tr>
-		<%!private ICidadeBusiness<Cidade> business = new CidadeBusiness();%>
+		<%!private ICidadeBusiness<Cidade> business = new com.everis.academia.java.agenda.digital.business.Cidade.CidadeBusiness();%>
 		<%
 			for (Cidade cidade : business.read()) {
 		%>

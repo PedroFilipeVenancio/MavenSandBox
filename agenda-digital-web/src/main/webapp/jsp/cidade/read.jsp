@@ -4,7 +4,7 @@
 <%-- <%@page import="com.everis.academia.java.agenda.digital.business.impl.CidadeBusiness"%> --%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<jsp:useBean id="cidadeBusiness" class="com.everis.academia.java.agenda.digital.business.impl.CidadeBusiness"/>
+<jsp:useBean id="cidadeBusiness" class="com.everis.academia.java.agenda.digital.business.Cidade.CidadeBusiness"/>
 
 <!DOCTYPE html>
 

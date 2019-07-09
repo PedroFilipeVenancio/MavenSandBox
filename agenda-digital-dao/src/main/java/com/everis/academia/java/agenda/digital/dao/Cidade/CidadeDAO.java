@@ -43,10 +43,11 @@ public class CidadeDAO implements IGeralDAO<Cidade> {
 
 
 	@Override
-	public Boolean jaExiste(String nome) {
+//	public Boolean jaExiste(String nome) {
+	public Boolean jaExiste(Cidade nome) {
 		
 		for (Cidade cidade : cidades) {
-			if (cidade.getNome().trim().equalsIgnoreCase(nome)) {
+			if (cidade.getNome().trim().equalsIgnoreCase(nome.getNome())) {
 				return Boolean.TRUE;
 			}
 		}
@@ -56,12 +57,6 @@ public class CidadeDAO implements IGeralDAO<Cidade> {
 	@Override
 	public Collection<Cidade> read() {
 		return cidades;
-	}
-
-	@Override
-	public <Optional> Boolean jaExiste(Cidade var) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 }

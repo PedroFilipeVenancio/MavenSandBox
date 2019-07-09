@@ -6,7 +6,7 @@ import javax.faces.context.FacesContext;
 
 import com.everis.academia.java.agenda.digital.business.BusinessException;
 import com.everis.academia.java.agenda.digital.business.ICidadeBusiness;
-import com.everis.academia.java.agenda.digital.business.impl.CidadeBusiness;
+import com.everis.academia.java.agenda.digital.business.Cidade.CidadeBusiness;
 
 import Entity.Cidade;
 

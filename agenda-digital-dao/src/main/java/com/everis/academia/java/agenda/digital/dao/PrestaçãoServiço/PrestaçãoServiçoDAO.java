@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import com.everis.academia.java.agenda.digital.dao.IGeralDAO;
 
@@ -12,41 +11,41 @@ import Entity.PrestacaoServico;
 
 public class PrestaçãoServiçoDAO implements IGeralDAO<PrestacaoServico> {
 	
-//	public static List<PrestacaoServico> PrestacaoServicos = new ArrayList<PrestacaoServico>();
-	public static Collection<PrestacaoServico> PrestacaoServicos = new HashSet<PrestacaoServico>();
+	public static List<PrestacaoServico> prestacaoServicosColl = new ArrayList<PrestacaoServico>();
+//	public static Collection<PrestacaoServico> prestacaoServicosColl = new HashSet<PrestacaoServico>();
 
 	private static int id = 0;
 
 	@Override
-	public void delete(PrestacaoServico PrestacaoServico) {
-		PrestacaoServicos.remove(PrestacaoServico);
+	public void delete(PrestacaoServico prestacaoServicoVar) {
+		prestacaoServicosColl.remove(prestacaoServicoVar);
 	}
 
 	@Override
-	public void update(PrestacaoServico PrestacaoServico) {
+	public void update(PrestacaoServico prestacaoServicoVar) {
 		
 		
-		int indexOf = PrestacaoServico.getCodigo();
-		PrestacaoServicos.remove(PrestacaoServico);
-		PrestacaoServicos.add(PrestacaoServico);
+		int indexOf = prestacaoServicoVar.getCodigo();
+		prestacaoServicosColl.remove(prestacaoServicoVar);
+		prestacaoServicosColl.add(prestacaoServicoVar);
 //		int indexOf = PrestacaoServicos. indexOf(PrestacaoServico);
 //		PrestacaoServicos.set(indexOf, PrestacaoServico);
 	}
 
 	@Override
-	public void create(PrestacaoServico PrestacaoServico) {
+	public void create(PrestacaoServico prestacaoServicoVar) {
 		id++;
-		PrestacaoServico.setCodigo(id);
-		PrestacaoServicos.add(PrestacaoServico);
+		prestacaoServicoVar.setCodigo(id);
+		prestacaoServicosColl.add(prestacaoServicoVar);
 		
 	}
 
 
 	@Override
-	public Boolean jaExiste(PrestacaoServico prestacaoServico) {
+	public Boolean jaExiste(PrestacaoServico prestacaoServicoVar) {
 		
-		for (PrestacaoServico PrestacaoServico : PrestacaoServicos) {
-			if (PrestacaoServico.getCodigo().equals(prestacaoServico.getCodigo())) {
+		for (PrestacaoServico prestacaoServico : prestacaoServicosColl) {
+			if (prestacaoServico.getCodigo().equals(prestacaoServicoVar.getCodigo())) {
 				return Boolean.TRUE;
 			}
 		}
@@ -55,7 +54,7 @@ public class PrestaçãoServiçoDAO implements IGeralDAO<PrestacaoServico> {
 
 	@Override
 	public Collection<PrestacaoServico> read() {
-		return PrestacaoServicos;
+		return prestacaoServicosColl;
 	}
 
 }

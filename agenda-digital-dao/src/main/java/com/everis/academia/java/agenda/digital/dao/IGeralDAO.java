@@ -14,5 +14,5 @@ public interface IGeralDAO <T> {
 	
 	Collection<T> read();
 		
-<Optional>	Boolean jaExiste(T var );
+	Boolean jaExiste(T var );
 }

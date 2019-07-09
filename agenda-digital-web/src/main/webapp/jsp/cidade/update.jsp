@@ -1,6 +1,6 @@
 <%@page import="Entity.Cidade"%>
 <%@page
-	import="com.everis.academia.java.agenda.digital.business.impl.CidadeBusiness"%>
+	import="com.everis.academia.java.agenda.digital.business.Cidade.CidadeBusiness"%>
 <%@page
 	import="com.everis.academia.java.agenda.digital.business.ICidadeBusiness"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -13,7 +13,7 @@
 			<tr>
 				<td colspan="2">Actualizar</td>
 			</tr>
-			<%!private ICidadeBusiness<Cidade> cidadebusiness = new CidadeBusiness();%>
+			<%!private ICidadeBusiness<Cidade> cidadebusiness = new com.everis.academia.java.agenda.digital.business.Cidade.CidadeBusiness();%>
 			<%
 				Integer codigo = Integer.valueOf(request.getParameter("codigo"));
 
