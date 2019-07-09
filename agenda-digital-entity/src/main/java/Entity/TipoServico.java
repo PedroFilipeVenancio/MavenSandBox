@@ -18,6 +18,13 @@ public class TipoServico {
 	public TipoServico() {
 		super();
 	}
+	
+	public TipoServico(Integer codigo) {
+	super();
+	this.codigo = codigo;
+}
+
+
 
 	public TipoServico(Integer codigo, String descricao) {
 		super();

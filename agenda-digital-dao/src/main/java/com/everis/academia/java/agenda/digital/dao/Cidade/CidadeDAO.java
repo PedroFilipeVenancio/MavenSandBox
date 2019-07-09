@@ -24,9 +24,6 @@ public class CidadeDAO implements IGeralDAO<Cidade> {
 
 	@Override
 	public void update(Cidade cidade) {
-		
-		
-		int indexOf = cidade.getCodigo();
 		cidades.remove(cidade);
 		cidades.add(cidade);
 //		int indexOf = cidades. indexOf(cidade);

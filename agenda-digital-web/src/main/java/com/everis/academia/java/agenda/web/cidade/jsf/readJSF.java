@@ -1,16 +1,13 @@
 package com.everis.academia.java.agenda.web.cidade.jsf;
 
 import java.util.Collection;
-import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 
-import com.everis.academia.java.agenda.digital.business.BusinessException;
-import com.everis.academia.java.agenda.digital.business.ICidadeBusiness;
+import com.everis.academia.java.agenda.digital.business.IGeralBusiness;
 import com.everis.academia.java.agenda.digital.business.Cidade.CidadeBusiness;
 
 import Entity.Cidade;
@@ -19,7 +16,7 @@ import Entity.Cidade;
 //@ViewScoped
 public class readJSF {
 
-	ICidadeBusiness<Cidade> cidadebusiness = new CidadeBusiness();
+	IGeralBusiness<Cidade> cidadebusiness = new CidadeBusiness();
 
 	private Collection<Cidade> cidades = null;
 

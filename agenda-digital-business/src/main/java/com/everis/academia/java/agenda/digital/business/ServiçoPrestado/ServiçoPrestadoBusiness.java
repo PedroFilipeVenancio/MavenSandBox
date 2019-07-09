@@ -5,70 +5,65 @@ import java.util.Collection;
 import com.everis.academia.java.agenda.digital.business.BusinessException;
 import com.everis.academia.java.agenda.digital.business.IGeralBusiness;
 import com.everis.academia.java.agenda.digital.dao.IGeralDAO;
-import com.everis.academia.java.agenda.digital.dao.Cidade.CidadeDAO;
+import com.everis.academia.java.agenda.digital.dao.ServiçoPrestado.ServiçoPrestadoDAO;
 
-import Entity.Cidade;
+import Entity.ServicoPrestado;
 
-public class ServiçoPrestadoBusiness implements IGeralBusiness<Cidade> {
+public class ServiçoPrestadoBusiness implements IGeralBusiness<ServicoPrestado> {
 
-	IGeralDAO<Cidade> dao = new CidadeDAO();
+	IGeralDAO<ServicoPrestado> dao = new ServiçoPrestadoDAO();
 
 	@Override
-	public void delete(Cidade cidade) {
-		dao.delete(cidade);
+	public void delete(ServicoPrestado servicoPrestadoVar) {
+		dao.delete(servicoPrestadoVar);
 	}
 
 	@Override
-	public void update(Cidade cidade) throws BusinessException {
+	public void update(ServicoPrestado servicoPrestadoVar) throws BusinessException {
 		// valida parametros
-		if (cidade.getNome() == null || cidade.getNome().trim().isEmpty()) {
+		if (servicoPrestadoVar.getCodigo() == null) {
 			throw new BusinessException("É obrigatorio");
 		}
 
 		// verifica se já existe
-		if (dao.jaExiste(cidade.getNome())) {
+		if (dao.jaExiste(servicoPrestadoVar)) {
 			throw new BusinessException("já existe");
 		}
 		
-		dao.update(cidade);
+		dao.update(servicoPrestadoVar);
 	}
 
 	@Override
-	public void create(Cidade cidade) throws BusinessException {
+	public void create(ServicoPrestado servicoPrestadoVar) throws BusinessException {
 
 		// valida parametros
-		if (cidade.getNome() == null || cidade.getNome().trim().isEmpty()) {
+		if (servicoPrestadoVar.getCodigo() == null) {
 			throw new BusinessException("É obrigatorio");
 		}
 
 		// verifica se já existe
-		if (dao.jaExiste(cidade.getNome())) {
+		if (dao.jaExiste(servicoPrestadoVar)) {
 			throw new BusinessException("já existe");
 		}
 
-		if (!cidade.getNome().matches("[a-zA-Z]+")) {
-			throw new BusinessException("Formato errado");
-
-		}
-
-		dao.create(cidade);
+		dao.create(servicoPrestadoVar);
 	}
 
 	@Override
-	public Collection<Cidade> read() {
+	public Collection<ServicoPrestado> read() {
 		// TODO Auto-generated method stub
 		return dao.read();
 	}
 
 	@Override
-	public Cidade getById(Integer codigo) {
-		Cidade cidadeFound = null;
-		for (Cidade cidade : dao.read()) {
-			if (cidade.equals(new Cidade(codigo))) {
-				cidadeFound = cidade;
+	public ServicoPrestado getById(Integer codigo) {
+		ServicoPrestado ServicoPrestadoFound = null;
+		for (ServicoPrestado ServicoPrestado : dao.read()) {
+			if (ServicoPrestado.equals(new ServicoPrestado(codigo))) {
+				ServicoPrestadoFound = ServicoPrestado;
 			}
 		}
-		return cidadeFound;
+		return ServicoPrestadoFound;
 	}
 
 }

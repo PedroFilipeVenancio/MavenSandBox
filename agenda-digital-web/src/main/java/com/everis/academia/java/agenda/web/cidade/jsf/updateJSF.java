@@ -5,7 +5,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 
 import com.everis.academia.java.agenda.digital.business.BusinessException;
-import com.everis.academia.java.agenda.digital.business.ICidadeBusiness;
+import com.everis.academia.java.agenda.digital.business.IGeralBusiness;
 import com.everis.academia.java.agenda.digital.business.Cidade.CidadeBusiness;
 
 import Entity.Cidade;
@@ -14,7 +14,7 @@ import Entity.Cidade;
 public class updateJSF {
 	Cidade cidade = new Cidade();
 
-	ICidadeBusiness<Cidade> cidadebusiness = new CidadeBusiness();
+	IGeralBusiness<Cidade> cidadebusiness = new CidadeBusiness();
 
 	public Cidade getCidade() {
 		return cidade;

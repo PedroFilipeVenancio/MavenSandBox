@@ -1,4 +1,4 @@
-<%@page import="com.everis.academia.java.agenda.digital.business.ICidadeBusiness"%>
+<%@page import="com.everis.academia.java.agenda.digital.business.IGeralBusiness"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1" isELIgnored="false"%>
 <%-- <%@page import="com.everis.academia.java.agenda.digital.business.impl.CidadeBusiness"%> --%>

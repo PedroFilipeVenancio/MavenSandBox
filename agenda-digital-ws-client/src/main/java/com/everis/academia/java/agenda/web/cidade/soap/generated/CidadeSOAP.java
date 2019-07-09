@@ -30,15 +30,18 @@ public interface CidadeSOAP {
     /**
      * 
      * @param cidade
+     * @return
+     *     returns java.lang.String
      * @throws BusinessException_Exception
      */
     @WebMethod
+    @WebResult(name = "cidade", targetNamespace = "")
     @RequestWrapper(localName = "update", targetNamespace = "http://soap.cidade.web.agenda.java.academia.everis.com/", className = "com.everis.academia.java.agenda.web.cidade.soap.generated.Update")
     @ResponseWrapper(localName = "updateResponse", targetNamespace = "http://soap.cidade.web.agenda.java.academia.everis.com/", className = "com.everis.academia.java.agenda.web.cidade.soap.generated.UpdateResponse")
     @Action(input = "http://soap.cidade.web.agenda.java.academia.everis.com/CidadeSOAP/updateRequest", output = "http://soap.cidade.web.agenda.java.academia.everis.com/CidadeSOAP/updateResponse", fault = {
         @FaultAction(className = BusinessException_Exception.class, value = "http://soap.cidade.web.agenda.java.academia.everis.com/CidadeSOAP/update/Fault/BusinessException")
     })
-    public void update(
+    public String update(
         @WebParam(name = "cidade", targetNamespace = "")
         Cidade cidade)
         throws BusinessException_Exception

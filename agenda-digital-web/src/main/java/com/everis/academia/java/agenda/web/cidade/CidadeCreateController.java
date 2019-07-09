@@ -1,10 +1,7 @@
 package com.everis.academia.java.agenda.web.cidade;
 
 import java.io.IOException;
-
 import java.io.PrintWriter;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,11 +10,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.everis.academia.java.agenda.digital.business.BusinessException;
-import com.everis.academia.java.agenda.digital.business.ICidadeBusiness;
+import com.everis.academia.java.agenda.digital.business.IGeralBusiness;
 import com.everis.academia.java.agenda.digital.business.Cidade.CidadeBusiness;
 import com.everis.academia.java.agenda.digital.dao.IGeralDAO;
 import com.everis.academia.java.agenda.digital.dao.Cidade.CidadeDAO;
-import com.everis.academia.java.agenda.web.cidade2.exceptions.CidadeException;
 
 import Entity.Cidade;
 
@@ -26,7 +22,7 @@ public class CidadeCreateController extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 
-	private ICidadeBusiness<Cidade> business = new CidadeBusiness();
+	private IGeralBusiness<Cidade> business = new CidadeBusiness();
 	private IGeralDAO<Cidade> dao = new CidadeDAO();
 
 	@Override

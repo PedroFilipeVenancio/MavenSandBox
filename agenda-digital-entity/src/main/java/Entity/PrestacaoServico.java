@@ -6,27 +6,34 @@ import java.util.Set;
 //@Entity
 //@Table(name="prestacaoServico")
 public class PrestacaoServico {
-	
+
 //	@Id
 //	@Column(name="id")
 	private Integer codigo;
-		
+
 //	@Column(name="data")
 	private Date data;
-	
+
 //	@Column(name="prestador")
 	private PrestadorServico prestador;
 
 	private Set<ServicoPrestado> servicoPrestados;
+
+	public PrestacaoServico(Integer codigo, Date data, PrestadorServico prestador) {
+		super();
+		this.codigo = codigo;
+		this.data = data;
+		this.prestador = prestador;
+	}
 	
 	
 
-	public PrestacaoServico(Integer codigo, Date data, PrestadorServico prestador) {
-	super();
-	this.codigo = codigo;
-	this.data = data;
-	this.prestador = prestador;
-}
+	public PrestacaoServico(Integer codigo) {
+		super();
+		this.codigo = codigo;
+	}
+
+
 
 	public Integer getCodigo() {
 		return codigo;
@@ -60,9 +67,4 @@ public class PrestacaoServico {
 		this.servicoPrestados = servicoPrestados;
 	}
 
-
-	
-	
-	
-	
 }

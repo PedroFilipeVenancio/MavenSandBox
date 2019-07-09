@@ -5,70 +5,65 @@ import java.util.Collection;
 import com.everis.academia.java.agenda.digital.business.BusinessException;
 import com.everis.academia.java.agenda.digital.business.IGeralBusiness;
 import com.everis.academia.java.agenda.digital.dao.IGeralDAO;
-import com.everis.academia.java.agenda.digital.dao.Cidade.CidadeDAO;
+import com.everis.academia.java.agenda.digital.dao.TipoServiço.TipoServiçoDAO;
 
-import Entity.Cidade;
+import Entity.TipoServico;
 
-public class TipoServiçoBusiness implements IGeralBusiness<Cidade> {
+public class TipoServiçoBusiness implements IGeralBusiness<TipoServico> {
 
-	IGeralDAO<Cidade> dao = new CidadeDAO();
+	IGeralDAO<TipoServico> dao = new TipoServiçoDAO();
 
 	@Override
-	public void delete(Cidade cidade) {
-		dao.delete(cidade);
+	public void delete(TipoServico tipoServicoVar) {
+		dao.delete(tipoServicoVar);
 	}
 
 	@Override
-	public void update(Cidade cidade) throws BusinessException {
+	public void update(TipoServico tipoServicoVar) throws BusinessException {
 		// valida parametros
-		if (cidade.getNome() == null || cidade.getNome().trim().isEmpty()) {
+		if (tipoServicoVar.getCodigo() == null) {
 			throw new BusinessException("É obrigatorio");
 		}
 
 		// verifica se já existe
-		if (dao.jaExiste(cidade.getNome())) {
+		if (dao.jaExiste(tipoServicoVar)) {
 			throw new BusinessException("já existe");
 		}
 		
-		dao.update(cidade);
+		dao.update(tipoServicoVar);
 	}
 
 	@Override
-	public void create(Cidade cidade) throws BusinessException {
+	public void create(TipoServico tipoServicoVar) throws BusinessException {
 
 		// valida parametros
-		if (cidade.getNome() == null || cidade.getNome().trim().isEmpty()) {
+		if (tipoServicoVar.getCodigo() == null ) {
 			throw new BusinessException("É obrigatorio");
 		}
 
 		// verifica se já existe
-		if (dao.jaExiste(cidade.getNome())) {
+		if (dao.jaExiste(tipoServicoVar)) {
 			throw new BusinessException("já existe");
 		}
 
-		if (!cidade.getNome().matches("[a-zA-Z]+")) {
-			throw new BusinessException("Formato errado");
-
-		}
-
-		dao.create(cidade);
+		dao.create(tipoServicoVar);
 	}
 
 	@Override
-	public Collection<Cidade> read() {
+	public Collection<TipoServico> read() {
 		// TODO Auto-generated method stub
 		return dao.read();
 	}
 
 	@Override
-	public Cidade getById(Integer codigo) {
-		Cidade cidadeFound = null;
-		for (Cidade cidade : dao.read()) {
-			if (cidade.equals(new Cidade(codigo))) {
-				cidadeFound = cidade;
+	public TipoServico getById(Integer codigo) {
+		TipoServico TipoServicoFound = null;
+		for (TipoServico TipoServico : dao.read()) {
+			if (TipoServico.equals(new TipoServico(codigo))) {
+				TipoServicoFound = TipoServico;
 			}
 		}
-		return cidadeFound;
+		return TipoServicoFound;
 	}
 
 }

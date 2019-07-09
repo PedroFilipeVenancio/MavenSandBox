@@ -70,18 +70,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.everis.academia.java.agenda.digital.business.BusinessException;
-import com.everis.academia.java.agenda.digital.business.ICidadeBusiness;
+import com.everis.academia.java.agenda.digital.business.IGeralBusiness;
 import com.everis.academia.java.agenda.digital.business.Cidade.CidadeBusiness;
 import com.everis.academia.java.agenda.digital.dao.IGeralDAO;
 import com.everis.academia.java.agenda.digital.dao.Cidade.CidadeDAO;
-import com.everis.academia.java.agenda.digital.web.servlet.Cidade.ValidationException;
 
 import Entity.Cidade;
 
 @WebServlet(name = "CidadeUpdateController2", urlPatterns = "/CidadeUpdateController2")
 public class CidadeUpdateController extends HttpServlet {
 
-	private ICidadeBusiness<Cidade> business = new CidadeBusiness();
+	private IGeralBusiness<Cidade> business = new CidadeBusiness();
 	private IGeralDAO<Cidade> dao = new CidadeDAO();
 
 	@Override

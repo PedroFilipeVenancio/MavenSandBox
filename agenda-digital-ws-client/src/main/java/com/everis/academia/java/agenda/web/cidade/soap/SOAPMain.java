@@ -23,20 +23,28 @@ public class SOAPMain {
 		CidadeSOAP port = service.getCidadeSOAPPort();
 		
 		Cidade cidadeTeste = new Cidade();
-
+		cidadeTeste.setNome("Lisboneraaa");
+		port.create(new Holder<Cidade> (cidadeTeste));	
 		for (Cidade cidade : port.read()) {
 
 			System.out.println(cidade.getNome());
+			System.out.println(cidade.getCodigo());
 		}
-		cidadeTeste.setNome("Lisbon");
-		port.create(new Holder<Cidade> (cidadeTeste));	
-		cidadeTeste.setNome("Lisbon2");
+		System.out.println("acabou a primeira iteração");
+		
+		cidadeTeste.setNome("Lisbon666");
 		cidadeTeste.setCodigo(1);
 		
 		port.update(cidadeTeste);
 		
+		for (Cidade cidade : port.read()) {
+
+			System.out.println(cidade.getNome());
+		}
 		
+		System.out.println("Acabou de fazer update");
 		
+		port.delete(cidadeTeste);	
 		
 	}
 }

@@ -6,70 +6,65 @@ import java.util.Collection;
 import com.everis.academia.java.agenda.digital.business.BusinessException;
 import com.everis.academia.java.agenda.digital.business.IGeralBusiness;
 import com.everis.academia.java.agenda.digital.dao.IGeralDAO;
-import com.everis.academia.java.agenda.digital.dao.Cidade.CidadeDAO;
+import com.everis.academia.java.agenda.digital.dao.Telefone.TelefoneDAO;
 
-import Entity.Cidade;
+import Entity.Telefone;
 
-public class TelefoneBusiness implements IGeralBusiness<Cidade> {
+public class TelefoneBusiness implements IGeralBusiness<Telefone> {
 
-	IGeralDAO<Cidade> dao = new CidadeDAO();
+	IGeralDAO<Telefone> dao = new TelefoneDAO();
 
 	@Override
-	public void delete(Cidade cidade) {
-		dao.delete(cidade);
+	public void delete(Telefone TelefoneVar) {
+		dao.delete(TelefoneVar);
 	}
 
 	@Override
-	public void update(Cidade cidade) throws BusinessException {
+	public void update(Telefone TelefoneVar) throws BusinessException {
 		// valida parametros
-		if (cidade.getNome() == null || cidade.getNome().trim().isEmpty()) {
+		if (TelefoneVar.getCodigo() == null) {
 			throw new BusinessException("É obrigatorio");
 		}
 
 		// verifica se já existe
-		if (dao.jaExiste(cidade.getNome())) {
+		if (dao.jaExiste(TelefoneVar)) {
 			throw new BusinessException("já existe");
 		}
 		
-		dao.update(cidade);
+		dao.update(TelefoneVar);
 	}
 
 	@Override
-	public void create(Cidade cidade) throws BusinessException {
+	public void create(Telefone TelefoneVar) throws BusinessException {
 
 		// valida parametros
-		if (cidade.getNome() == null || cidade.getNome().trim().isEmpty()) {
+		if (TelefoneVar.getCodigo() == null) {
 			throw new BusinessException("É obrigatorio");
 		}
 
 		// verifica se já existe
-		if (dao.jaExiste(cidade.getNome())) {
+		if (dao.jaExiste(TelefoneVar)) {
 			throw new BusinessException("já existe");
 		}
 
-		if (!cidade.getNome().matches("[a-zA-Z]+")) {
-			throw new BusinessException("Formato errado");
-
-		}
-
-		dao.create(cidade);
+		dao.create(TelefoneVar);
 	}
 
 	@Override
-	public Collection<Cidade> read() {
+	public Collection<Telefone> read() {
 		// TODO Auto-generated method stub
 		return dao.read();
 	}
 
 	@Override
-	public Cidade getById(Integer codigo) {
-		Cidade cidadeFound = null;
-		for (Cidade cidade : dao.read()) {
-			if (cidade.equals(new Cidade(codigo))) {
-				cidadeFound = cidade;
+	public Telefone getById(Integer codigo) {
+		Telefone TelefoneFound = null;
+		for (Telefone telefone : dao.read()) {
+			if (telefone.equals(new Telefone(codigo))) {
+				TelefoneFound = telefone;
 			}
 		}
-		return cidadeFound;
+		return TelefoneFound;
 	}
 
 }
