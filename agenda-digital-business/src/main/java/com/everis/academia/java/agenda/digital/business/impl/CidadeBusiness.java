@@ -22,7 +22,6 @@ public class CidadeBusiness implements ICidadeBusiness<Cidade> {
 
 	@Override
 	public void update(Cidade cidade) throws BusinessException {
-		System.out.println(cidade.getCodigo() + "estou no update business");
 		// valida parametros
 		if (cidade.getNome() == null || cidade.getNome().trim().isEmpty()) {
 			throw new BusinessException("É obrigatorio");
