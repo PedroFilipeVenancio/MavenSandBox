@@ -1,27 +1,22 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:p="http://primefaces.org/ui">
-
-<h:head>
-	<title>Academia Java 2019</title>
-</h:head>
-<h:body>
-	<h:form>
-		<h:messages showSummary="true" showDetail="true" warnClass="" infoClass=""
-			errorClass="" fatalClass="" />
-		<h:outputLabel for="nome" value="Digite o nome da cidade:" />
-		<h:inputText id="nome" value="#{createJSF.cidade.nome}" />
-		<h:commandButton value="gravar" action="#{createJSF.addCity}" />
-		<h:commandButton value="limpar" action="#{createJSF.limpar}" />
-		<!-- 		<h:commandButton action="another.xhtml" value="Go to another page" /> -->
-		<!-- 		<h:button outcome="another.xhtml" value="Go to another page" /> -->
-
-
-	</h:form>
-
-</h:body>
-
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+ 
+    <h:head>
+        <title>Agenda digital</title>
+    </h:head>
+    <h:body>
+	    <h:form prependID="false">
+   			<p:panel header="Criar cidade">
+				<p:outputLabel for="nome" value="Nome: " />
+				<p:inputText id="nome" value="#{createJSF.cidade.nome}" />
+				<p:commandButton value="Enviar" action="#{createJSF.addCity}" update="@form" />
+				<p:commandButton value="Limpar" action="#{createJSF.limpar}" update="@form"/>
+				<p:commandButton value="Voltar" action="read?faces-redirect=true" />
+			</p:panel>
+			<p:messages showSummary="true" showDetail="true" />
+		</h:form>
+    </h:body>
 </html>
 
 
