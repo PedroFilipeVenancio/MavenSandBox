@@ -6,11 +6,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import org.springframework.stereotype.Repository;
+
 import com.everis.academia.java.agenda.digital.dao.IGeralDAO;
 
 import Entity.Cidade;
 
-public class CidadeDAO implements IGeralDAO<Cidade> {
+@Repository
+public class CidadeDAO implements ICidadeDAO {
 	
 //	public static List<Cidade> cidades = new ArrayList<Cidade>();
 	public static Collection<Cidade> cidades = new HashSet<Cidade>();

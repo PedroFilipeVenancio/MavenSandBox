@@ -4,17 +4,26 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.web.context.annotation.RequestScope;
+
 import com.everis.academia.java.agenda.digital.business.BusinessException;
 import com.everis.academia.java.agenda.digital.business.IGeralBusiness;
 import com.everis.academia.java.agenda.digital.business.Cidade.CidadeBusiness;
+import com.everis.academia.java.agenda.digital.business.Cidade.ICidadeBusiness;
 
 import Entity.Cidade;
 
 @ManagedBean(name = "updateJSF")
+@Component
+@RequestScope
 public class updateJSF {
 	Cidade cidade = new Cidade();
 
-	IGeralBusiness<Cidade> cidadebusiness = new CidadeBusiness();
+//	IGeralBusiness<Cidade> cidadebusiness = new CidadeBusiness();
+	@Autowired
+	private ICidadeBusiness cidadebusiness;
 
 	public Cidade getCidade() {
 		return cidade;
@@ -30,6 +39,8 @@ public class updateJSF {
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO,"Cidade actulizada com sucesso",""));
 			return "read";
 		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("algum erro");
 //			FacesContext.getCurrentInstance().addMessage("nome", new FacesMessage(FacesMessage.SEVERITY_INFO,"Cidade não actulizada com sucesso por causa do nome",""));
 //			FacesContext.getCurrentInstance().addMessage("codigo", new FacesMessage(FacesMessage.SEVERITY_INFO,"Cidade não actulizada com sucesso por causa do codigo",""));
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO,"Cidade não actulizada com sucesso ",""));

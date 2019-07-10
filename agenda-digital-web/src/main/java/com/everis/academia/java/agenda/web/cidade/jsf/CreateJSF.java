@@ -4,18 +4,27 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.web.context.annotation.RequestScope;
+
 import com.everis.academia.java.agenda.digital.business.BusinessException;
 import com.everis.academia.java.agenda.digital.business.IGeralBusiness;
 import com.everis.academia.java.agenda.digital.business.Cidade.CidadeBusiness;
+import com.everis.academia.java.agenda.digital.business.Cidade.ICidadeBusiness;
 
 import Entity.Cidade;
-
+@Component
 @ManagedBean(name = "createJSF")
+@RequestScope
 public class CreateJSF {
 
 	Cidade cidade = new Cidade();
+	
+	@Autowired
+	private ICidadeBusiness cidadebusiness;
 
-	IGeralBusiness<Cidade> cidadebusiness = new CidadeBusiness();
+//	IGeralBusiness<Cidade> cidadebusiness = new CidadeBusiness();
 
 	public Cidade getCidade() {
 		return cidade;

@@ -3,6 +3,7 @@ package com.everis.academia.java.agenda.web.cidade.soap;
 import com.everis.academia.java.agenda.digital.business.BusinessException;
 import com.everis.academia.java.agenda.digital.business.IGeralBusiness;
 import com.everis.academia.java.agenda.digital.business.Cidade.CidadeBusiness;
+import com.everis.academia.java.agenda.digital.business.Cidade.ICidadeBusiness;
 
 import Entity.Cidade;
 
@@ -17,7 +18,7 @@ import javax.jws.WebService;
 @WebService()
 public class CidadeSOAP {
 
-	private IGeralBusiness<Cidade> business = new CidadeBusiness();
+	private ICidadeBusiness business = new CidadeBusiness();
 
 	// não tem de ser igual ao nome do metodo
 	@WebMethod(operationName = "create")

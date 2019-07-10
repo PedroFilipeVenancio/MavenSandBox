@@ -2,17 +2,24 @@ package com.everis.academia.java.agenda.digital.business.Cidade;
 
 import java.util.Collection;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.everis.academia.java.agenda.digital.business.BusinessException;
 import com.everis.academia.java.agenda.digital.business.IGeralBusiness;
 import com.everis.academia.java.agenda.digital.dao.IGeralDAO;
 import com.everis.academia.java.agenda.digital.dao.Cidade.CidadeDAO;
+import com.everis.academia.java.agenda.digital.dao.Cidade.ICidadeDAO;
 
 import Entity.Cidade;
+@Service
+public class CidadeBusiness implements ICidadeBusiness {
 
-public class CidadeBusiness implements IGeralBusiness<Cidade> {
-
-	IGeralDAO<Cidade> dao = new CidadeDAO();
-
+//	IGeralDAO<Cidade> dao = new CidadeDAO();
+	
+	@Autowired
+	private ICidadeDAO dao;
+	
 	@Override
 	public void delete(Cidade cidade) {
 		dao.delete(cidade);
@@ -24,10 +31,8 @@ public class CidadeBusiness implements IGeralBusiness<Cidade> {
 		if (cidade.getNome() == null || cidade.getNome().trim().isEmpty()) {
 			throw new BusinessException("É obrigatorio");
 		}
-
 		// verifica se já existe
 		if (dao.jaExiste(cidade)) {
-			throw new BusinessException("já existe");
 		}
 		
 		dao.update(cidade);
