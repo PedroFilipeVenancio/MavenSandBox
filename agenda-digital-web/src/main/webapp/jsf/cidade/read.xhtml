@@ -28,20 +28,15 @@
 						<f:facet name="header">
 							<p:outputLabel value="Acções" />
 						</f:facet>
-						<h:commandLink action="#{updateJSF.updateOK(cidade)}" value="Editar" style="margin-right: 5px" />
-	
-						<h:commandLink action="#{readJSF.delete(cidade)}" value="Excluir">
-							<f:setPropertyActionListener target="#{cidadeDelete.cidade}" value="#{cidade}" />
-						</h:commandLink>
-						
-						<!-- 			<p:column headerText="Accões"> -->
-<!-- 				<h:commandButton value="delete" action="#{readJSF.delete(cidade)}" /> -->
-<!-- 				<h:commandButton value="updade" action="#{updateJSF.updateOK(cidade)}" /> -->
-<!-- 			</p:column> -->
-						
-						
-						
+
+					<p:column headerText="Accões">
+						<h:commandButton value="delete" action="#{readJSF.delete(cidade)}" />
+						<h:commandButton value="updade"	action="#{updateJSF.updateOK(cidade)}" />
 					</p:column>
+
+
+
+				</p:column>
 				</p:dataTable>
 			</p:panel>
 		</h:form>

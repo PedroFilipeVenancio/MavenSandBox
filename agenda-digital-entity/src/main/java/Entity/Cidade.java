@@ -1,20 +1,34 @@
 package Entity;
 
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
 import Enums.Estado;
 
-//@Entity
-//@Table(name="cidade")
-public class Cidade {
+@Entity
+@Table(name="TB_CIDADE", schema = "public")
+@SequenceGenerator(name = "SQ_CIDADE", schema = "public", initialValue = 1, allocationSize =  1)
+public class Cidade implements Serializable {
 	
-//	@Id
-//	@Column(name="id")
+	@Id
+	@GeneratedValue(generator = "SQ_CIDADE", strategy = GenerationType.SEQUENCE)
+	@Column(name="COD_CIDADE")
 	private Integer codigo;
 		
-//	@Column(name="nome")
+	@Column(name="NOME_CIDADE")
 	private String nome;
 	
-//	@Column(name="estado")
-//	private Estado estado;
+	@Column(name="ESTADO_CIDADE")
+	@Enumerated
+	private Estado estado;
 	
 	public Cidade() {
 	}
