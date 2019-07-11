@@ -1,4 +1,4 @@
-package com.everis.academia.java.agenda.digital.dao.PrestaçãoServiço;
+package com.everis.academia.java.agenda.digital.dao.PrestacaoServico;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -7,7 +7,7 @@ import java.util.List;
 import com.everis.academia.java.agenda.digital.dao.IGeralDAO;
 import com.everis.academia.java.agendadigital.entity.PrestacaoServico;
 
-public class PrestacaoServicoDAO implements IGeralDAO<PrestacaoServico> {
+public class PrestacaoServicoDAO implements IPrestacaoServicoDAO {
 	
 	public static List<PrestacaoServico> prestacaoServicosColl = new ArrayList<PrestacaoServico>();
 //	public static Collection<PrestacaoServico> prestacaoServicosColl = new HashSet<PrestacaoServico>();
@@ -20,14 +20,8 @@ public class PrestacaoServicoDAO implements IGeralDAO<PrestacaoServico> {
 	}
 
 	@Override
-	public void update(PrestacaoServico prestacaoServicoVar) {
-		
-		
-		int indexOf = prestacaoServicoVar.getCodigo();
-		prestacaoServicosColl.remove(prestacaoServicoVar);
-		prestacaoServicosColl.add(prestacaoServicoVar);
-//		int indexOf = PrestacaoServicos. indexOf(PrestacaoServico);
-//		PrestacaoServicos.set(indexOf, PrestacaoServico);
+	public void update(PrestacaoServico prestacaoServicoVar) {	
+		prestacaoServicosColl.set(prestacaoServicosColl.indexOf(prestacaoServicoVar), prestacaoServicoVar);
 	}
 
 	@Override

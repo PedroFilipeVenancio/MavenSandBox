@@ -1,15 +1,15 @@
-package com.everis.academia.java.agenda.digital.business.PrestadorServiços;
+package com.everis.academia.java.agenda.digital.business.PrestadorServicos;
 
 import java.util.Collection;
 
 import com.everis.academia.java.agenda.digital.business.BusinessException;
-import com.everis.academia.java.agenda.digital.dao.PrestadorServiços.IPrestadorServicoDAO;
-import com.everis.academia.java.agenda.digital.dao.PrestadorServiços.PrestadorServiçosDAO;
+import com.everis.academia.java.agenda.digital.dao.PrestadorServicos.IPrestadorServicoDAO;
+import com.everis.academia.java.agenda.digital.dao.PrestadorServicos.PrestadorServicosDAO;
 import com.everis.academia.java.agendadigital.entity.PrestadorServico;
 
-public class PrestadorServiçosBusiness implements IPrestadorServicoBusiness {
+public class PrestadorServicosBusiness implements IPrestadorServicoBusiness {
 
-	IPrestadorServicoDAO dao = new PrestadorServiçosDAO();
+	IPrestadorServicoDAO dao = new PrestadorServicosDAO();
 
 	@Override
 	public void delete(PrestadorServico prestadorServicoVar) {

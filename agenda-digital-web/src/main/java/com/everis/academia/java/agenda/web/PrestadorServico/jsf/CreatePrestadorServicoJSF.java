@@ -5,8 +5,8 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 
 import com.everis.academia.java.agenda.digital.business.BusinessException;
-import com.everis.academia.java.agenda.digital.business.PrestadorServiços.IPrestadorServicoBusiness;
-import com.everis.academia.java.agenda.digital.business.PrestadorServiços.PrestadorServiçosBusiness;
+import com.everis.academia.java.agenda.digital.business.PrestadorServicos.IPrestadorServicoBusiness;
+import com.everis.academia.java.agenda.digital.business.PrestadorServicos.PrestadorServicosBusiness;
 import com.everis.academia.java.agendadigital.entity.PrestadorServico;
 
 @ManagedBean(name = "CreatePrestadorServicoJSF")
@@ -18,7 +18,7 @@ public class CreatePrestadorServicoJSF {
 //	@Autowired
 //	private IPrestadorServicoBusiness cidadebusiness;
 
-	IPrestadorServicoBusiness prestadorServicoBusiness = new PrestadorServiçosBusiness();
+	IPrestadorServicoBusiness prestadorServicoBusiness = new PrestadorServicosBusiness();
 
 
 	public PrestadorServico getPrestadorServico() {

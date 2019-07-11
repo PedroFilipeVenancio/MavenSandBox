@@ -7,8 +7,8 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 
-import com.everis.academia.java.agenda.digital.business.PrestadorServiços.IPrestadorServicoBusiness;
-import com.everis.academia.java.agenda.digital.business.PrestadorServiços.PrestadorServiçosBusiness;
+import com.everis.academia.java.agenda.digital.business.PrestadorServicos.IPrestadorServicoBusiness;
+import com.everis.academia.java.agenda.digital.business.PrestadorServicos.PrestadorServicosBusiness;
 import com.everis.academia.java.agendadigital.entity.PrestadorServico;
 
 
@@ -19,7 +19,7 @@ import com.everis.academia.java.agendadigital.entity.PrestadorServico;
 
 public class ReadPrestadorServicoJSF {
 
-	IPrestadorServicoBusiness prestadorServicoBusiness = new PrestadorServiçosBusiness();
+	IPrestadorServicoBusiness prestadorServicoBusiness = new PrestadorServicosBusiness();
 //	@Autowired
 //	private ICidadeBusiness cidadebusiness;
 	

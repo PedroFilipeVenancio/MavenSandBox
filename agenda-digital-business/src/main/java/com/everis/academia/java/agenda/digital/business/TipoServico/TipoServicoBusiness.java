@@ -1,16 +1,16 @@
-package com.everis.academia.java.agenda.digital.business.TipoServiço;
+package com.everis.academia.java.agenda.digital.business.TipoServico;
 
 import java.util.Collection;
 
 import com.everis.academia.java.agenda.digital.business.BusinessException;
 import com.everis.academia.java.agenda.digital.business.IGeralBusiness;
 import com.everis.academia.java.agenda.digital.dao.IGeralDAO;
-import com.everis.academia.java.agenda.digital.dao.TipoServiço.TipoServiçoDAO;
+import com.everis.academia.java.agenda.digital.dao.TipoServico.TipoServicoDAO;
 import com.everis.academia.java.agendadigital.entity.TipoServico;
 
-public class TipoServiçoBusiness implements IGeralBusiness<TipoServico> {
+public class TipoServicoBusiness implements ITipoServicoBusiness {
 
-	IGeralDAO<TipoServico> dao = new TipoServiçoDAO();
+	TipoServicoDAO dao = new TipoServicoDAO();
 
 	@Override
 	public void delete(TipoServico tipoServicoVar) {

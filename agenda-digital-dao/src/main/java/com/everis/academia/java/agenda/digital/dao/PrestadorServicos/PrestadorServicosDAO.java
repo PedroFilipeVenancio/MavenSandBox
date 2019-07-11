@@ -1,11 +1,11 @@
-package com.everis.academia.java.agenda.digital.dao.PrestadorServiços;
+package com.everis.academia.java.agenda.digital.dao.PrestadorServicos;
 
 import java.util.Collection;
 import java.util.HashSet;
 
 import com.everis.academia.java.agendadigital.entity.PrestadorServico;
 
-public class PrestadorServiçosDAO implements IPrestadorServicoDAO {
+public class PrestadorServicosDAO implements IPrestadorServicoDAO {
 	
 	public static Collection<PrestadorServico> prestadorServicosColl = new HashSet<PrestadorServico>();
 

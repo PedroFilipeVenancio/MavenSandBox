@@ -1,4 +1,4 @@
-package com.everis.academia.java.agenda.digital.dao.TipoServiço;
+package com.everis.academia.java.agenda.digital.dao.TipoServico;
 
 import java.util.Collection;
 import java.util.HashSet;
@@ -6,7 +6,7 @@ import java.util.HashSet;
 import com.everis.academia.java.agenda.digital.dao.IGeralDAO;
 import com.everis.academia.java.agendadigital.entity.TipoServico;
 
-public class TipoServiçoDAO implements IGeralDAO<TipoServico> {
+public class TipoServicoDAO implements ITipoServicoDAO {
 	
 //	public static List<TipoServico> TipoServicos = new ArrayList<TipoServico>();
 	public static Collection<TipoServico> tipoServicosColl = new HashSet<TipoServico>();

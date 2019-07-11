@@ -1,4 +1,4 @@
-package com.everis.academia.java.agenda.digital.dao.PrestadorServiços;
+package com.everis.academia.java.agenda.digital.dao.PrestadorServicos;
 
 import java.util.Collection;
 

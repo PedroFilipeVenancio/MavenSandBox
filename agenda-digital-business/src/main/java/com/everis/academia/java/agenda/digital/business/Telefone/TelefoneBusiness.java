@@ -9,7 +9,7 @@ import com.everis.academia.java.agenda.digital.dao.Telefone.ITelefoneDAO;
 import com.everis.academia.java.agenda.digital.dao.Telefone.TelefoneDAO;
 import com.everis.academia.java.agendadigital.entity.Telefone;
 
-public class TelefoneBusiness implements IGeralBusiness<Telefone> {
+public class TelefoneBusiness implements ITelefoneBusiness {
 
 	ITelefoneDAO dao = new TelefoneDAO();
 
