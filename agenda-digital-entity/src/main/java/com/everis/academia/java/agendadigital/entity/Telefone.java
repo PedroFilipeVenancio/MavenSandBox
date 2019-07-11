@@ -29,6 +29,12 @@ public class Telefone {
 	this.ddd = ddd;
 	this.numero = numero;
 }
+	
+	
+
+	public Telefone() {
+		super();
+	}
 
 	public Integer getCodigo() {
 		return codigo;

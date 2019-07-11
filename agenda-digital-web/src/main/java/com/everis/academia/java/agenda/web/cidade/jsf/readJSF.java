@@ -26,21 +26,21 @@ public class readJSF {
 	@Autowired
 	private ICidadeBusiness cidadebusiness;
 
-	private Collection<Cidade> cidades = null;
+//	private Collection<Cidade> cidades = null;
 
 	//TODO: the name is not important , but the PostConstruct executes after this class starts,
-	@PostConstruct
-	public void init() {
-		this.cidades = cidadebusiness.read();
-	}
+//	@PostConstruct
+//	public void init() {
+//		this.cidades = cidadebusiness.read();
+//	}
 
 	public Collection<Cidade> getCidades() {
-		return cidades;
+		return cidadebusiness.read();
 	}
 
-	public void setCidades(Collection<Cidade> cidades) {
-		this.cidades = cidades;
-	}
+//	public void setCidades(Collection<Cidade> cidades) {
+//		this.cidades = cidades;
+//	}
 
 	public String delete(Cidade cidade) {
 		try {

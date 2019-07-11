@@ -26,6 +26,10 @@ public class PrestacaoServico {
 	}
 	
 	
+	public PrestacaoServico() {
+		super();
+	}
+
 
 	public PrestacaoServico(Integer codigo) {
 		super();

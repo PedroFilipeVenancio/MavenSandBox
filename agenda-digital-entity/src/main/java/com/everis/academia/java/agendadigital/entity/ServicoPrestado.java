@@ -22,6 +22,14 @@ public class ServicoPrestado {
 		this.codigo = codigo;
 	}
 
+	
+	
+	public ServicoPrestado() {
+		super();
+	}
+
+
+
 	public ServicoPrestado(PrestacaoServico prestacaoServico, TipoServico tipoServico, Float valor) {
 		super();
 		this.prestacaoServico = prestacaoServico;
