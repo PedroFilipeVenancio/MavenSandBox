@@ -1,0 +1,34 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Academia Java 2019</title>
+</h:head>
+<h:body>
+	<h:form>
+		<h:outputLabel for="codigo" value="Digite o codigo da prestadorServico:" />
+		<h:outputLabel for="hein" value="#{UpdatePrestadorServicoJSF.prestadorServico.codigo} teste" />
+		<h:inputText id="codigo" value="#{UpdatePrestadorServicoJSF.prestadorServico.codigo}"/>
+		<br/>
+		<h:outputLabel for="nome" value="Digite o nome do prestadorServico:" />
+		<h:inputText id="nome" value="#{UpdatePrestadorServicoJSF.prestadorServico.nome}" />
+		<h:commandButton value="Update" action="#{UpdatePrestadorServicoJSF.updateprestadorServico}" />
+		<h:commandButton value="limpar" action="#{UpdatePrestadorServicoJSF.limpar}" />
+
+	</h:form>
+	<h:messages showSummary="true" showDetail="" warnClass="" infoClass="" errorClass="" fatalClass="" />
+<!-- 			<h:message for="nome" infoStyle="color:blue;"></h:message> -->
+<!-- 			<h:message for="codigo" infoStyle="color:blue;"></h:message> -->
+
+</h:body>
+
+</html>
+
+
+
+
+
+
+

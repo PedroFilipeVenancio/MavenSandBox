@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.everis.academia.java.agenda.digital.business.IGeralBusiness;
 import com.everis.academia.java.agenda.digital.business.Cidade.CidadeBusiness;
+import com.everis.academia.java.agenda.digital.business.Cidade.ICidadeBusiness;
 
 import Entity.Cidade;
 
@@ -19,7 +19,7 @@ public class CidadeRead extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
 	
-	private IGeralBusiness<Cidade> business = new CidadeBusiness();
+	private ICidadeBusiness business = new CidadeBusiness();
 
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

@@ -5,7 +5,7 @@ import java.util.HashSet;
 import com.everis.academia.java.agenda.digital.dao.IGeralDAO;
 import Entity.PrestadorServico;
 
-public class PrestadorServiçosDAO implements IGeralDAO<PrestadorServico> {
+public class PrestadorServiçosDAO implements IPrestadorServicoDAO {
 	
 	public static Collection<PrestadorServico> prestadorServicosColl = new HashSet<PrestadorServico>();
 

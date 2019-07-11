@@ -61,8 +61,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.everis.academia.java.agenda.digital.business.IGeralBusiness;
 import com.everis.academia.java.agenda.digital.business.Cidade.CidadeBusiness;
+import com.everis.academia.java.agenda.digital.business.Cidade.ICidadeBusiness;
 
 import Entity.Cidade;
 
@@ -70,7 +70,7 @@ import Entity.Cidade;
 public class CidadeUpdate extends HttpServlet {
 
 
-	private IGeralBusiness<Cidade> business = new CidadeBusiness();
+	private ICidadeBusiness business = new CidadeBusiness();
 	
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp)

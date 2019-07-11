@@ -2,7 +2,7 @@
 <%@page
 	import="com.everis.academia.java.agenda.digital.business.Cidade.CidadeBusiness"%>
 <%@page
-	import="com.everis.academia.java.agenda.digital.business.IGeralBusiness"%>
+	import="com.everis.academia.java.agenda.digital.business.Cidade.ICidadeBusiness"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -13,7 +13,7 @@
 			<tr>
 				<td colspan="2">Actualizar</td>
 			</tr>
-			<%!private IGeralBusiness<Cidade> cidadebusiness = new com.everis.academia.java.agenda.digital.business.Cidade.CidadeBusiness();%>
+			<%!private ICidadeBusiness cidadebusiness = new com.everis.academia.java.agenda.digital.business.Cidade.CidadeBusiness();%>
 			<%
 				Integer codigo = Integer.valueOf(request.getParameter("codigo"));
 

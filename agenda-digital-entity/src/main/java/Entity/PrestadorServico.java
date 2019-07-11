@@ -50,6 +50,14 @@ public class PrestadorServico {
 		super();
 		this.codigo = codigo;
 	}
+	
+	
+
+	public PrestadorServico() {
+		super();
+	}
+
+
 
 	public Integer getCodigo() {
 		return codigo;
