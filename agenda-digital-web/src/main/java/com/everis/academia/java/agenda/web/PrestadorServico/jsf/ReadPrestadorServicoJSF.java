@@ -7,25 +7,23 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 
-import org.springframework.stereotype.Component;
-import org.springframework.web.context.annotation.RequestScope;
-
 import com.everis.academia.java.agenda.digital.business.PrestadorServiços.IPrestadorServicoBusiness;
 import com.everis.academia.java.agenda.digital.business.PrestadorServiços.PrestadorServiçosBusiness;
-
-import Entity.PrestadorServico;
+import com.everis.academia.java.agendadigital.entity.PrestadorServico;
 
 
 //@ViewScoped
 
-@Component
+
 @ManagedBean(name = "ReadPrestadorServicoJSF")
-@RequestScope
+
 public class ReadPrestadorServicoJSF {
 
 	IPrestadorServicoBusiness prestadorServicoBusiness = new PrestadorServiçosBusiness();
 //	@Autowired
 //	private ICidadeBusiness cidadebusiness;
+	
+	PrestadorServico prestadorServico = new PrestadorServico();
 
 	private Collection<PrestadorServico> prestadoresServico = null;
 
@@ -42,18 +40,40 @@ public class ReadPrestadorServicoJSF {
 	public void setPrestadoresServico(Collection<PrestadorServico> prestadoresServico) {
 		this.prestadoresServico = prestadoresServico;
 	}
+	
 
 
 
-	public String delete(PrestadorServico prestadorServicoVar) {
+//	public String delete(PrestadorServico prestadorServicoVar) {
+//		try {
+//			prestadorServicoBusiness.delete(prestadorServicoVar);
+//			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO,"PrestadorServico apagada com sucesso",""));
+//		} catch (Exception e) {
+//			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO,"PrestadorServico não apagada",""));
+//
+//			e.printStackTrace();
+//		}
+//		return null;
+//	}
+	
+	public PrestadorServico getPrestadorServico() {
+		return prestadorServico;
+	}
+
+	public void setPrestadorServico(PrestadorServico prestadorServico) {
+		this.prestadorServico = prestadorServico;
+	}
+
+	public String delete(){	
+		
 		try {
-			prestadorServicoBusiness.delete(prestadorServicoVar);
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO,"PrestadorServico apagada com sucesso",""));
+			prestadorServicoBusiness.delete(prestadorServico);
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, prestadorServico.getNome(), ": eliminado com sucesso!"));
+			return null;
 		} catch (Exception e) {
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO,"PrestadorServico não apagada",""));
-
-			e.printStackTrace();
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro ao eliminar!", e.getMessage()));
 		}
+		
 		return null;
 	}
 

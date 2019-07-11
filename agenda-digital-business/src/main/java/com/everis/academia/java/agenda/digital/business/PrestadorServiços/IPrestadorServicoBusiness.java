@@ -3,8 +3,7 @@ package com.everis.academia.java.agenda.digital.business.PrestadorServiços;
 import java.util.Collection;
 
 import com.everis.academia.java.agenda.digital.business.BusinessException;
-
-import Entity.PrestadorServico;
+import com.everis.academia.java.agendadigital.entity.PrestadorServico;
 
 public interface IPrestadorServicoBusiness {
 	void delete(PrestadorServico toDelete);

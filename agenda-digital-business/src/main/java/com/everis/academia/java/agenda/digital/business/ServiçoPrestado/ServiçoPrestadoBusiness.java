@@ -6,8 +6,7 @@ import com.everis.academia.java.agenda.digital.business.BusinessException;
 import com.everis.academia.java.agenda.digital.business.IGeralBusiness;
 import com.everis.academia.java.agenda.digital.dao.IGeralDAO;
 import com.everis.academia.java.agenda.digital.dao.ServiçoPrestado.ServiçoPrestadoDAO;
-
-import Entity.ServicoPrestado;
+import com.everis.academia.java.agendadigital.entity.ServicoPrestado;
 
 public class ServiçoPrestadoBusiness implements IGeralBusiness<ServicoPrestado> {
 

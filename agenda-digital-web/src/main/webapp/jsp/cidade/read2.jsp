@@ -1,6 +1,6 @@
 <%@page import="com.everis.academia.java.agenda.digital.business.Cidade.CidadeBusiness"%>
 <%@page import="com.everis.academia.java.agenda.digital.business.Cidade.ICidadeBusiness"%>
-<%@page import="Entity.Cidade"%>
+<%@page import="com.everis.academia.java.agendadigital.entity.Cidade"%>
 <%@page import="com.everis.academia.java.agenda.digital.dao.*"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>

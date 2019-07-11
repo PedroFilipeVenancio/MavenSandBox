@@ -1,14 +1,10 @@
 package com.everis.academia.java.agenda.digital.dao.TipoServiço;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 
 import com.everis.academia.java.agenda.digital.dao.IGeralDAO;
-
-import Entity.TipoServico;
+import com.everis.academia.java.agendadigital.entity.TipoServico;
 
 public class TipoServiçoDAO implements IGeralDAO<TipoServico> {
 	

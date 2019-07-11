@@ -1,4 +1,4 @@
-<%@page import="Entity.Cidade"%>
+<%@page import="com.everis.academia.java.agendadigital.entity.Cidade"%>
 <%@page
 	import="com.everis.academia.java.agenda.digital.business.Cidade.CidadeBusiness"%>
 <%@page

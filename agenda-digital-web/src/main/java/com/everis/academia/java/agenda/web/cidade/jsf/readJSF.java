@@ -11,11 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.annotation.RequestScope;
 
-import com.everis.academia.java.agenda.digital.business.IGeralBusiness;
-import com.everis.academia.java.agenda.digital.business.Cidade.CidadeBusiness;
 import com.everis.academia.java.agenda.digital.business.Cidade.ICidadeBusiness;
-
-import Entity.Cidade;
+import com.everis.academia.java.agendadigital.entity.Cidade;
 
 
 //@ViewScoped

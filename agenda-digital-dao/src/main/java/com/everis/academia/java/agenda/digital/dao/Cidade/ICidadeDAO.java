@@ -2,7 +2,7 @@ package com.everis.academia.java.agenda.digital.dao.Cidade;
 
 import java.util.Collection;
 
-import Entity.Cidade;
+import com.everis.academia.java.agendadigital.entity.Cidade;
 
 public interface ICidadeDAO {
 	void delete(Cidade var);

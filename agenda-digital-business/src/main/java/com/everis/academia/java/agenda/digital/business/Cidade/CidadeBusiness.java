@@ -6,12 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.everis.academia.java.agenda.digital.business.BusinessException;
-import com.everis.academia.java.agenda.digital.business.IGeralBusiness;
-import com.everis.academia.java.agenda.digital.dao.IGeralDAO;
-import com.everis.academia.java.agenda.digital.dao.Cidade.CidadeDAO;
 import com.everis.academia.java.agenda.digital.dao.Cidade.ICidadeDAO;
-
-import Entity.Cidade;
+import com.everis.academia.java.agendadigital.entity.Cidade;
 @Service
 public class CidadeBusiness implements ICidadeBusiness {
 

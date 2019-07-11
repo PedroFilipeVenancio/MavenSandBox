@@ -10,14 +10,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.everis.academia.java.agenda.digital.business.BusinessException;
-import com.everis.academia.java.agenda.digital.business.IGeralBusiness;
 import com.everis.academia.java.agenda.digital.business.Cidade.CidadeBusiness;
 import com.everis.academia.java.agenda.digital.business.Cidade.ICidadeBusiness;
-import com.everis.academia.java.agenda.digital.dao.IGeralDAO;
 import com.everis.academia.java.agenda.digital.dao.Cidade.CidadeDAO;
 import com.everis.academia.java.agenda.digital.dao.Cidade.ICidadeDAO;
-
-import Entity.Cidade;
+import com.everis.academia.java.agendadigital.entity.Cidade;
 
 @WebServlet(name = "CidadeCreateController2", urlPatterns = "/CidadeCreateController2")
 public class CidadeCreateController extends HttpServlet {

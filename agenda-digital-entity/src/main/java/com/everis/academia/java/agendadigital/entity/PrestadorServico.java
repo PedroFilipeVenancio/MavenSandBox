@@ -1,11 +1,8 @@
-package Entity;
+package com.everis.academia.java.agendadigital.entity;
 
 import java.util.Set;
 
-import Enums.Estado;
 import Enums.TipoLogradouro;
-import Entity.Telefone;
-import Entity.TipoServico;
 
 public class PrestadorServico {
 

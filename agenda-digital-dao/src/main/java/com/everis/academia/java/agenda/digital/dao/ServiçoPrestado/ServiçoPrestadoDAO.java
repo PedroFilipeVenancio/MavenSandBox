@@ -3,8 +3,9 @@ package com.everis.academia.java.agenda.digital.dao.ServiçoPrestado;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+
 import com.everis.academia.java.agenda.digital.dao.IGeralDAO;
-import Entity.ServicoPrestado;
+import com.everis.academia.java.agendadigital.entity.ServicoPrestado;
 
 public class ServiçoPrestadoDAO implements IGeralDAO<ServicoPrestado> {
 	

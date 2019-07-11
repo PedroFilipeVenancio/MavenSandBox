@@ -1,12 +1,5 @@
 package com.everis.academia.java.agenda.web.cidade.soap;
 
-import com.everis.academia.java.agenda.digital.business.BusinessException;
-import com.everis.academia.java.agenda.digital.business.IGeralBusiness;
-import com.everis.academia.java.agenda.digital.business.Cidade.CidadeBusiness;
-import com.everis.academia.java.agenda.digital.business.Cidade.ICidadeBusiness;
-
-import Entity.Cidade;
-
 import java.util.Collection;
 
 import javax.jws.WebMethod;
@@ -14,6 +7,11 @@ import javax.jws.WebParam;
 import javax.jws.WebParam.Mode;
 import javax.jws.WebResult;
 import javax.jws.WebService;
+
+import com.everis.academia.java.agenda.digital.business.BusinessException;
+import com.everis.academia.java.agenda.digital.business.Cidade.CidadeBusiness;
+import com.everis.academia.java.agenda.digital.business.Cidade.ICidadeBusiness;
+import com.everis.academia.java.agendadigital.entity.Cidade;
 
 @WebService()
 public class CidadeSOAP {

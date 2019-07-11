@@ -14,8 +14,7 @@ import com.everis.academia.java.agenda.digital.business.Cidade.CidadeBusiness;
 import com.everis.academia.java.agenda.digital.business.Cidade.ICidadeBusiness;
 import com.everis.academia.java.agenda.digital.dao.Cidade.CidadeDAO;
 import com.everis.academia.java.agenda.digital.dao.Cidade.ICidadeDAO;
-
-import Entity.Cidade;
+import com.everis.academia.java.agendadigital.entity.Cidade;
 
 @WebServlet(name = "CidadeReadController", urlPatterns = "/CidadeReadController")
 public class CidadeReadController extends HttpServlet {

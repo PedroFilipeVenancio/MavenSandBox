@@ -9,11 +9,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.context.annotation.RequestScope;
 
 import com.everis.academia.java.agenda.digital.business.BusinessException;
-import com.everis.academia.java.agenda.digital.business.IGeralBusiness;
-import com.everis.academia.java.agenda.digital.business.Cidade.CidadeBusiness;
 import com.everis.academia.java.agenda.digital.business.Cidade.ICidadeBusiness;
-
-import Entity.Cidade;
+import com.everis.academia.java.agendadigital.entity.Cidade;
 
 @ManagedBean(name = "updateJSF")
 @Component

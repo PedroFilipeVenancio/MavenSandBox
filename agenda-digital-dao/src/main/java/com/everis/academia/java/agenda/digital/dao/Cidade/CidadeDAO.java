@@ -1,20 +1,16 @@
 package com.everis.academia.java.agenda.digital.dao.Cidade;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 
 import org.springframework.stereotype.Repository;
 
-import com.everis.academia.java.agenda.digital.dao.IGeralDAO;
-
-import Entity.Cidade;
+import com.everis.academia.java.agendadigital.entity.Cidade;
 
 @Repository
 public class CidadeDAO implements ICidadeDAO {
 	
+
 //	public static List<Cidade> cidades = new ArrayList<Cidade>();
 	public static Collection<Cidade> cidades = new HashSet<Cidade>();
 
@@ -38,14 +34,13 @@ public class CidadeDAO implements ICidadeDAO {
 		id++;
 		cidade.setCodigo(id);
 		cidades.add(cidade);
-		
-	}
 
+	}
 
 	@Override
 //	public Boolean jaExiste(String nome) {
 	public Boolean jaExiste(Cidade nome) {
-		
+
 		for (Cidade cidade : cidades) {
 			if (cidade.getNome().trim().equalsIgnoreCase(nome.getNome())) {
 				return Boolean.TRUE;

@@ -2,14 +2,12 @@ package com.everis.academia.java.agenda.digital.dao.PrestaçãoServiço;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashSet;
 import java.util.List;
 
 import com.everis.academia.java.agenda.digital.dao.IGeralDAO;
+import com.everis.academia.java.agendadigital.entity.PrestacaoServico;
 
-import Entity.PrestacaoServico;
-
-public class PrestaçãoServiçoDAO implements IGeralDAO<PrestacaoServico> {
+public class PrestacaoServicoDAO implements IGeralDAO<PrestacaoServico> {
 	
 	public static List<PrestacaoServico> prestacaoServicosColl = new ArrayList<PrestacaoServico>();
 //	public static Collection<PrestacaoServico> prestacaoServicosColl = new HashSet<PrestacaoServico>();

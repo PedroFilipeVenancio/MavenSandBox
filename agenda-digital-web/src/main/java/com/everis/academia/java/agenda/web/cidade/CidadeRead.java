@@ -11,8 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.everis.academia.java.agenda.digital.business.Cidade.CidadeBusiness;
 import com.everis.academia.java.agenda.digital.business.Cidade.ICidadeBusiness;
-
-import Entity.Cidade;
+import com.everis.academia.java.agendadigital.entity.Cidade;
 
 @WebServlet(name = "CidadeRead", urlPatterns = "/CidadeRead")
 public class CidadeRead extends HttpServlet {

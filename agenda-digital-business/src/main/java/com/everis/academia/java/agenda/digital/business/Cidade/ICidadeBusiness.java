@@ -3,9 +3,7 @@ package com.everis.academia.java.agenda.digital.business.Cidade;
 import java.util.Collection;
 
 import com.everis.academia.java.agenda.digital.business.BusinessException;
-import com.everis.academia.java.agenda.digital.business.IGeralBusiness;
-
-import Entity.Cidade;
+import com.everis.academia.java.agendadigital.entity.Cidade;
 
 public interface ICidadeBusiness {
 	void delete(Cidade toDelete);

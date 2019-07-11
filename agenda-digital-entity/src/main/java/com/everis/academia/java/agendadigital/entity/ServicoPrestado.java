@@ -1,4 +1,4 @@
-package Entity;
+package com.everis.academia.java.agendadigital.entity;
 
 //@Entity
 //@Table(name="servicoPrestado")

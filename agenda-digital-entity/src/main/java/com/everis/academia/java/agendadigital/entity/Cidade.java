@@ -1,4 +1,4 @@
-package Entity;
+package com.everis.academia.java.agendadigital.entity;
 
 import java.io.Serializable;
 
@@ -15,7 +15,7 @@ import Enums.Estado;
 
 @Entity
 @Table(name="TB_CIDADE", schema = "public")
-@SequenceGenerator(name = "SQ_CIDADE", schema = "public", initialValue = 1, allocationSize =  1)
+@SequenceGenerator(name = "SQ_CIDADE", sequenceName = "SQ_CIDADE", schema = "public", initialValue = 1, allocationSize =  1)
 public class Cidade implements Serializable {
 	
 	@Id
@@ -26,9 +26,9 @@ public class Cidade implements Serializable {
 	@Column(name="NOME_CIDADE")
 	private String nome;
 	
-	@Column(name="ESTADO_CIDADE")
-	@Enumerated
-	private Estado estado;
+	//@Column(name="ESTADO_CIDADE")
+//	@Enumerated
+	//private Estado estado;
 	
 	public Cidade() {
 	}

@@ -5,13 +5,12 @@ import java.util.Collection;
 import com.everis.academia.java.agenda.digital.business.BusinessException;
 import com.everis.academia.java.agenda.digital.business.IGeralBusiness;
 import com.everis.academia.java.agenda.digital.dao.IGeralDAO;
-import com.everis.academia.java.agenda.digital.dao.PrestaçãoServiço.PrestaçãoServiçoDAO;
-
-import Entity.PrestacaoServico;
+import com.everis.academia.java.agenda.digital.dao.PrestaçãoServiço.PrestacaoServicoDAO;
+import com.everis.academia.java.agendadigital.entity.PrestacaoServico;
 
 public class PrestaçãoServiçoBusiness implements IGeralBusiness<PrestacaoServico> {
 
-	IGeralDAO<PrestacaoServico> dao = new PrestaçãoServiçoDAO();
+	IGeralDAO<PrestacaoServico> dao = new PrestacaoServicoDAO();
 
 	@Override
 	public void delete(PrestacaoServico prestacaoServicoVar) {

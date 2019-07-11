@@ -28,10 +28,15 @@
 						<f:facet name="header">
 							<p:outputLabel value="Acções" />
 						</f:facet>
-
-					<p:column headerText="Accões">
-						<h:commandButton value="delete" action="#{ReadPrestadorServicoJSF.delete(prestadorServico)}" />
-						<h:commandButton value="updade"	action="#{updatePrestadorServicoJSF.updateOK(prestadorServico)}" />
+				<p:column>
+						<f:facet name="header">
+							<p:outputLabel value="Acções" />
+						</f:facet>
+						<h:commandLink action="#{UpdatePrestadorServicoJSF.updateOK(prestadorServico)}" value="Editar" style="margin-right: 5px" />
+	
+						<h:commandLink action="#{ReadPrestadorServicoJSF.delete}" value="Excluir">
+							<f:setPropertyActionListener target="#{ReadPrestadorServicoJSF.prestadorServico}" value="#{prestadorServico}" />
+						</h:commandLink>
 					</p:column>
 
 

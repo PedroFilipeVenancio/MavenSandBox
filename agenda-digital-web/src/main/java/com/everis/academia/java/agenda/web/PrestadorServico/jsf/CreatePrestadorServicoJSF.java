@@ -4,22 +4,13 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-import org.springframework.web.context.annotation.RequestScope;
-
 import com.everis.academia.java.agenda.digital.business.BusinessException;
-import com.everis.academia.java.agenda.digital.business.IGeralBusiness;
-import com.everis.academia.java.agenda.digital.business.Cidade.CidadeBusiness;
-import com.everis.academia.java.agenda.digital.business.Cidade.ICidadeBusiness;
 import com.everis.academia.java.agenda.digital.business.PrestadorServiços.IPrestadorServicoBusiness;
 import com.everis.academia.java.agenda.digital.business.PrestadorServiços.PrestadorServiçosBusiness;
+import com.everis.academia.java.agendadigital.entity.PrestadorServico;
 
-import Entity.Cidade;
-import Entity.PrestadorServico;
-@Component
 @ManagedBean(name = "CreatePrestadorServicoJSF")
-@RequestScope
+
 public class CreatePrestadorServicoJSF {
 
 	PrestadorServico prestadorServico = new PrestadorServico();

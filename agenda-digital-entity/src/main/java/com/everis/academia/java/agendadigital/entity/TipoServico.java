@@ -1,6 +1,4 @@
-package Entity;
-
-import Entity.PrestadorServico;
+package com.everis.academia.java.agendadigital.entity;
 
 //@Entity
 //@Table(name="tipoServico")

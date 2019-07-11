@@ -3,12 +3,9 @@ package com.everis.academia.java.agenda.digital.business.PrestadorServiços;
 import java.util.Collection;
 
 import com.everis.academia.java.agenda.digital.business.BusinessException;
-import com.everis.academia.java.agenda.digital.business.IGeralBusiness;
-import com.everis.academia.java.agenda.digital.dao.IGeralDAO;
 import com.everis.academia.java.agenda.digital.dao.PrestadorServiços.IPrestadorServicoDAO;
 import com.everis.academia.java.agenda.digital.dao.PrestadorServiços.PrestadorServiçosDAO;
-
-import Entity.PrestadorServico;
+import com.everis.academia.java.agendadigital.entity.PrestadorServico;
 
 public class PrestadorServiçosBusiness implements IPrestadorServicoBusiness {
 

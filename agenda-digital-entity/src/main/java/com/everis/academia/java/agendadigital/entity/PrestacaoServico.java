@@ -1,5 +1,4 @@
-package Entity;
-
+package com.everis.academia.java.agendadigital.entity;
 import java.util.Date;
 import java.util.Set;
 

@@ -11,6 +11,7 @@
 
 	<context:component-scan
 		base-package="com.everis" />
+
 	<bean id="dataSource"
 		class="org.apache.tomcat.dbcp.dbcp2.BasicDataSource">
 		<property name="driverClassName"
@@ -41,4 +42,6 @@
 	</bean>
 	<tx:annotation-driven
 		transaction-manager="transactionManager" />
+		<context:component-scan base-package="com.everis" />
 </beans>
+    

@@ -2,8 +2,8 @@ package com.everis.academia.java.agenda.digital.dao.PrestadorServiços;
 
 import java.util.Collection;
 import java.util.HashSet;
-import com.everis.academia.java.agenda.digital.dao.IGeralDAO;
-import Entity.PrestadorServico;
+
+import com.everis.academia.java.agendadigital.entity.PrestadorServico;
 
 public class PrestadorServiçosDAO implements IPrestadorServicoDAO {
 	

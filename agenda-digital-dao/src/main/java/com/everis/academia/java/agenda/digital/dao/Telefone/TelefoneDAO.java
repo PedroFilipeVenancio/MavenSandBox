@@ -3,11 +3,9 @@ package com.everis.academia.java.agenda.digital.dao.Telefone;
 import java.util.Collection;
 import java.util.HashSet;
 
-import com.everis.academia.java.agenda.digital.dao.IGeralDAO;
+import com.everis.academia.java.agendadigital.entity.Telefone;
 
-import Entity.Telefone;
-
-public class TelefoneDAO implements IGeralDAO<Telefone> {
+public class TelefoneDAO implements ITelefoneDAO {
 	
 //	public static List<Telefone> telefoneColl = new ArrayList<Telefone>();
 	public static Collection<Telefone> telefoneColl = new HashSet<Telefone>();
