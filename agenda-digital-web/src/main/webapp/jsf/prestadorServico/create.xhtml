@@ -17,22 +17,7 @@
 				<div class="ui-g-10"></div>				
 				</p:panelGrid>
 				
-				
-				<p:panelGrid>
-				<div class="ui-g-1"><p:outputLabel for="cidade" value="Cidade: " /></div>
-				<div class="ui-g-1">
-				<p:selectOneMenu id="cidade" value="#{readJSF.cidade.nome}" effect="fold" editable="false">
-            		<f:selectItem itemLabel="Select One" itemValue="" />
-            		<f:selectItems value="#{readJSF.teste}" />
-        		</p:selectOneMenu>
-				
-				</div>
-				<div class="ui-g-10"></div>	
-				</p:panelGrid>
-				
-				
-				
-				
+							
 				<p:panelGrid>
 				<div class="ui-g-1"><p:outputLabel for="bairro" value="Bairro: " /></div>
 				<div class="ui-g-1"><p:inputText id="bairro" value="#{prestadorServicoCreate.prestadorServico.bairro}" /></div>
@@ -46,10 +31,34 @@
 				</p:panelGrid>
 				
 				<p:panelGrid>
-				<div class="ui-g-1"><p:outputLabel for="logradouro" value="Logradouro: " /></div>
-				<div class="ui-g-1"><p:inputText id="logradouro" value="#{prestadorServicoCreate.prestadorServico.logradouro}" /></div>
-				<div class="ui-g-10"></div>				
+					<div class="ui-g-1"><p:outputLabel for="logradouro" value="Logradouro: " /></div>
+					<div class="ui-g-1"><p:inputText id="logradouro" value="#{prestadorServicoCreate.prestadorServico.logradouro}" /></div>
+					<div class="ui-g-10"></div>			
 				</p:panelGrid>
+				
+				<p:panelGrid>
+				<div class="ui-g-1"><p:outputLabel for="cidade" value="Cidade: " /></div>
+				<div class="ui-g-1">
+				<p:selectOneMenu id="cidade" value="#{prestadorServicoCreate.prestadorServico.cidade}" converter="CidadeConverter" effect="fold" editable="false">
+            		<f:selectItems value="#{prestadorServicoCreate.cidades}" var ="cidade"  itemLabel="#{cidade.nome}"/>
+        		</p:selectOneMenu>
+				
+				</div>
+				<div class="ui-g-10"></div>	
+				</p:panelGrid>
+				
+				<p:panelGrid>
+				<div class="ui-g-1"><p:outputLabel for="tipoLogradouro" value="tipo Logradouro " /></div>
+				<div class="ui-g-1">
+				<p:selectOneMenu id="tipoLogradouro" value="#{prestadorServicoCreate.prestadorServico.tipoLogradouro}" effect="fold" editable="false">
+            		<f:selectItems value="#{prestadorServicoCreate.areas}" />
+        		</p:selectOneMenu>
+				
+				</div>
+				<div class="ui-g-10"></div>	
+				</p:panelGrid>
+        	
+				
 				
 				<p:panelGrid>
 				<div class="ui-g-1"><p:outputLabel for="complemento" value="Complemento: " /></div>

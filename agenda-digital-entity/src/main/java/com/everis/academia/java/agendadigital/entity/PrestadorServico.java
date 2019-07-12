@@ -20,57 +20,61 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import Enums.TipoLogradouro;
-//@Entity
-//@Table(name = "TB_PRESTADOR_SERVICO")
-//@SequenceGenerator(name = "SQ_PRESTADOR_SERVICO", sequenceName = "SQ_PRESTADOR_SERVICO", initialValue = 1, allocationSize = 1)
+@Entity
+@Table(name = "TB_PRESTADOR_SERVICO")
+@SequenceGenerator(name = "SQ_PRESTADOR_SERVICO", sequenceName = "SQ_PRESTADOR_SERVICO", initialValue = 1, allocationSize = 1)
 public class PrestadorServico {
 
-//	@Id()
-//	@Column(name = "COD_PRESTADOR_SERVICO")
-//	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_PRESTADOR_SERVICO")
+	@Id()
+	@Column(name = "COD_PRESTADOR_SERVICO")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_PRESTADOR_SERVICO")
 	private Integer codigo;
 
-//	@Column(name = "NOM_PRESTADOR_SERVICO", length = 100, nullable = false)
+	@Column(name = "NOM_PRESTADOR_SERVICO", length = 100, nullable = false)
 	private String nome;
 
-//	@ManyToOne(fetch = FetchType.EAGER, targetEntity = Cidade.class)
-//	@JoinColumn(name = "COD_CIDADE", nullable = false, foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "FK_TB_PRESTADOR_SERV_TB_CIDADE"))
+	@ManyToOne(fetch = FetchType.EAGER, targetEntity = Cidade.class)
+	@JoinColumn(name = "COD_CIDADE", nullable = false, foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "FK_TB_PRESTADOR_SERV_TB_CIDADE"))
 	private Cidade cidade;
 
-//	@Column(name = "NOM_BAIRRO", length = 50, nullable = false)
+	@Column(name = "NOM_BAIRRO", length = 50, nullable = false)
 	private String bairro;
 
-//	@Column(name = "NUM_CEP", length = 10, nullable = true)
+	@Column(name = "NUM_CEP", length = 10, nullable = true)
 	private String cep;
 
-//	@Column(name = "TIP_LOGRADOURO", length = 10, nullable = false)
-//	@Enumerated(EnumType.STRING)
+	@Column(name = "TIP_LOGRADOURO", length = 10, nullable = false)
+	@Enumerated(EnumType.STRING)
 	private TipoLogradouro tipoLogradouro;
 
-//	@Column(name = "DES_LOGRADROURO", length = 100, nullable = false)
+	@Column(name = "DES_LOGRADROURO", length = 100, nullable = false)
 	private String logradouro;
 
-//	@Column(name = "DES_COMPLEMENTO", length = 200, nullable = true)
+	@Column(name = "DES_COMPLEMENTO", length = 200, nullable = true)
 	private String complemento;
 
-//	@Column(name = "NUMERO", nullable = false)
+	@Column(name = "NUMERO", nullable = false)
 	private String numero;
 
-//	@Column(name = "DES_EMAIL", length = 80, nullable = true)
+	@Column(name = "DES_EMAIL", length = 80, nullable = true)
 	private String email;
 
 //	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "prestadorServico", orphanRemoval = true, targetEntity = Telefone.class)
+	@Transient
 	private Set<Telefone> telefones;
 
 //	@ManyToMany(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER, targetEntity = TipoServico.class)
 //	@JoinTable(name = "RL_SERVICO_CREDENCIADO", joinColumns = {
 //			@JoinColumn(name = "COD_PRESTADOR_SERVICO") }, inverseJoinColumns = {
 //					@JoinColumn(name = "COD_TIPO_SERVICO") })
+	@Transient
 	private Set<TipoServico> tiposServicos;
 	
 //	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "prestadorServico", orphanRemoval = true, targetEntity = PrestacaoServico.class)
+	@Transient
 	private Set<PrestacaoServico> prestacoesServicos;
 
 	public PrestadorServico(Integer codigo) {

@@ -5,8 +5,8 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 
 import com.everis.academia.java.agenda.digital.business.BusinessException;
-import com.everis.academia.java.agenda.digital.business.PrestadorServicos.IPrestadorServicoBusiness;
-import com.everis.academia.java.agenda.digital.business.PrestadorServicos.PrestadorServicosBusiness;
+import com.everis.academia.java.agenda.digital.business.PrestadorServico.IPrestadorServicoBusiness;
+import com.everis.academia.java.agenda.digital.business.PrestadorServico.PrestadorServicosBusiness;
 import com.everis.academia.java.agenda.digital.business.Telefone.ITelefoneBusiness;
 import com.everis.academia.java.agenda.digital.business.Telefone.TelefoneBusiness;
 import com.everis.academia.java.agendadigital.entity.PrestadorServico;

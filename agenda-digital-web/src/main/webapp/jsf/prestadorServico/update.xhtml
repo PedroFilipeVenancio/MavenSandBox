@@ -1,5 +1,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:f="http://java.sun.com/jsf/core"
 	  xmlns:p="http://primefaces.org/ui">
 
 	<h:head>
@@ -8,6 +9,7 @@
 	<h:body>
 		<h:form>
 			<p:panel header="Editar Prestador de Servico">
+			<div class="ui-g">
 				<p:panelGrid>
 					<p:outputLabel value="Id: " />
 					<p:inputText value="#{prestadorServicoUpdate.prestadorServico.codigo}" onfocus="this.blur();" />
@@ -24,6 +26,21 @@
 					<p:outputLabel value="CEP: " />
 					<p:inputText value="#{prestadorServicoUpdate.prestadorServico.cep}" />
 				</p:panelGrid>
+				
+				
+				<p:panelGrid>
+				<div class="ui-g-1"><p:outputLabel for="cidade" value="Cidade: " /></div>
+				<div class="ui-g-1">
+				<p:selectOneMenu id="cidade" value="#{prestadorServicoCreate.prestadorServico.cidade}" converter="CidadeConverter" effect="fold" editable="false">
+            		<f:selectItems value="#{prestadorServicoCreate.cidades}" var ="cidade"  itemLabel="#{cidade.nome}"/>
+        		</p:selectOneMenu>
+				
+				</div>
+				<div class="ui-g-10"></div>	
+				</p:panelGrid>
+				
+				
+				
 				<p:panelGrid>
 					<p:outputLabel value="Logradouro: " />
 					<p:inputText value="#{prestadorServicoUpdate.prestadorServico.logradouro}" />
@@ -37,6 +54,7 @@
 					<p:inputText value="#{prestadorServicoUpdate.prestadorServico.numero}" />
 				</p:panelGrid>
 				<p:panelGrid>
+				</div>
 					<p:outputLabel value="Email: " />
 					<p:inputText value="#{prestadorServicoUpdate.prestadorServico.email}" />
 				</p:panelGrid>

@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.annotation.RequestScope;
 
-import com.everis.academia.java.agenda.digital.business.PrestadorServicos.IPrestadorServicoBusiness;
+import com.everis.academia.java.agenda.digital.business.PrestadorServico.IPrestadorServicoBusiness;
 import com.everis.academia.java.agendadigital.entity.PrestadorServico;
 
 @Component("prestadorServicoDelete")

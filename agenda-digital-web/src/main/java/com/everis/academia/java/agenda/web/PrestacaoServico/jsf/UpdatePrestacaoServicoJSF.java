@@ -7,8 +7,8 @@ import javax.faces.context.FacesContext;
 import com.everis.academia.java.agenda.digital.business.BusinessException;
 import com.everis.academia.java.agenda.digital.business.PrestacaoServico.IPrestacaoServicoBusiness;
 import com.everis.academia.java.agenda.digital.business.PrestacaoServico.PrestacaoServicoBusiness;
-import com.everis.academia.java.agenda.digital.business.PrestadorServicos.IPrestadorServicoBusiness;
-import com.everis.academia.java.agenda.digital.business.PrestadorServicos.PrestadorServicosBusiness;
+import com.everis.academia.java.agenda.digital.business.PrestadorServico.IPrestadorServicoBusiness;
+import com.everis.academia.java.agenda.digital.business.PrestadorServico.PrestadorServicosBusiness;
 import com.everis.academia.java.agendadigital.entity.PrestacaoServico;
 import com.everis.academia.java.agendadigital.entity.PrestadorServico;
 

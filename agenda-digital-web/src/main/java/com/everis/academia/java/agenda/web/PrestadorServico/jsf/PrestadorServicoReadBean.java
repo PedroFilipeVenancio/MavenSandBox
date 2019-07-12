@@ -9,8 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.annotation.RequestScope;
 
-import com.everis.academia.java.agenda.digital.business.PrestadorServicos.IPrestadorServicoBusiness;
+import com.everis.academia.java.agenda.digital.business.PrestadorServico.IPrestadorServicoBusiness;
+import com.everis.academia.java.agenda.digital.business.TipoServico.ITipoServicoBusiness;
 import com.everis.academia.java.agendadigital.entity.PrestadorServico;
+import com.everis.academia.java.agendadigital.entity.TipoServico;
 
 @Component("prestadorServicoRead")
 @ManagedBean(name = "prestadorServicoRead")
@@ -21,14 +23,19 @@ public class PrestadorServicoReadBean {
 	private IPrestadorServicoBusiness business;
 	private Collection<PrestadorServico> prestadoresServico;
 	
-	@PostConstruct
-	public void init() {
-		this.prestadoresServico = business.read();
-	}
+//	@PostConstruct
+//	public void init() {
+//		this.prestadoresServico = business.read();
+//	}
+	
+
 
 	public Collection<PrestadorServico> getPrestadoresServico() {
-		return prestadoresServico;
+		return business.read();
 	}
+	
+
+
 
 	public void setPrestadoresServico(Collection<PrestadorServico> prestadoresServico) {
 		this.prestadoresServico = prestadoresServico;

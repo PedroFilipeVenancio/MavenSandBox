@@ -1,4 +1,4 @@
-package com.everis.academia.java.agenda.digital.business.PrestadorServicos;
+package com.everis.academia.java.agenda.digital.business.PrestadorServico;
 
 import java.util.Collection;
 
@@ -29,9 +29,9 @@ public class PrestadorServicosBusiness implements IPrestadorServicoBusiness {
 	@Transactional(propagation = Propagation.REQUIRED)
 	public void update(PrestadorServico prestadorServicoVar) throws BusinessException {
 		// valida parametros
-		if (prestadorServicoVar.getNome() == null || prestadorServicoVar.getNome().trim().isEmpty()) {
-			throw new BusinessException("É obrigatorio");
-		}
+//		if (prestadorServicoVar.getNome() == null || prestadorServicoVar.getNome().trim().isEmpty()) {
+//			throw new BusinessException("É obrigatorio");
+//		}
 
 		// verifica se já existe
 		if (dao.jaExiste(prestadorServicoVar)) {

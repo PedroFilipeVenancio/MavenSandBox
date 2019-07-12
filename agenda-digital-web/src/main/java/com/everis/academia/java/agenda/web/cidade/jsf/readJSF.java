@@ -47,8 +47,6 @@ public class readJSF {
 	}
 	
 	
-	
-
 	public List<String> getTeste() {
 		return teste;
 	}
