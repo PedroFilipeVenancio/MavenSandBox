@@ -4,24 +4,26 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.web.context.annotation.RequestScope;
+
 import com.everis.academia.java.agenda.digital.business.BusinessException;
-import com.everis.academia.java.agenda.digital.business.PrestadorServico.IPrestadorServicoBusiness;
-import com.everis.academia.java.agenda.digital.business.PrestadorServico.PrestadorServicosBusiness;
 import com.everis.academia.java.agenda.digital.business.Telefone.ITelefoneBusiness;
 import com.everis.academia.java.agenda.digital.business.Telefone.TelefoneBusiness;
-import com.everis.academia.java.agendadigital.entity.PrestadorServico;
 import com.everis.academia.java.agendadigital.entity.Telefone;
 
+@Component("CreateTelefoneJSF")
 @ManagedBean(name = "CreateTelefoneJSF")
-
+@RequestScope
 public class CreateTelefoneJSF {
 
 	Telefone telefone = new Telefone();
 	
-//	@Autowired
-//	private IPrestadorServicoBusiness cidadebusiness;
+	@Autowired
+	private ITelefoneBusiness telefoneBusiness;
 
-	ITelefoneBusiness telefoneBusiness = new TelefoneBusiness();
+//	ITelefoneBusiness telefoneBusiness = new TelefoneBusiness();
 
 
 	public Telefone getTelefone() {

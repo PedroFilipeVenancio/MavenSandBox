@@ -5,7 +5,9 @@ package com.everis.academia.java.agenda.web.PrestadorServico.jsf;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
@@ -19,8 +21,10 @@ import org.springframework.web.context.annotation.RequestScope;
 import com.everis.academia.java.agenda.digital.business.BusinessException;
 import com.everis.academia.java.agenda.digital.business.Cidade.ICidadeBusiness;
 import com.everis.academia.java.agenda.digital.business.PrestadorServico.IPrestadorServicoBusiness;
+import com.everis.academia.java.agenda.digital.business.Telefone.ITelefoneBusiness;
 import com.everis.academia.java.agendadigital.entity.Cidade;
 import com.everis.academia.java.agendadigital.entity.PrestadorServico;
+import com.everis.academia.java.agendadigital.entity.Telefone;
 
 import Enums.TipoLogradouro;
 
@@ -31,6 +35,9 @@ public class PrestadorServicoCreateBean {
 
 	@Autowired
 	private IPrestadorServicoBusiness business;
+	
+	@Autowired
+	private ITelefoneBusiness TelefoneBusiness;
 	
 	@Autowired
 	private ICidadeBusiness cidadebusiness;
@@ -86,8 +93,6 @@ public class PrestadorServicoCreateBean {
 	}
 	
 	public String createPrestadorServico() {
-		System.out.println(prestadorServico.getNome() + "LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL");
-		System.out.println(prestadorServico.getCidade().getNome());
 		try {
 			business.create(prestadorServico);
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, prestadorServico.getNome(), ": registado com sucesso!"));
@@ -102,5 +107,9 @@ public class PrestadorServicoCreateBean {
 		this.prestadorServico = new PrestadorServico();
 		return null;
 	}
+	
+	public void  insertPhone(Byte numero) {
+		Set numeros = new HashSet<Telefone>();
+		}
 	
 }

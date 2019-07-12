@@ -1,21 +1,33 @@
 package com.everis.academia.java.agendadigital.entity;
 
-//@Entity
-//@Table(name="telefone")
+import javax.persistence.Column;
+import javax.persistence.ConstraintMode;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.ForeignKey;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="TB_TELEFONE", schema = "public")
+@SequenceGenerator(name = "SQ_TELEFONE", sequenceName = "SQ_TELEFONE", initialValue = 1, allocationSize = 1)
 public class Telefone {
 	
-	
-	
-//	@Id
-//	@Column(name="id")
+	@Id
+	@Column(name = "COD_TELEFONE")
 	private Integer codigo;
 		
-//	@Column(name="ddd")
-	private Integer ddd;
+//	@Column(name = "DDD_TELEFONE", nullable = false)
+//	private Integer ddd;
 	
-//	@Column(name="numero")
+	@Column(name = "NUM_TELEFONE", nullable = false)
 	private Byte numero;
 	
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = PrestadorServico.class)
+	@JoinColumn(name = "COD_PRESTADOR_SERVICO", nullable = false, foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "FK_TB_TELEF_TB_PRESTADOR_SERV"))
 	private PrestadorServico prestadorServico;
 	
 	public Telefone(Integer codigo) {
@@ -23,10 +35,16 @@ public class Telefone {
 	this.codigo = codigo;
 }
 
-	public Telefone(Integer codigo, Integer ddd, Byte numero) {
+//	public Telefone(Integer codigo, Integer ddd, Byte numero) {
+//	super();
+//	this.codigo = codigo;
+//	this.ddd = ddd;
+//	this.numero = numero;
+//}
+	
+	public Telefone(Integer codigo,  Byte numero) {
 	super();
 	this.codigo = codigo;
-	this.ddd = ddd;
 	this.numero = numero;
 }
 	
@@ -42,14 +60,6 @@ public class Telefone {
 
 	public void setCodigo(Integer codigo) {
 		this.codigo = codigo;
-	}
-
-	public Integer getDdd() {
-		return ddd;
-	}
-
-	public void setDdd(Integer ddd) {
-		this.ddd = ddd;
 	}
 
 	public Byte getNumero() {

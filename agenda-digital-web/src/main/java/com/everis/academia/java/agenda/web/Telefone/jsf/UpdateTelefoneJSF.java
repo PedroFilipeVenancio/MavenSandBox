@@ -4,6 +4,10 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.web.context.annotation.RequestScope;
+
 import com.everis.academia.java.agenda.digital.business.BusinessException;
 import com.everis.academia.java.agenda.digital.business.PrestadorServico.IPrestadorServicoBusiness;
 import com.everis.academia.java.agenda.digital.business.PrestadorServico.PrestadorServicosBusiness;
@@ -12,14 +16,15 @@ import com.everis.academia.java.agenda.digital.business.Telefone.TelefoneBusines
 import com.everis.academia.java.agendadigital.entity.PrestadorServico;
 import com.everis.academia.java.agendadigital.entity.Telefone;
 
+@Component("UpdateTelefoneJSF")
 @ManagedBean(name = "UpdateTelefoneJSF")
-
+@RequestScope
 public class UpdateTelefoneJSF {
 	Telefone telefone = new Telefone();
 
-	ITelefoneBusiness telefoneBusiness = new TelefoneBusiness();
-//	@Autowired
-//	private ICidadeBusiness cidadebusiness;
+//	ITelefoneBusiness telefoneBusiness = new TelefoneBusiness();
+	@Autowired
+	private ITelefoneBusiness telefoneBusiness;
 	public Telefone getTelefone() {
 		return telefone;
 	}

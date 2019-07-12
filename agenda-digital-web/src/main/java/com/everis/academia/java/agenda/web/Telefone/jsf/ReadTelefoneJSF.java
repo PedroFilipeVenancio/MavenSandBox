@@ -7,6 +7,10 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.web.context.annotation.RequestScope;
+
 import com.everis.academia.java.agenda.digital.business.Telefone.ITelefoneBusiness;
 import com.everis.academia.java.agenda.digital.business.Telefone.TelefoneBusiness;
 import com.everis.academia.java.agendadigital.entity.Telefone;
@@ -15,13 +19,14 @@ import com.everis.academia.java.agendadigital.entity.Telefone;
 //@ViewScoped
 
 
+@Component("ReadTelefoneJSF")
 @ManagedBean(name = "ReadTelefoneJSF")
-
+@RequestScope
 public class ReadTelefoneJSF {
 
-	ITelefoneBusiness telefoneBusiness = new TelefoneBusiness();
-//	@Autowired
-//	private ICidadeBusiness cidadebusiness;
+//	ITelefoneBusiness telefoneBusiness = new TelefoneBusiness();
+	@Autowired
+	private ITelefoneBusiness telefoneBusiness;
 	
 	Telefone telefone = new Telefone();
 

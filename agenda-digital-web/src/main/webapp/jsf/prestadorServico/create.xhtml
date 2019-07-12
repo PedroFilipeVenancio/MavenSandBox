@@ -75,6 +75,13 @@
 				<div class="ui-g-1"><p:inputText id="email" value="#{prestadorServicoCreate.prestadorServico.email}" /></div>
 				<div class="ui-g-10"></div>			
 				</p:panelGrid>
+				
+				<p:panelGrid>
+				<div class="ui-g-1"><p:outputLabel for="telefone" value="telefone: " /></div>
+				<div class="ui-g-1"><p:inputText id="telefone" value="#{prestadorServicoCreate.prestadorServico.email}" /></div>
+				<div class="ui-g-10"></div>			
+				</p:panelGrid>
+				
 				</div>
 				<p:commandButton value="Enviar" action="#{prestadorServicoCreate.createPrestadorServico}" update="@form" />
 				<p:commandButton value="Limpar" action="#{prestadorServicoCreate.cleanPrestadorServico}" update="@form"/>
