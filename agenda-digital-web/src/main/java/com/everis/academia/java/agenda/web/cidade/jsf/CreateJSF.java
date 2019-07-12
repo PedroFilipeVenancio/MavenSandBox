@@ -16,7 +16,7 @@ import com.everis.academia.java.agendadigital.entity.Cidade;
 @RequestScope
 public class CreateJSF {
 
-	Cidade cidade = new Cidade();
+	private Cidade cidade = new Cidade();
 	
 	@Autowired
 	private ICidadeBusiness cidadebusiness;
@@ -33,6 +33,7 @@ public class CreateJSF {
 
 	public String addCity() throws BusinessException {
 		try {
+			System.out.println("noaddcity" + cidade.getCodigo());
 			cidadebusiness.create(cidade);
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO,"Cidade adicionada com sucesso","Detalhe...?"));
 //			FacesContext.getCurrentInstance().addMessage("nome", new FacesMessage(FacesMessage.SEVERITY_ERROR,"Cidade adicionada com sucesso no nomeeeeee","Detalhe...?"));

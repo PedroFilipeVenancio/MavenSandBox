@@ -41,7 +41,7 @@ public class CidadeBusiness implements ICidadeBusiness {
 	@Override
 	@Transactional(propagation = Propagation.REQUIRED)
 	public void create(Cidade cidade) throws BusinessException {
-
+		System.out.println("no business" + cidade.getCodigo());
 		// valida parametros
 		if (cidade.getNome() == null || cidade.getNome().trim().isEmpty()) {
 			throw new BusinessException("É obrigatorio");

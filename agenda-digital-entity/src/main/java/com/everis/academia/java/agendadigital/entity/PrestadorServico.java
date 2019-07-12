@@ -2,45 +2,75 @@ package com.everis.academia.java.agendadigital.entity;
 
 import java.util.Set;
 
-import Enums.TipoLogradouro;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.ConstraintMode;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
+import javax.persistence.ForeignKey;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 
+import Enums.TipoLogradouro;
+//@Entity
+//@Table(name = "TB_PRESTADOR_SERVICO")
+//@SequenceGenerator(name = "SQ_PRESTADOR_SERVICO", sequenceName = "SQ_PRESTADOR_SERVICO", initialValue = 1, allocationSize = 1)
 public class PrestadorServico {
 
-//	@Id
-//	@Column(name="id")
+//	@Id()
+//	@Column(name = "COD_PRESTADOR_SERVICO")
+//	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_PRESTADOR_SERVICO")
 	private Integer codigo;
 
-//	@Column(name="nome")
+//	@Column(name = "NOM_PRESTADOR_SERVICO", length = 100, nullable = false)
 	private String nome;
 
-//	@Column(name="cidade")
+//	@ManyToOne(fetch = FetchType.EAGER, targetEntity = Cidade.class)
+//	@JoinColumn(name = "COD_CIDADE", nullable = false, foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "FK_TB_PRESTADOR_SERV_TB_CIDADE"))
 	private Cidade cidade;
 
-//	@Column(name="bairro")
+//	@Column(name = "NOM_BAIRRO", length = 50, nullable = false)
 	private String bairro;
 
-//	@Column(name="cep")
+//	@Column(name = "NUM_CEP", length = 10, nullable = true)
 	private String cep;
 
-//	@Column(name="tipoLogradouro")
+//	@Column(name = "TIP_LOGRADOURO", length = 10, nullable = false)
+//	@Enumerated(EnumType.STRING)
 	private TipoLogradouro tipoLogradouro;
 
-//	@Column(name="logradouro")
+//	@Column(name = "DES_LOGRADROURO", length = 100, nullable = false)
 	private String logradouro;
 
-//	@Column(name="complemento")
+//	@Column(name = "DES_COMPLEMENTO", length = 200, nullable = true)
 	private String complemento;
 
-//	@Column(name="numero")
+//	@Column(name = "NUMERO", nullable = false)
 	private String numero;
 
-//	@Column(name="email")
+//	@Column(name = "DES_EMAIL", length = 80, nullable = true)
 	private String email;
 
+//	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "prestadorServico", orphanRemoval = true, targetEntity = Telefone.class)
 	private Set<Telefone> telefones;
 
+//	@ManyToMany(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER, targetEntity = TipoServico.class)
+//	@JoinTable(name = "RL_SERVICO_CREDENCIADO", joinColumns = {
+//			@JoinColumn(name = "COD_PRESTADOR_SERVICO") }, inverseJoinColumns = {
+//					@JoinColumn(name = "COD_TIPO_SERVICO") })
 	private Set<TipoServico> tiposServicos;
-
+	
+//	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "prestadorServico", orphanRemoval = true, targetEntity = PrestacaoServico.class)
 	private Set<PrestacaoServico> prestacoesServicos;
 
 	public PrestadorServico(Integer codigo) {

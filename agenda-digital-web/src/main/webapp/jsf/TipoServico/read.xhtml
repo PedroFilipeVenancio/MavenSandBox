@@ -1,0 +1,41 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<h:head>
+		<title>Agenda digital</title>
+	</h:head>
+	<h:body>
+		<h:form>
+			<p:panel header="Lista de Tipos de Serviço">
+				<p:messages showSummary="true" showDetail="true" />
+				<p:link value="Adicionar novo tipo de serviço" outcome="create.xhtml" />
+				<p:dataTable value="#{tipoServicoRead.tiposServico}" var="tipoServico" border="1">
+					<p:column>
+						<f:facet name="header">
+							<p:outputLabel value="Código" />
+						</f:facet>
+						<h:outputText value="#{tipoServico.codigo}" />
+					</p:column>
+					<p:column>
+						<f:facet name="header">
+							<p:outputLabel value="Descrição" />
+						</f:facet>
+						<h:outputText value="#{tipoServico.descricao}" />
+					</p:column>
+					<p:column>
+						<f:facet name="header">
+							<p:outputLabel value="Acções" />
+						</f:facet>
+						<h:commandLink action="#{tipoServicoUpdate.edit(tipoServico)}" value="Editar" style="margin-right: 5px" />
+	
+						<h:commandLink action="#{tipoServicoDelete.delete}" value="Excluir">
+							<f:setPropertyActionListener target="#{tipoServicoDelete.tipoServico}" value="#{tipoServico}" />
+						</h:commandLink>
+					</p:column>
+				</p:dataTable>
+			</p:panel>
+		</h:form>
+	</h:body>
+</html>

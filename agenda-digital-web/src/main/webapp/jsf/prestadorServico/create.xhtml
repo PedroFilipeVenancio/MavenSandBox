@@ -1,0 +1,86 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+      
+ 
+    <h:head>
+        <title>Agenda digital</title>
+    </h:head>
+    <h:body>
+	    <h:form prependID="false">
+   			<p:panel header="Criar Prestador de Servico">
+   			<div class="ui-g">
+				<p:panelGrid>
+				<div class="ui-g-1"><p:outputLabel for="nome" value="Nome: " /></div>
+				<div class="ui-g-1"><p:inputText id="nome" value="#{prestadorServicoCreate.prestadorServico.nome}" /></div>
+				<div class="ui-g-10"></div>				
+				</p:panelGrid>
+				
+				
+				<p:panelGrid>
+				<div class="ui-g-1"><p:outputLabel for="cidade" value="Cidade: " /></div>
+				<div class="ui-g-1">
+				<p:selectOneMenu id="cidade" value="#{readJSF.cidade.nome}" effect="fold" editable="false">
+            		<f:selectItem itemLabel="Select One" itemValue="" />
+            		<f:selectItems value="#{readJSF.teste}" />
+        		</p:selectOneMenu>
+				
+				</div>
+				<div class="ui-g-10"></div>	
+				</p:panelGrid>
+				
+				
+				
+				
+				<p:panelGrid>
+				<div class="ui-g-1"><p:outputLabel for="bairro" value="Bairro: " /></div>
+				<div class="ui-g-1"><p:inputText id="bairro" value="#{prestadorServicoCreate.prestadorServico.bairro}" /></div>
+				<div class="ui-g-10"></div>		
+				</p:panelGrid>
+				
+				<p:panelGrid>
+					<div class="ui-g-1"><p:outputLabel for="cep" value="CEP: " /></div>
+					<div class="ui-g-1"><p:inputText id="cep" value="#{prestadorServicoCreate.prestadorServico.cep}" /></div>
+					<div class="ui-g-10"></div>			
+				</p:panelGrid>
+				
+				<p:panelGrid>
+				<div class="ui-g-1"><p:outputLabel for="logradouro" value="Logradouro: " /></div>
+				<div class="ui-g-1"><p:inputText id="logradouro" value="#{prestadorServicoCreate.prestadorServico.logradouro}" /></div>
+				<div class="ui-g-10"></div>				
+				</p:panelGrid>
+				
+				<p:panelGrid>
+				<div class="ui-g-1"><p:outputLabel for="complemento" value="Complemento: " /></div>
+				<div class="ui-g-1"><p:inputText id="complemento" value="#{prestadorServicoCreate.prestadorServico.complemento}" /></div>
+				<div class="ui-g-10"></div>		
+				</p:panelGrid>
+				
+				<p:panelGrid>
+				<div class="ui-g-1"><p:outputLabel for="numero" value="Numero: " /></div>
+				<div class="ui-g-1"><p:inputText id="numero" value="#{prestadorServicoCreate.prestadorServico.numero}" /></div>
+				<div class="ui-g-10"></div>	
+				</p:panelGrid>
+				
+				<p:panelGrid>
+				<div class="ui-g-1"><p:outputLabel for="email" value="Email: " /></div>
+				<div class="ui-g-1"><p:inputText id="email" value="#{prestadorServicoCreate.prestadorServico.email}" /></div>
+				<div class="ui-g-10"></div>			
+				</p:panelGrid>
+				</div>
+				<p:commandButton value="Enviar" action="#{prestadorServicoCreate.createPrestadorServico}" update="@form" />
+				<p:commandButton value="Limpar" action="#{prestadorServicoCreate.cleanPrestadorServico}" update="@form"/>
+				<p:commandButton value="Voltar" action="read?faces-redirect=true" />
+			</p:panel>
+			<p:messages showSummary="true" showDetail="true" />
+		</h:form>
+    </h:body>
+</html>
+
+
+
+
+
+
+

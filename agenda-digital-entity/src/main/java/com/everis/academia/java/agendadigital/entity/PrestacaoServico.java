@@ -2,18 +2,36 @@ package com.everis.academia.java.agendadigital.entity;
 import java.util.Date;
 import java.util.Set;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
 //@Entity
 //@Table(name="prestacaoServico")
+
+//@Entity
+//@Table(name="TB_PRESTACAO_SERV", schema = "public")
+//@SequenceGenerator(name = "SQ_PRESTACAO_SERV", sequenceName = "SQ_PRESTACAO_SERV", schema = "public", initialValue = 1, allocationSize =  1)
 public class PrestacaoServico {
 
 //	@Id
 //	@Column(name="id")
+	
+//	@Id
+//	@GeneratedValue(generator = "SQ_PRESTACAO_SERV", strategy = GenerationType.SEQUENCE)
+//	@Column(name="COD_PRESTACAO_SERV")
 	private Integer codigo;
 
 //	@Column(name="data")
+//	@Column(name="NOME_PRESTACAO_SERV")
 	private Date data;
 
 //	@Column(name="prestador")
+//	@Column(name="PRESTADOR_PRESTACAO_SERV")
 	private PrestadorServico prestador;
 
 	private Set<ServicoPrestado> servicoPrestados;

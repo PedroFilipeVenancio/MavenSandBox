@@ -3,9 +3,11 @@ package com.everis.academia.java.agenda.digital.dao.TipoServico;
 import java.util.Collection;
 import java.util.HashSet;
 
+import org.springframework.stereotype.Repository;
+
 import com.everis.academia.java.agenda.digital.dao.IGeralDAO;
 import com.everis.academia.java.agendadigital.entity.TipoServico;
-
+//@Repository
 public class TipoServicoDAO implements ITipoServicoDAO {
 	
 //	public static List<TipoServico> TipoServicos = new ArrayList<TipoServico>();

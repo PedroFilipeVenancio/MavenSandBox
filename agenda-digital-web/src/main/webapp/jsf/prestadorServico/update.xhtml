@@ -1,0 +1,49 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:p="http://primefaces.org/ui">
+
+	<h:head>
+		<title>Agenda digital</title>
+	</h:head>
+	<h:body>
+		<h:form>
+			<p:panel header="Editar Prestador de Servico">
+				<p:panelGrid>
+					<p:outputLabel value="Id: " />
+					<p:inputText value="#{prestadorServicoUpdate.prestadorServico.codigo}" onfocus="this.blur();" />
+				</p:panelGrid>
+				<p:panelGrid>
+					<p:outputLabel value="Nome: " />
+					<p:inputText value="#{prestadorServicoUpdate.prestadorServico.nome}" />
+				</p:panelGrid>
+				<p:panelGrid>
+					<p:outputLabel value="Bairro: " />
+					<p:inputText value="#{prestadorServicoUpdate.prestadorServico.bairro}" />
+				</p:panelGrid>
+				<p:panelGrid>
+					<p:outputLabel value="CEP: " />
+					<p:inputText value="#{prestadorServicoUpdate.prestadorServico.cep}" />
+				</p:panelGrid>
+				<p:panelGrid>
+					<p:outputLabel value="Logradouro: " />
+					<p:inputText value="#{prestadorServicoUpdate.prestadorServico.logradouro}" />
+				</p:panelGrid>
+				<p:panelGrid>
+					<p:outputLabel value="Complemento: " />
+					<p:inputText value="#{prestadorServicoUpdate.prestadorServico.complemento}" />
+				</p:panelGrid>
+				<p:panelGrid>
+					<p:outputLabel value="Numero: " />
+					<p:inputText value="#{prestadorServicoUpdate.prestadorServico.numero}" />
+				</p:panelGrid>
+				<p:panelGrid>
+					<p:outputLabel value="Email: " />
+					<p:inputText value="#{prestadorServicoUpdate.prestadorServico.email}" />
+				</p:panelGrid>
+				<p:commandButton value="Enviar" action="#{prestadorServicoUpdate.update}" update="@form" />
+				<p:commandButton value="Voltar" action="read?faces-redirect=true" update="@form" />
+			</p:panel>
+			<p:messages showSummary="true" showDetail="true" />
+		</h:form>
+	</h:body>
+</html>

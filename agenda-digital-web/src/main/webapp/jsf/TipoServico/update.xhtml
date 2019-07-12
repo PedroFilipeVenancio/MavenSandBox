@@ -1,0 +1,21 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:p="http://primefaces.org/ui">
+
+	<h:head>
+		<title>Agenda digital</title>
+	</h:head>
+	<h:body>
+		<h:form>
+			<p:panel header="Editar Tipo de Serviço">
+				<p:outputLabel value="Id: " />
+				<p:inputText value="#{tipoServicoUpdate.tipoServico.codigo}" onfocus="this.blur();" />
+				<p:outputLabel value="Descrição: " />
+				<p:inputText value="#{tipoServicoUpdate.tipoServico.descricao}" />
+				<p:commandButton value="Enviar" action="#{tipoServicoUpdate.update}" update="@form" />
+				<p:commandButton value="Voltar" action="read?faces-redirect=true" update="@form" />
+			</p:panel>
+			<p:messages showSummary="true" showDetail="true" />
+		</h:form>
+	</h:body>
+</html>

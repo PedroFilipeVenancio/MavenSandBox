@@ -3,15 +3,18 @@ package com.everis.academia.java.agenda.digital.business.Telefone;
 
 import java.util.Collection;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.everis.academia.java.agenda.digital.business.BusinessException;
-import com.everis.academia.java.agenda.digital.business.IGeralBusiness;
 import com.everis.academia.java.agenda.digital.dao.Telefone.ITelefoneDAO;
-import com.everis.academia.java.agenda.digital.dao.Telefone.TelefoneDAO;
 import com.everis.academia.java.agendadigital.entity.Telefone;
 
 public class TelefoneBusiness implements ITelefoneBusiness {
 
-	ITelefoneDAO dao = new TelefoneDAO();
+//	ITelefoneDAO dao = new TelefoneDAO();
+	
+	@Autowired
+	private ITelefoneDAO dao;
 
 	@Override
 	public void delete(Telefone TelefoneVar) {

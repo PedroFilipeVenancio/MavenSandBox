@@ -2,16 +2,18 @@ package com.everis.academia.java.agenda.digital.business.ServicoPrestado;
 
 import java.util.Collection;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.everis.academia.java.agenda.digital.business.BusinessException;
-import com.everis.academia.java.agenda.digital.business.IGeralBusiness;
-import com.everis.academia.java.agenda.digital.dao.IGeralDAO;
 import com.everis.academia.java.agenda.digital.dao.ServicoPrestado.IServicoPrestadoDAO;
-import com.everis.academia.java.agenda.digital.dao.ServicoPrestado.ServicoPrestadoDAO;
 import com.everis.academia.java.agendadigital.entity.ServicoPrestado;
 
 public class ServicoPrestadoBusiness implements IServicoPrestadoBusiness {
 
-	IServicoPrestadoDAO dao = new ServicoPrestadoDAO();
+//	IServicoPrestadoDAO dao = new ServicoPrestadoDAO();
+	
+	@Autowired
+	private IServicoPrestadoDAO dao;
 
 	@Override
 	public void delete(ServicoPrestado servicoPrestadoVar) {
