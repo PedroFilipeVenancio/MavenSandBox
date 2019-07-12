@@ -17,6 +17,8 @@ import com.everis.academia.java.agenda.digital.business.PrestadorServico.IPresta
 import com.everis.academia.java.agendadigital.entity.Cidade;
 import com.everis.academia.java.agendadigital.entity.PrestadorServico;
 
+import Enums.TipoLogradouro;
+
 @Component("prestadorServicoUpdate")
 @ManagedBean(name = "prestadorServicoUpdate")
 @RequestScope
@@ -28,6 +30,8 @@ public class PrestadorServicoUpdateBean {
 	@Autowired
 	private ICidadeBusiness cidadebusiness;
 	
+	private Cidade cidade = new Cidade();
+	
 	private PrestadorServico prestadorServico = new PrestadorServico();
 	
 	private Collection<Cidade> cidades = null;
@@ -36,6 +40,34 @@ public class PrestadorServicoUpdateBean {
 	public void init() {
 		this.cidades = cidadebusiness.read();
 	}
+	
+	public TipoLogradouro[] getAreas(){
+		return TipoLogradouro.values();
+	}
+
+	public Cidade getCidade() {
+		return cidade;
+	}
+
+
+
+	public void setCidade(Cidade cidade) {
+		this.cidade = cidade;
+	}
+
+
+
+	public Collection<Cidade> getCidades() {
+		return cidades;
+	}
+
+
+
+	public void setCidades(Collection<Cidade> cidades) {
+		this.cidades = cidades;
+	}
+
+
 
 	public PrestadorServico getPrestadorServico() {
 

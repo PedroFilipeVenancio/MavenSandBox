@@ -39,7 +39,6 @@ public class PrestadorServicoCreateBean {
 	
 	private Cidade cidade = new Cidade();
 	
-	
 	private Collection<Cidade> cidades = null;
 	
 	public TipoLogradouro[] getAreas(){

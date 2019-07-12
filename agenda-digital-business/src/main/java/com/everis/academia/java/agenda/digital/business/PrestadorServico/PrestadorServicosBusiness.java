@@ -29,14 +29,14 @@ public class PrestadorServicosBusiness implements IPrestadorServicoBusiness {
 	@Transactional(propagation = Propagation.REQUIRED)
 	public void update(PrestadorServico prestadorServicoVar) throws BusinessException {
 		// valida parametros
-//		if (prestadorServicoVar.getNome() == null || prestadorServicoVar.getNome().trim().isEmpty()) {
-//			throw new BusinessException("É obrigatorio");
-//		}
+		if (prestadorServicoVar.getNome() == null || prestadorServicoVar.getNome().trim().isEmpty()) {
+			throw new BusinessException("É obrigatorio");
+		}
 
 		// verifica se já existe
-		if (dao.jaExiste(prestadorServicoVar)) {
-			throw new BusinessException("já existe");
-		}
+//		if (dao.jaExiste(prestadorServicoVar)) {
+//			throw new BusinessException("já existe");
+//		}
 		
 		dao.update(prestadorServicoVar);
 	}
