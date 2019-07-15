@@ -28,16 +28,42 @@ public class PrestadorServicosBusiness implements IPrestadorServicoBusiness {
 	@Override
 	@Transactional(propagation = Propagation.REQUIRED)
 	public void update(PrestadorServico prestadorServicoVar) throws BusinessException {
-		// valida parametros
+
 		if (prestadorServicoVar.getNome() == null || prestadorServicoVar.getNome().trim().isEmpty()) {
 			throw new BusinessException("É obrigatorio");
 		}
 
-		// verifica se já existe
-//		if (dao.jaExiste(prestadorServicoVar)) {
-//			throw new BusinessException("já existe");
-//		}
+		if (!prestadorServicoVar.getNome().matches("[a-zA-Z ]+")) {
+			throw new BusinessException("Formato errado, só é permitido letras e espaços");
+		}
 		
+		if (prestadorServicoVar.getNome().length()>=100) {
+			throw new BusinessException("Não é permitido mais de 100 Caracteres");
+		}
+		if (prestadorServicoVar.getBairro().length()>=50) {
+			throw new BusinessException("Não é permitido mais de 50 Caracteres");
+		}
+		if (prestadorServicoVar.getCep().length()>=10) {
+			throw new BusinessException("Não é permitido mais de 10 Caracteres");
+		}
+		if (prestadorServicoVar.getComplemento().length()>=200) {
+			throw new BusinessException("Não é permitido mais de 200 Caracteres");
+		}
+		if (prestadorServicoVar.getLogradouro().length()>=100) {
+			throw new BusinessException("Não é permitido mais de 100 Caracteres");
+		}
+		if (prestadorServicoVar.getEmail().length()>=80) {
+			throw new BusinessException("Não é permitido mais de 80 Caracteres");
+		}
+		if (prestadorServicoVar.getEmail().length()>=80) {
+			throw new BusinessException("Não é permitido mais de 80 Caracteres");
+		}
+		if (!prestadorServicoVar.getEmail().matches(".+\\@.+\\..+")) {
+			throw new BusinessException("formato email errado");
+		}
+		if (!prestadorServicoVar.getNumero().matches("[0-9]+")) {
+			throw new BusinessException("so aceita numeros");
+		}
 		dao.update(prestadorServicoVar);
 	}
 
@@ -54,12 +80,42 @@ public class PrestadorServicosBusiness implements IPrestadorServicoBusiness {
 		if (dao.jaExiste(prestadorServicoVar)) {
 			throw new BusinessException("já existe");
 		}
-
-		if (!prestadorServicoVar.getNome().matches("[a-zA-Z]+")) {
-			throw new BusinessException("Formato errado");
-
+		
+		if (prestadorServicoVar.getNome() == null || prestadorServicoVar.getNome().trim().isEmpty()) {
+			throw new BusinessException("É obrigatorio");
 		}
 
+		if (!prestadorServicoVar.getNome().matches("[a-zA-Z ]+")) {
+			throw new BusinessException("Formato errado, só é permitido letras e espaços");
+		}
+		
+		if (prestadorServicoVar.getNome().length()>=100) {
+			throw new BusinessException("Não é permitido mais de 100 Caracteres");
+		}
+		if (prestadorServicoVar.getBairro().length()>=50) {
+			throw new BusinessException("Não é permitido mais de 50 Caracteres");
+		}
+		if (prestadorServicoVar.getCep().length()>=10) {
+			throw new BusinessException("Não é permitido mais de 10 Caracteres");
+		}
+		if (prestadorServicoVar.getComplemento().length()>=200) {
+			throw new BusinessException("Não é permitido mais de 200 Caracteres");
+		}
+		if (prestadorServicoVar.getLogradouro().length()>=100) {
+			throw new BusinessException("Não é permitido mais de 100 Caracteres");
+		}
+		if (prestadorServicoVar.getEmail().length()>=80) {
+			throw new BusinessException("Não é permitido mais de 80 Caracteres");
+		}
+		if (prestadorServicoVar.getEmail().length()>=80) {
+			throw new BusinessException("Não é permitido mais de 80 Caracteres");
+		}
+		if (!prestadorServicoVar.getEmail().matches(".+\\@.+\\..+")) {
+			throw new BusinessException("formato email errado");
+		}
+		if (!prestadorServicoVar.getNumero().matches("[0-9]+")) {
+			throw new BusinessException("so aceita numeros");
+		}
 		dao.create(prestadorServicoVar);
 	}
 

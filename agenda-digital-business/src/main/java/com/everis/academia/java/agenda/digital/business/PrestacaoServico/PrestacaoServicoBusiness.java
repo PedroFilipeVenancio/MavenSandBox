@@ -47,6 +47,7 @@ public class PrestacaoServicoBusiness implements IPrestacaoServicoBusiness {
 		if (dao.jaExiste(prestacaoServicoVar)) {
 			throw new BusinessException("já existe");
 		}
+		
 
 		dao.create(prestacaoServicoVar);
 	}

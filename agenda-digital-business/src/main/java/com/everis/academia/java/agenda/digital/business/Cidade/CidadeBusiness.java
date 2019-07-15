@@ -29,10 +29,20 @@ public class CidadeBusiness implements ICidadeBusiness {
 	public void update(Cidade cidade) throws BusinessException {
 		// valida parametros
 		if (cidade.getNome() == null || cidade.getNome().trim().isEmpty()) {
-			throw new BusinessException("É obrigatorio");
+			throw new BusinessException("É obrigatorio adicionar uma cidade");
 		}
+
 		// verifica se já existe
 		if (dao.jaExiste(cidade)) {
+			throw new BusinessException("já existe esta cidade, insira outra cidade por favor");
+		}
+
+		if (!cidade.getNome().matches("[a-zA-Z ]+")) {
+			throw new BusinessException("Formato errado, só é permitido letras e espaços");
+		}
+		
+		if (cidade.getNome().length()>=100) {
+			throw new BusinessException("Não é permitido mais de 100 Caracteres");
 		}
 		
 		dao.update(cidade);
@@ -41,20 +51,22 @@ public class CidadeBusiness implements ICidadeBusiness {
 	@Override
 	@Transactional(propagation = Propagation.REQUIRED)
 	public void create(Cidade cidade) throws BusinessException {
-		System.out.println("no business" + cidade.getCodigo());
 		// valida parametros
 		if (cidade.getNome() == null || cidade.getNome().trim().isEmpty()) {
-			throw new BusinessException("É obrigatorio");
+			throw new BusinessException("É obrigatorio adicionar uma cidade");
 		}
 
 		// verifica se já existe
 		if (dao.jaExiste(cidade)) {
-			throw new BusinessException("já existe");
+			throw new BusinessException("já existe esta cidade, insira outra cidade por favor");
 		}
 
-		if (!cidade.getNome().matches("[a-zA-Z]+")) {
-			throw new BusinessException("Formato errado");
-
+		if (!cidade.getNome().matches("[a-zA-Z ]+")) {
+			throw new BusinessException("Formato errado, só é permitido letras e espaços");
+		}
+		
+		if (cidade.getNome().length()>=100) {
+			throw new BusinessException("Não é permitido mais de 100 Caracteres");
 		}
 
 		dao.create(cidade);

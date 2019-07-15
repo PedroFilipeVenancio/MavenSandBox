@@ -78,14 +78,35 @@
 				
 				<p:panelGrid>
 				<div class="ui-g-1"><p:outputLabel for="telefone" value="telefone: " /></div>
-				<div class="ui-g-1"><p:inputText id="telefone" value="#{prestadorServicoCreate.prestadorServico.email}" /></div>
+				<div class="ui-g-1"><p:inputText id="telefone" value="#{prestadorServicoCreate.newPhone.numero}" />
+				<p:commandButton value="+" action="#{prestadorServicoCreate.insertPhone}" update="@form" />
+				</div>
 				<div class="ui-g-10"></div>			
 				</p:panelGrid>
+				
+				<p:dataTable var="numero" value="#{prestadorServicoCreate.numeros}">
+				    <p:column headerText="Id">
+				        <h:outputText value="#{numero.codigo}" />
+				    </p:column>
+				 
+				    <p:column headerText="DDD">
+				        <h:outputText value="#{numero.ddd}" />
+				    </p:column>
+				 
+				    <p:column headerText="numero">
+				        <h:outputText value="#{numero.numero}" />
+				    </p:column>
+				 
+				</p:dataTable>
+				
+<!-- 			    <p:selectManyCheckbox id="grid" value="#{prestadorServicoCreate.prestadorServico.tiposServicos}" layout="grid" columns="3"> -->
+<!-- 			        <f:selectItems value="#{prestadorServicoCreate.tiposServico}" var="tipoServico" itemLabel="#{tipoServico.descricao}" itemValue="#{tipoServico.codigo}" /> -->
+<!-- 			    </p:selectManyCheckbox> -->
 				
 				</div>
 				<p:commandButton value="Enviar" action="#{prestadorServicoCreate.createPrestadorServico}" update="@form" />
 				<p:commandButton value="Limpar" action="#{prestadorServicoCreate.cleanPrestadorServico}" update="@form"/>
-				<p:commandButton value="Voltar" action="read?faces-redirect=true" />
+				<a href="../../">Volte ao inicio</a>
 			</p:panel>
 			<p:messages showSummary="true" showDetail="true" />
 		</h:form>

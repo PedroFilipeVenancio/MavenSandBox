@@ -22,9 +22,11 @@ import com.everis.academia.java.agenda.digital.business.BusinessException;
 import com.everis.academia.java.agenda.digital.business.Cidade.ICidadeBusiness;
 import com.everis.academia.java.agenda.digital.business.PrestadorServico.IPrestadorServicoBusiness;
 import com.everis.academia.java.agenda.digital.business.Telefone.ITelefoneBusiness;
+import com.everis.academia.java.agenda.digital.business.TipoServico.ITipoServicoBusiness;
 import com.everis.academia.java.agendadigital.entity.Cidade;
 import com.everis.academia.java.agendadigital.entity.PrestadorServico;
 import com.everis.academia.java.agendadigital.entity.Telefone;
+import com.everis.academia.java.agendadigital.entity.TipoServico;
 
 import Enums.TipoLogradouro;
 
@@ -35,18 +37,22 @@ public class PrestadorServicoCreateBean {
 
 	@Autowired
 	private IPrestadorServicoBusiness business;
+	private PrestadorServico prestadorServico = new PrestadorServico();
 	
 	@Autowired
 	private ITelefoneBusiness TelefoneBusiness;
+	private Telefone newPhone = new Telefone();
+	Set<Telefone> numeros = new HashSet<Telefone>();
+	private static int id = 0;
 	
 	@Autowired
 	private ICidadeBusiness cidadebusiness;
-	
-	private PrestadorServico prestadorServico = new PrestadorServico();
-	
 	private Cidade cidade = new Cidade();
-	
 	private Collection<Cidade> cidades = null;
+	
+	@Autowired
+	private ITipoServicoBusiness tiposServicoBusiness;
+	private Collection<TipoServico> tiposServico = null;
 	
 	public TipoLogradouro[] getAreas(){
 		return TipoLogradouro.values();
@@ -56,13 +62,36 @@ public class PrestadorServicoCreateBean {
 	@PostConstruct
 	public void init() {
 		this.cidades = cidadebusiness.read();
+		this.tiposServico = tiposServicoBusiness.read();
 	}
 
 	public Cidade getCidade() {
 		return cidade;
 	}
+	
+	public Collection<TipoServico> getTiposServico() {
+		return tiposServico;
+	}
 
+	public void setTiposServico(Collection<TipoServico> tiposServico) {
+		this.tiposServico = tiposServico;
+	}
 
+	public Telefone getNewPhone() {
+		return newPhone;
+	}
+
+	public void setNewPhone(Telefone newPhone) {
+		this.newPhone = newPhone;
+	}
+
+	public Collection<Telefone> getNumeros() {
+		return numeros;
+	}
+
+	public void setNumeros(Set<Telefone> numeros) {
+		this.numeros = numeros;
+	}
 
 	public void setCidade(Cidade cidade) {
 		this.cidade = cidade;
@@ -94,7 +123,13 @@ public class PrestadorServicoCreateBean {
 	
 	public String createPrestadorServico() {
 		try {
+			prestadorServico.setTelefones(numeros);
+			for (Telefone numero : numeros) {
+				numero.setPrestadorServico(prestadorServico);
+			}
+			
 			business.create(prestadorServico);
+
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, prestadorServico.getNome(), ": registado com sucesso!"));
 			return "read";
 		} catch (BusinessException e) {
@@ -108,8 +143,17 @@ public class PrestadorServicoCreateBean {
 		return null;
 	}
 	
-	public void  insertPhone(Byte numero) {
-		Set numeros = new HashSet<Telefone>();
+	public void  insertPhone() {
+		this.newPhone.setDdd(0);
+		numeros.add(newPhone);
+//		try {
+//			TelefoneBusiness.create(newPhone);
+//		} catch (BusinessException e) {
+//			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro ao adicionar telefone!", e.getMessage()));
+//		}
+
 		}
+	
+	
 	
 }

@@ -34,11 +34,10 @@ public class TipoServicoBusiness implements ITipoServicoBusiness {
 		if (tipoServicoVar.getCodigo() == null) {
 			throw new BusinessException("É obrigatorio");
 		}
-
-		// verifica se já existe
-//		if (dao.jaExiste(tipoServicoVar)) {
-//			throw new BusinessException("já existe, msg do business");
-//		}
+		
+		if (tipoServicoVar.getDescricao().length()>=100) {
+			throw new BusinessException("Não é permitido mais de 100 Caracteres");
+		}
 		
 		dao.update(tipoServicoVar);
 	}
@@ -46,15 +45,13 @@ public class TipoServicoBusiness implements ITipoServicoBusiness {
 	@Override
 	@Transactional(propagation = Propagation.REQUIRED)
 	public void create(TipoServico tipoServicoVar) throws BusinessException {
-System.out.println("no business" + tipoServicoVar.getCodigo());
-		// valida parametros
-//		if (tipoServicoVar.getCodigo() == null ) {
-//			throw new BusinessException("É obrigatorioooooooooooooo");
-//		}
-
 		// verifica se já existe
 		if (dao.jaExiste(tipoServicoVar)) {
 			throw new BusinessException("já existe");
+		}
+		
+		if (tipoServicoVar.getDescricao().length()>=100) {
+			throw new BusinessException("Não é permitido mais de 100 Caracteres");
 		}
 
 		dao.create(tipoServicoVar);

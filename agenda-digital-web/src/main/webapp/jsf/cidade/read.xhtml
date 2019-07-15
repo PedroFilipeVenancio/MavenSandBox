@@ -3,44 +3,44 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
 
-	<h:head>
-		<title>Agenda digital</title>
-	</h:head>
-	<h:body>
-		<h:form>
-			<p:panel header="Lista de cidades">
-				<p:messages showSummary="true" showDetail="true" infoStyle="color:blue;" errorStyle="color:red;" />
-				<h:link value="Adicionar nova cidade" outcome="create.xhtml" />
-				<p:dataTable value="#{readJSF.cidades}" var="cidade" border="1">
-					<p:column>
-						<f:facet name="header">
-							<p:outputLabel value="Código" />
-						</f:facet>
-						<h:outputText value="#{cidade.codigo}" />
-					</p:column>
-					<p:column>
-						<f:facet name="header">
-							<p:outputLabel value="Nome" />
-						</f:facet>
-						<h:outputText value="#{cidade.nome}" />
-					</p:column>
-					<p:column>
-						<f:facet name="header">
-							<p:outputLabel value="Acções" />
-						</f:facet>
+<h:head>
+	<title>Agenda digital</title>
+</h:head>
+<h:body>
+	<h:form>
+		<p:panel header="Lista de cidades">
+			<p:messages showSummary="true" showDetail="true"
+				infoStyle="color:blue;" errorStyle="color:red;" />
+			<h:link value="Adicionar nova cidade" outcome="create.xhtml" />
+			<p:dataTable value="#{readJSF.cidades}" var="cidade" border="1">
+				<p:column>
+					<f:facet name="header">
+						<p:outputLabel value="Código" />
+					</f:facet>
+					<h:outputText value="#{cidade.codigo}" />
+				</p:column>
+				<p:column>
+					<f:facet name="header">
+						<p:outputLabel value="Nome" />
+					</f:facet>
+					<h:outputText value="#{cidade.nome}" />
+				</p:column>
+				<p:column>
+					<f:facet name="header">
+						<p:outputLabel value="Acções" />
+					</f:facet>
 
 					<p:column headerText="Accões">
 						<h:commandButton value="delete" action="#{readJSF.delete(cidade)}" />
-						<h:commandButton value="updade"	action="#{updateJSF.updateOK(cidade)}" />
+						<h:commandButton value="updade"
+							action="#{updateJSF.updateOK(cidade)}" />
 					</p:column>
-
-
-
 				</p:column>
-				</p:dataTable>
-			</p:panel>
-		</h:form>
-	</h:body>
+			</p:dataTable>
+			<a href="../../">Volte ao inicio</a>
+		</p:panel>
+	</h:form>
+</h:body>
 </html>
 
 

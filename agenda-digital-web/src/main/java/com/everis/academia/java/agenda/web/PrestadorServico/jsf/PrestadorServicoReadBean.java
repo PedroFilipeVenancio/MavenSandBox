@@ -34,9 +34,6 @@ public class PrestadorServicoReadBean {
 		return business.read();
 	}
 	
-
-
-
 	public void setPrestadoresServico(Collection<PrestadorServico> prestadoresServico) {
 		this.prestadoresServico = prestadoresServico;
 	}

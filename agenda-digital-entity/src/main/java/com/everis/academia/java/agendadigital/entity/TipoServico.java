@@ -22,7 +22,7 @@ public class TipoServico implements Serializable{
 	@Id
 	@GeneratedValue(generator = "SQ_TIPO_SERVICO", strategy = GenerationType.SEQUENCE )
 	@Column(name = "COD_TIPO_SERVICO")
-	private Integer codigo;
+	public Integer codigo;
 
 	@Column(name = "DISC_TIPO_SERVICO", length = 100, nullable = false)
 	private String descricao;

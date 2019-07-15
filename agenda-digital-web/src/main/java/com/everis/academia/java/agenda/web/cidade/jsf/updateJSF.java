@@ -40,7 +40,7 @@ public class updateJSF {
 			System.out.println("algum erro");
 //			FacesContext.getCurrentInstance().addMessage("nome", new FacesMessage(FacesMessage.SEVERITY_INFO,"Cidade não actulizada com sucesso por causa do nome",""));
 //			FacesContext.getCurrentInstance().addMessage("codigo", new FacesMessage(FacesMessage.SEVERITY_INFO,"Cidade não actulizada com sucesso por causa do codigo",""));
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO,"Cidade não actulizada com sucesso ",""));
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Cidade não actulizada!", e.getMessage()));
 
 			e.printStackTrace();
 			return "update";

@@ -56,20 +56,20 @@ public class PrestadorServico {
 	@Column(name = "DES_COMPLEMENTO", length = 200, nullable = true)
 	private String complemento;
 
-	@Column(name = "NUMERO", nullable = false)
+	@Column(name = "NUM_NUMERO", nullable = false)
 	private String numero;
 
 	@Column(name = "DES_EMAIL", length = 80, nullable = true)
 	private String email;
 
-//	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "prestadorServico", orphanRemoval = true, targetEntity = Telefone.class)
-	@Transient
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "prestadorServico", orphanRemoval = true, targetEntity = Telefone.class)
+//	@Transient
 	private Set<Telefone> telefones;
 
-//	@ManyToMany(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER, targetEntity = TipoServico.class)
-//	@JoinTable(name = "RL_SERVICO_CREDENCIADO", joinColumns = {
-//			@JoinColumn(name = "COD_PRESTADOR_SERVICO") }, inverseJoinColumns = {
-//					@JoinColumn(name = "COD_TIPO_SERVICO") })
+	@ManyToMany(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER, targetEntity = TipoServico.class)
+	@JoinTable(name = "RL_SERVICO_CREDENCIADO", joinColumns = {
+			@JoinColumn(name = "COD_PRESTADOR_SERVICO") }, inverseJoinColumns = {
+					@JoinColumn(name = "COD_TIPO_SERVICO") })
 	@Transient
 	private Set<TipoServico> tiposServicos;
 	
@@ -82,8 +82,6 @@ public class PrestadorServico {
 		this.codigo = codigo;
 	}
 	
-	
-
 	public PrestadorServico() {
 		super();
 	}
@@ -177,6 +175,19 @@ public class PrestadorServico {
 	public void setTelefones(Set<Telefone> telefones) {
 		this.telefones = telefones;
 	}
+	
+	
+//    public Telefone addChildren(Telefone child) {
+//    	getTelefones().add(child);
+//    	child.setPrestadorServico(this);
+//        return child;
+//    }
+//
+//    public Telefone removeChildren(Telefone child) {
+//    	getTelefones().remove(child);
+//        child.setPrestadorServico(null);
+//        return child;
+//    }
 
 	public Set<TipoServico> getTiposServicos() {
 		return tiposServicos;

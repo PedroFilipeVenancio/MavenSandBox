@@ -37,7 +37,7 @@ public class CreateTelefoneJSF {
 	public String addPrestadorServico() throws BusinessException {
 		try {
 			telefoneBusiness.create(telefone);
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO,"telefone adicionada com sucesso","Detalhe...?"));
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO,"telefone adicionada com sucesso",""));
 			return "readPrestadorServico";
 		} catch (Exception e) {
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,"Deu erro",e.getLocalizedMessage()));

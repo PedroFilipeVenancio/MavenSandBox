@@ -9,18 +9,23 @@
 	<h:body>
 		<h:form>
 			<p:panel header="Editar Prestador de Servico">
-			<div class="ui-g">
+			<div class="ui-g">				
 				<p:panelGrid>
-					<p:outputLabel value="Id: " />
-					<p:inputText value="#{prestadorServicoUpdate.prestadorServico.codigo}" onfocus="this.blur();" />
+				<div class="ui-g-1"><p:outputLabel value="Id: " /></div>
+				<div class="ui-g-1"><p:inputText value="#{prestadorServicoUpdate.prestadorServico.codigo}" onfocus="this.blur();" /></div>
+				<div class="ui-g-10"></div>				
 				</p:panelGrid>
+				
 				<p:panelGrid>
-					<p:outputLabel value="Nome: " />
-					<p:inputText value="#{prestadorServicoUpdate.prestadorServico.nome}" />
+				<div class="ui-g-1"><p:outputLabel value="Nome: " /></div>
+				<div class="ui-g-1"><p:inputText value="#{prestadorServicoUpdate.prestadorServico.nome}" /></div>
+				<div class="ui-g-10"></div>				
 				</p:panelGrid>
+				
 				<p:panelGrid>
-					<p:outputLabel value="Bairro: " />
-					<p:inputText value="#{prestadorServicoUpdate.prestadorServico.bairro}" />
+				<div class="ui-g-1"><p:outputLabel value="Bairro: " /></div>
+				<div class="ui-g-1"><p:inputText value="#{prestadorServicoUpdate.prestadorServico.bairro}" /></div>
+				<div class="ui-g-10"></div>				
 				</p:panelGrid>
 				
 				<p:panelGrid>
@@ -29,7 +34,6 @@
 				<p:selectOneMenu id="cidade" value="#{prestadorServicoUpdate.prestadorServico.cidade}" converter="CidadeConverter" effect="fold" editable="false">
             		<f:selectItems value="#{prestadorServicoUpdate.cidades}" var ="cidade"  itemLabel="#{cidade.nome}"/>
         		</p:selectOneMenu>
-				
 				</div>
 				<div class="ui-g-10"></div>	
 				</p:panelGrid>
@@ -39,32 +43,47 @@
 				<div class="ui-g-1">
 				<p:selectOneMenu id="tipoLogradouro" value="#{prestadorServicoUpdate.prestadorServico.tipoLogradouro}" effect="fold" editable="false">
             		<f:selectItems value="#{prestadorServicoUpdate.areas}" />
-        		</p:selectOneMenu>
-				
+        		</p:selectOneMenu>			
 				</div>
 				<div class="ui-g-10"></div>	
 				</p:panelGrid>
 				
 				<p:panelGrid>
-					<p:outputLabel value="CEP: " />
-					<p:inputText value="#{prestadorServicoUpdate.prestadorServico.cep}" />
+				<div class="ui-g-1"><p:outputLabel value="CEP: " /></div>
+				<div class="ui-g-1"><p:inputText value="#{prestadorServicoUpdate.prestadorServico.cep}" /></div>
+				<div class="ui-g-10"></div>				
 				</p:panelGrid>
+				
 				<p:panelGrid>
-					<p:outputLabel value="Logradouro: " />
-					<p:inputText value="#{prestadorServicoUpdate.prestadorServico.logradouro}" />
+				<div class="ui-g-1"><p:outputLabel value="Logradouro: " /></div>
+				<div class="ui-g-1"><p:inputText value="#{prestadorServicoUpdate.prestadorServico.logradouro}" /></div>
+				<div class="ui-g-10"></div>				
 				</p:panelGrid>
+				
 				<p:panelGrid>
-					<p:outputLabel value="Complemento: " />
-					<p:inputText value="#{prestadorServicoUpdate.prestadorServico.complemento}" />
+				<div class="ui-g-1"><p:outputLabel value="Complemento: " /></div>
+				<div class="ui-g-1"><p:inputText value="#{prestadorServicoUpdate.prestadorServico.complemento}" /></div>
+				<div class="ui-g-10"></div>				
 				</p:panelGrid>
+				
 				<p:panelGrid>
-					<p:outputLabel value="Numero: " />
-					<p:inputText value="#{prestadorServicoUpdate.prestadorServico.numero}" />
+				<div class="ui-g-1"><p:outputLabel value="Numero: " /></div>
+				<div class="ui-g-1"><p:inputText value="#{prestadorServicoUpdate.prestadorServico.numero}" /></div>
+				<div class="ui-g-10"></div>				
 				</p:panelGrid>
+				
 				<p:panelGrid>
-					<p:outputLabel value="Email: " />
-					<p:inputText value="#{prestadorServicoUpdate.prestadorServico.email}" />
+				<div class="ui-g-1"><p:outputLabel value="Email: " /></div>
+				<div class="ui-g-1"><p:inputText value="#{prestadorServicoUpdate.prestadorServico.email}" /></div>
+				<div class="ui-g-10"></div>				
 				</p:panelGrid>
+				
+<!-- 				<p:panelGrid> -->
+<!-- 				<div class="ui-g-1"></div> -->
+<!-- 				<div class="ui-g-1"></div> -->
+<!-- 				<div class="ui-g-10"></div>				 -->
+<!-- 				</p:panelGrid> -->
+
 				</div>
 				<p:commandButton value="Enviar" action="#{prestadorServicoUpdate.update}" update="@form" />
 				<p:commandButton value="Voltar" action="read?faces-redirect=true" update="@form" />

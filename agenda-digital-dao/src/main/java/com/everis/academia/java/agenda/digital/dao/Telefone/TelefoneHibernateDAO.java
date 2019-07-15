@@ -53,7 +53,7 @@ public class TelefoneHibernateDAO implements ITelefoneDAO {
 		Criteria criteria = session.createCriteria(Telefone.class);
 //		Restrictions é o mesmo que WHERE em SQL
 		criteria.add(Restrictions.and(
-						Restrictions.eq("nome", var.getCodigo()),
+						Restrictions.eq("codigo", var.getCodigo()),
 						Restrictions.or(
 								Restrictions.isNotNull("codigo"), 
 								Restrictions.ne("codigo", var.getCodigo()))));

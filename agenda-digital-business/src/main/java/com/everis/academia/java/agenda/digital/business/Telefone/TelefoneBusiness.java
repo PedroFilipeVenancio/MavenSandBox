@@ -37,24 +37,22 @@ public class TelefoneBusiness implements ITelefoneBusiness {
 		if (dao.jaExiste(TelefoneVar)) {
 			throw new BusinessException("já existe");
 		}
-		
 		dao.update(TelefoneVar);
 	}
 
 	@Override
 	@Transactional(propagation = Propagation.REQUIRED)
 	public void create(Telefone TelefoneVar) throws BusinessException {
-
 		// valida parametros
-		if (TelefoneVar.getCodigo() == null) {
-			throw new BusinessException("É obrigatorio");
-		}
+//		if (TelefoneVar.getCodigo() == null) {
+//			throw new BusinessException("É obrigatorio");
+//		}
 
 		// verifica se já existe
 		if (dao.jaExiste(TelefoneVar)) {
 			throw new BusinessException("já existe");
 		}
-
+		
 		dao.create(TelefoneVar);
 	}
 

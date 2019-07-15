@@ -33,7 +33,6 @@ public class CreateJSF {
 
 	public String addCity() throws BusinessException {
 		try {
-			System.out.println("noaddcity" + cidade.getCodigo());
 			cidadebusiness.create(cidade);
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO,"Cidade adicionada com sucesso","Detalhe...?"));
 //			FacesContext.getCurrentInstance().addMessage("nome", new FacesMessage(FacesMessage.SEVERITY_ERROR,"Cidade adicionada com sucesso no nomeeeeee","Detalhe...?"));
@@ -41,7 +40,7 @@ public class CreateJSF {
 //			FacesContext.getCurrentInstance().addMessage("nome", new FacesMessage(FacesMessage.SEVERITY_INFO,"Cidade adicionada com sucesso","Detalhe...?"));
 			return "read";
 		} catch (Exception e) {
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,"Deu erro",e.getLocalizedMessage()));
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,"Deu erro ao adicionar cidade",e.getLocalizedMessage()));
 			e.printStackTrace();
 			return "create";
 		}

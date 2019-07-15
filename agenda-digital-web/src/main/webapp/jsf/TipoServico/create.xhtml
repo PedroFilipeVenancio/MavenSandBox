@@ -12,7 +12,7 @@
 				<p:inputText id="descricao" value="#{tipoServicoCreate.tipoServico.descricao}" />
 				<p:commandButton value="Enviar" action="#{tipoServicoCreate.createTipoServico}" update="@form" />
 				<p:commandButton value="Limpar" action="#{tipoServicoCreate.cleanTipoServico}" update="@form"/>
-				<p:commandButton value="Voltar" action="read?faces-redirect=true" />
+				<a href="../../">Volte ao inicio</a>
 			</p:panel>
 			<p:messages showSummary="true" showDetail="true" />
 		</h:form>
