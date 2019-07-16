@@ -13,12 +13,15 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "TB_TELEFONE", schema = "public")
+//@Table(name = "TB_TELEFONE",schema = "public", uniqueConstraints = { @UniqueConstraint(name = "UNQ_TELEFONE", columnNames = {
+//		"COD_PRESTADOR_SERVICO", "DDD_TELEFONE", "NUM_TELEFONE" }) })
 @SequenceGenerator(name = "SQ_TELEFONE", sequenceName = "SQ_TELEFONE", initialValue = 1, allocationSize = 1)
 //@JsonIgnoreProperties(value = { "prestadorServico" })
 public class Telefone {
@@ -28,14 +31,14 @@ public class Telefone {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_TELEFONE")
 	private Integer codigo;
 
-	@Column(name = "DDD_TELEFONE", nullable = false)
+	@Column(name = "DDD_TELEFONE", nullable = true)
 	private Integer ddd;
 
 	@Column(name = "NUM_TELEFONE", nullable = false)
 	private Integer numero;
 
 	@ManyToOne(fetch = FetchType.LAZY, targetEntity = PrestadorServico.class)
-	@JoinColumn(name = "COD_PRESTADOR_SERVICO", foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "FK_TB_TELEF_TB_PRESTADOR_SERV"))
+	@JoinColumn(name = "COD_PRESTADOR_SERVICO", nullable = false, foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "FK_TB_TELEF_TB_PRESTADOR_SERV"))
 	private PrestadorServico prestadorServico;
 
 

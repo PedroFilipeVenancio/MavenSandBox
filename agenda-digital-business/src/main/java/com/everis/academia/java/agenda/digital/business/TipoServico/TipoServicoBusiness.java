@@ -39,6 +39,10 @@ public class TipoServicoBusiness implements ITipoServicoBusiness {
 			throw new BusinessException("Não é permitido mais de 100 Caracteres");
 		}
 		
+		if (!tipoServicoVar.getDescricao().matches("[a-zA-Z ]+")) {
+			throw new BusinessException("Formato errado, só é permitido letras e espaços");
+		}
+		
 		dao.update(tipoServicoVar);
 	}
 
@@ -52,6 +56,10 @@ public class TipoServicoBusiness implements ITipoServicoBusiness {
 		
 		if (tipoServicoVar.getDescricao().length()>=100) {
 			throw new BusinessException("Não é permitido mais de 100 Caracteres");
+		}
+		
+		if (!tipoServicoVar.getDescricao().matches("[a-zA-Z ]+")) {
+			throw new BusinessException("Formato errado, só é permitido letras e espaços");
 		}
 
 		dao.create(tipoServicoVar);

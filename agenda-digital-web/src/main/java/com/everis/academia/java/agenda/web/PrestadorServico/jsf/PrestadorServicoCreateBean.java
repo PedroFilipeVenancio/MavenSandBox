@@ -127,7 +127,8 @@ public class PrestadorServicoCreateBean {
 			for (Telefone numero : numeros) {
 				numero.setPrestadorServico(prestadorServico);
 			}
-			
+			this.prestadorServico.setTelefones(numeros);
+			this.prestadorServico.addTelefone(newPhone);
 			business.create(prestadorServico);
 
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, prestadorServico.getNome(), ": registado com sucesso!"));
@@ -144,16 +145,9 @@ public class PrestadorServicoCreateBean {
 	}
 	
 	public void  insertPhone() {
-		this.newPhone.setDdd(0);
+		newPhone.setPrestadorServico(prestadorServico);
 		numeros.add(newPhone);
-//		try {
-//			TelefoneBusiness.create(newPhone);
-//		} catch (BusinessException e) {
-//			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro ao adicionar telefone!", e.getMessage()));
-//		}
-
-		}
-	
-	
-	
+		prestadorServico.setTelefones(numeros);
+		prestadorServico.addTelefone(newPhone);
+		}	
 }

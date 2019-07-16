@@ -1,6 +1,7 @@
 package com.everis.academia.java.agenda.digital.business.PrestadorServico;
 
 import java.util.Collection;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -8,16 +9,22 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.everis.academia.java.agenda.digital.business.BusinessException;
+import com.everis.academia.java.agenda.digital.business.Telefone.ITelefoneBusiness;
 import com.everis.academia.java.agenda.digital.dao.PrestacaoServico.IPrestacaoServicoDAO;
 import com.everis.academia.java.agenda.digital.dao.PrestadorServicos.IPrestadorServicoDAO;
 import com.everis.academia.java.agenda.digital.dao.PrestadorServicos.PrestadorServicosDAO;
 import com.everis.academia.java.agendadigital.entity.PrestadorServico;
+import com.everis.academia.java.agendadigital.entity.Telefone;
 @Service
 public class PrestadorServicosBusiness implements IPrestadorServicoBusiness {
 
 //	IPrestadorServicoDAO dao = new PrestadorServicosDAO();
 	@Autowired
 	private IPrestadorServicoDAO dao;
+	
+	@Autowired
+	private ITelefoneBusiness telefonesBusiness;
+	
 
 	@Override
 	@Transactional(propagation = Propagation.REQUIRED)
@@ -66,14 +73,23 @@ public class PrestadorServicosBusiness implements IPrestadorServicoBusiness {
 		}
 		dao.update(prestadorServicoVar);
 	}
+	
+	@Override
+	@Transactional(propagation = Propagation.REQUIRED)
+	public void createWithPhone (PrestadorServico prestadorServicoVar,Set<Telefone> telefones) throws BusinessException {
+		for (Telefone telefone : telefones) {
+			telefone.setPrestadorServico(prestadorServicoVar);
+		}
+		prestadorServicoVar.setTelefones(telefones);	
+		dao.create(prestadorServicoVar);
+	}
 
 	@Override
 	@Transactional(propagation = Propagation.REQUIRED)
 	public void create(PrestadorServico prestadorServicoVar) throws BusinessException {
-
 		// valida parametros
 		if (prestadorServicoVar.getNome() == null || prestadorServicoVar.getNome().trim().isEmpty()) {
-			throw new BusinessException("É obrigatorio");
+			throw new BusinessException("É obrigatorio colocar nome");
 		}
 
 		// verifica se já existe
@@ -116,6 +132,7 @@ public class PrestadorServicosBusiness implements IPrestadorServicoBusiness {
 		if (!prestadorServicoVar.getNumero().matches("[0-9]+")) {
 			throw new BusinessException("so aceita numeros");
 		}
+		
 		dao.create(prestadorServicoVar);
 	}
 

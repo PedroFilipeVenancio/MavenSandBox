@@ -63,7 +63,6 @@ public class PrestadorServico {
 	private String email;
 
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "prestadorServico", orphanRemoval = true, targetEntity = Telefone.class)
-//	@Transient
 	private Set<Telefone> telefones;
 
 	@ManyToMany(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER, targetEntity = TipoServico.class)
@@ -174,6 +173,11 @@ public class PrestadorServico {
 
 	public void setTelefones(Set<Telefone> telefones) {
 		this.telefones = telefones;
+	}
+	
+	public void addTelefone(Telefone telefone) {	
+		getTelefones().add(telefone);
+		telefone.setPrestadorServico(this);
 	}
 	
 	

@@ -77,6 +77,13 @@
 				</p:panelGrid>
 				
 				<p:panelGrid>
+				<div class="ui-g-1"><p:outputLabel for="ddd" value="ddd: " /></div>
+				<div class="ui-g-1"><p:inputText id="ddd" value="#{prestadorServicoCreate.newPhone.ddd}" />
+				</div>
+				<div class="ui-g-10"></div>			
+				</p:panelGrid>
+				
+				<p:panelGrid>
 				<div class="ui-g-1"><p:outputLabel for="telefone" value="telefone: " /></div>
 				<div class="ui-g-1"><p:inputText id="telefone" value="#{prestadorServicoCreate.newPhone.numero}" />
 				<p:commandButton value="+" action="#{prestadorServicoCreate.insertPhone}" update="@form" />
@@ -84,11 +91,7 @@
 				<div class="ui-g-10"></div>			
 				</p:panelGrid>
 				
-				<p:dataTable var="numero" value="#{prestadorServicoCreate.numeros}">
-				    <p:column headerText="Id">
-				        <h:outputText value="#{numero.codigo}" />
-				    </p:column>
-				 
+				<p:dataTable var="numero" value="#{prestadorServicoCreate.numeros}">			 
 				    <p:column headerText="DDD">
 				        <h:outputText value="#{numero.ddd}" />
 				    </p:column>
@@ -99,9 +102,9 @@
 				 
 				</p:dataTable>
 				
-<!-- 			    <p:selectManyCheckbox id="grid" value="#{prestadorServicoCreate.prestadorServico.tiposServicos}" layout="grid" columns="3"> -->
-<!-- 			        <f:selectItems value="#{prestadorServicoCreate.tiposServico}" var="tipoServico" itemLabel="#{tipoServico.descricao}" itemValue="#{tipoServico.codigo}" /> -->
-<!-- 			    </p:selectManyCheckbox> -->
+			    <p:selectManyCheckbox id="grid" value="#{prestadorServicoCreate.prestadorServico.tiposServicos}" layout="grid" columns="3">
+			        <f:selectItems value="#{prestadorServicoCreate.tiposServico}" var="tipoServico" itemLabel="#{tipoServico.descricao}" itemValue="#{tipoServico.codigo}" />
+			    </p:selectManyCheckbox>
 				
 				</div>
 				<p:commandButton value="Enviar" action="#{prestadorServicoCreate.createPrestadorServico}" update="@form" />
