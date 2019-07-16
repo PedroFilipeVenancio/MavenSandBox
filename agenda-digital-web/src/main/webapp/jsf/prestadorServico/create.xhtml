@@ -102,9 +102,28 @@
 				 
 				</p:dataTable>
 				
-			    <p:selectManyCheckbox id="grid" value="#{prestadorServicoCreate.prestadorServico.tiposServicos}" layout="grid" columns="3">
-			        <f:selectItems value="#{prestadorServicoCreate.tiposServico}" var="tipoServico" itemLabel="#{tipoServico.descricao}" itemValue="#{tipoServico.codigo}" />
+			    <p:selectManyCheckbox id="grid" value="#{prestadorServicoCreate.prestadorServico.tiposServicos}" converter="TipoServicoConverter" layout="grid" columns="3">
+			        <f:selectItems value="#{prestadorServicoCreate.tiposServico}" var="tipoServico" itemLabel="#{tipoServico.descricao}"/>
 			    </p:selectManyCheckbox>
+			    
+			    
+			    
+<!--    				<p:panelGrid> -->
+<!-- 				<div class="ui-g-1"><p:outputLabel for="cidade" value="Cidade: " /></div> -->
+<!-- 				<div class="ui-g-1"> -->
+<!-- 				<p:selectOneMenu id="cidade" value="#{prestadorServicoCreate.prestadorServico.cidade}" converter="CidadeConverter" effect="fold" editable="false"> -->
+<!--             		<f:selectItems value="#{prestadorServicoCreate.cidades}" var ="cidade"  itemLabel="#{cidade.nome}"/> -->
+<!--         		</p:selectOneMenu> -->
+			    
+			    
+			    
+			    
+			    
+			    
+			    
+			    
+			    
+			    
 				
 				</div>
 				<p:commandButton value="Enviar" action="#{prestadorServicoCreate.createPrestadorServico}" update="@form" />

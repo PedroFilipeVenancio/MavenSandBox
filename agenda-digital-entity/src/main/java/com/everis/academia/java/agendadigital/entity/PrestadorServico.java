@@ -69,7 +69,7 @@ public class PrestadorServico {
 	@JoinTable(name = "RL_SERVICO_CREDENCIADO", joinColumns = {
 			@JoinColumn(name = "COD_PRESTADOR_SERVICO") }, inverseJoinColumns = {
 					@JoinColumn(name = "COD_TIPO_SERVICO") })
-	@Transient
+//	@Transient
 	private Set<TipoServico> tiposServicos;
 	
 //	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "prestadorServico", orphanRemoval = true, targetEntity = PrestacaoServico.class)
