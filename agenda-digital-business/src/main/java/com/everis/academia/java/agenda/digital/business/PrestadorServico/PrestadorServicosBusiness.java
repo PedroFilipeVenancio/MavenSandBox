@@ -10,9 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.everis.academia.java.agenda.digital.business.BusinessException;
 import com.everis.academia.java.agenda.digital.business.Telefone.ITelefoneBusiness;
-import com.everis.academia.java.agenda.digital.dao.PrestacaoServico.IPrestacaoServicoDAO;
 import com.everis.academia.java.agenda.digital.dao.PrestadorServicos.IPrestadorServicoDAO;
-import com.everis.academia.java.agenda.digital.dao.PrestadorServicos.PrestadorServicosDAO;
 import com.everis.academia.java.agendadigital.entity.PrestadorServico;
 import com.everis.academia.java.agendadigital.entity.Telefone;
 @Service
@@ -94,11 +92,25 @@ public class PrestadorServicosBusiness implements IPrestadorServicoBusiness {
 
 		// verifica se já existe
 		if (dao.jaExiste(prestadorServicoVar)) {
-			throw new BusinessException("já existe");
+			throw new BusinessException("já existe Prestador com esse Nome ou email");
+		}
+		
+		if (prestadorServicoVar.getEmail() == null || prestadorServicoVar.getEmail().trim().isEmpty()) {
+			throw new BusinessException("É obrigatorio colocar email");
+		}
+		
+		if (prestadorServicoVar.getTelefones().isEmpty()) {
+			throw new BusinessException("É obrigatorio existir um telefone");
+		}
+		
+		for (Telefone numero : prestadorServicoVar.getTelefones()) {
+			if (dao.jaExisteTelefone(numero)) {
+				throw new BusinessException("O numero: " +numero.getNumero() + "com o DDD: " + numero.getDdd() + " já existente na bd");
+			}
 		}
 		
 		if (prestadorServicoVar.getNome() == null || prestadorServicoVar.getNome().trim().isEmpty()) {
-			throw new BusinessException("É obrigatorio");
+			throw new BusinessException("O nome é obrigatorio");
 		}
 
 		if (!prestadorServicoVar.getNome().matches("[a-zA-Z ]+")) {

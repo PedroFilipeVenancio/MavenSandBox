@@ -31,6 +31,7 @@ public class PrestadorServicoReadBean {
 
 
 	public Collection<PrestadorServico> getPrestadoresServico() {
+		System.out.println(business.read().size() + "TAMANHOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO");
 		return business.read();
 	}
 	

@@ -11,9 +11,12 @@ import java.util.Set;
 
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
+import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 
+import org.omg.CosNaming.NamingContextPackage.NotEmpty;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.annotation.RequestScope;
@@ -32,7 +35,8 @@ import Enums.TipoLogradouro;
 
 @Component("prestadorServicoCreate")
 @ManagedBean(name = "prestadorServicoCreate")
-@RequestScope
+//@RequestScope
+@ViewScoped
 public class PrestadorServicoCreateBean {
 
 	@Autowired
@@ -42,7 +46,8 @@ public class PrestadorServicoCreateBean {
 	@Autowired
 	private ITelefoneBusiness TelefoneBusiness;
 	private Telefone newPhone = new Telefone();
-	Set<Telefone> numeros = new HashSet<Telefone>();
+//	Set<Telefone> numeros = new HashSet<Telefone>();
+	Set<Telefone> numeros;
 	private static int id = 0;
 	
 	@Autowired
@@ -63,6 +68,47 @@ public class PrestadorServicoCreateBean {
 	public void init() {
 		this.cidades = cidadebusiness.read();
 		this.tiposServico = tiposServicoBusiness.read();
+		numeros = new HashSet<Telefone>();
+	}
+
+	public String createPrestadorServico() {
+		try {
+			prestadorServico.setTelefones(numeros);
+			business.create(prestadorServico);
+			this.numeros.clear();
+			this.prestadorServico = new PrestadorServico();
+			this.newPhone = new Telefone();
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO,"Prestador adicionado com sucesso",""));
+			return "read";
+		} catch (BusinessException e) {
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro ao registar!", e.getMessage()));
+		}
+		return null;
+	}
+	
+	public String cleanPrestadorServico() {
+		this.prestadorServico = new PrestadorServico();
+		return null;
+	}
+	
+	public String  insertPhone() {
+
+		Telefone ok = new Telefone();
+		if ((newPhone.getDdd() != null) && (this.newPhone.getNumero() != null)) {
+			ok.setDdd(newPhone.getDdd());
+			ok.setNumero(newPhone.getNumero());
+			ok.setPrestadorServico(prestadorServico);
+			if (!numeros.add(ok)) {
+				FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,"Deu erro ao adicionar telefone","numero Repetido"));
+			}	
+		} else {
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,"Deu erro ao adicionar telefone","Adicione o ddd e o numero de telefone Correctamente"));
+		}
+		return null;
+		}	
+	
+	public void delete (Telefone numero) {
+		this.numeros.remove(numero);
 	}
 
 	public Cidade getCidade() {
@@ -86,7 +132,7 @@ public class PrestadorServicoCreateBean {
 	}
 
 	public Collection<Telefone> getNumeros() {
-		return numeros;
+		return this.numeros;
 	}
 
 	public void setNumeros(Set<Telefone> numeros) {
@@ -121,33 +167,5 @@ public class PrestadorServicoCreateBean {
 		this.prestadorServico = prestadorServico;
 	}
 	
-	public String createPrestadorServico() {
-		try {
-			prestadorServico.setTelefones(numeros);
-			for (Telefone numero : numeros) {
-				numero.setPrestadorServico(prestadorServico);
-			}
-			this.prestadorServico.setTelefones(numeros);
-			this.prestadorServico.addTelefone(newPhone);
-			business.create(prestadorServico);
-
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, prestadorServico.getNome(), ": registado com sucesso!"));
-			return "read";
-		} catch (BusinessException e) {
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro ao registar!", e.getMessage()));
-		}
-		return null;
-	}
 	
-	public String cleanPrestadorServico() {
-		this.prestadorServico = new PrestadorServico();
-		return null;
-	}
-	
-	public void  insertPhone() {
-		newPhone.setPrestadorServico(prestadorServico);
-		numeros.add(newPhone);
-		prestadorServico.setTelefones(numeros);
-		prestadorServico.addTelefone(newPhone);
-		}	
 }

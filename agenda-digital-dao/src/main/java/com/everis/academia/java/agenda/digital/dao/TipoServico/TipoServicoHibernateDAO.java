@@ -34,7 +34,6 @@ public class TipoServicoHibernateDAO implements ITipoServicoDAO {
 
 	@Override
 	public void create(TipoServico var) {
-		System.out.println("estou no dao" + var.getCodigo());
 		Session session = sessionFactory.getCurrentSession();
 		session.save(var);
 		session.flush();
@@ -61,7 +60,6 @@ public class TipoServicoHibernateDAO implements ITipoServicoDAO {
 								Restrictions.ne("codigo", var.getCodigo()))));
 
 		criteria.setProjection(Projections.count("codigo"));
-		System.out.println("contagem:" + criteria.uniqueResult());
 		return (Long) criteria.uniqueResult() > 0;
 	}
 

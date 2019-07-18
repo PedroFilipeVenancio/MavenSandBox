@@ -1,6 +1,7 @@
 package com.everis.academia.java.agenda.digital.dao.PrestadorServicos;
 
 import java.util.Collection;
+import java.util.Set;
 
 import org.hibernate.Criteria;
 import org.hibernate.Session;
@@ -11,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.everis.academia.java.agendadigital.entity.PrestadorServico;
+import com.everis.academia.java.agendadigital.entity.Telefone;
 @Repository
 public class PrestadorServicoHibernateDAO implements IPrestadorServicoDAO {
 
@@ -42,9 +44,10 @@ public class PrestadorServicoHibernateDAO implements IPrestadorServicoDAO {
 	@Override
 	public Collection<PrestadorServico> read() {
 		Session session = sessionFactory.getCurrentSession();
-		Criteria criteria = session.createCriteria(PrestadorServico.class);
+		Criteria criteria = session.createCriteria(PrestadorServico.class).setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
 		return criteria.list();
 	}
+	
 
 	@Override
 	public Boolean jaExiste(PrestadorServico var) {
@@ -53,11 +56,30 @@ public class PrestadorServicoHibernateDAO implements IPrestadorServicoDAO {
 		Criteria criteria = session.createCriteria(PrestadorServico.class);
 //		Restrictions é o mesmo que WHERE em SQL
 		criteria.add(Restrictions.and(
+						Restrictions.or(
 						Restrictions.eq("nome", var.getNome()).ignoreCase(),
+						Restrictions.eq("email", var.getEmail())),
 						Restrictions.or(
 								Restrictions.isNotNull("codigo"), 
 								Restrictions.ne("codigo", var.getCodigo()))));
+//						Restrictions.neOrIsNotNull("codigo", var.getCodigo());	
+		
+		criteria.setProjection(Projections.count("codigo"));
+		return (Long) criteria.uniqueResult() > 0;
+	}
+	
+	@Override
+	public Boolean jaExisteTelefone(Telefone var) {
+		Session session = sessionFactory.getCurrentSession();
 
+		Criteria criteria = session.createCriteria(Telefone.class);		
+		
+			criteria.add(Restrictions.and(
+					Restrictions.or(
+								Restrictions.eq("numero", var.getNumero()),
+								Restrictions.eq("ddd", var.getDdd())),
+					Restrictions.neOrIsNotNull("codigo", var.getCodigo())));
+		
 		criteria.setProjection(Projections.count("codigo"));
 
 		return (Long) criteria.uniqueResult() > 0;

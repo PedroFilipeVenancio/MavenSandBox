@@ -99,13 +99,17 @@
 				    <p:column headerText="numero">
 				        <h:outputText value="#{numero.numero}" />
 				    </p:column>
+				    
+   					<p:column headerText="Accões">
+						<h:commandButton value="delete" action="#{prestadorServicoCreate.delete(numero)}" />
+					</p:column>
 				 
 				</p:dataTable>
 				
-			    <p:selectManyCheckbox id="grid" value="#{prestadorServicoCreate.prestadorServico.tiposServicos}" layout="grid" columns="3">
-			        <f:selectItems value="#{prestadorServicoCreate.tiposServico}" var="tipoServico" itemLabel="#{tipoServico.descricao}" itemValue="#{tipoServico.codigo}" />
+			    <p:selectManyCheckbox id="grid" value="#{prestadorServicoCreate.prestadorServico.tiposServicos}" converter="TipoServicoConverter" layout="grid" columns="3">
+			        <f:selectItems value="#{prestadorServicoCreate.tiposServico}" var="tipoServico" itemLabel="#{tipoServico.descricao}"/>
 			    </p:selectManyCheckbox>
-				
+			    
 				</div>
 				<p:commandButton value="Enviar" action="#{prestadorServicoCreate.createPrestadorServico}" update="@form" />
 				<p:commandButton value="Limpar" action="#{prestadorServicoCreate.cleanPrestadorServico}" update="@form"/>
@@ -115,10 +119,3 @@
 		</h:form>
     </h:body>
 </html>
-
-
-
-
-
-
-

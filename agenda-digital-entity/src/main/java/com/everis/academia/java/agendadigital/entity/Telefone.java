@@ -19,9 +19,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
-@Table(name = "TB_TELEFONE", schema = "public")
-//@Table(name = "TB_TELEFONE",schema = "public", uniqueConstraints = { @UniqueConstraint(name = "UNQ_TELEFONE", columnNames = {
-//		"COD_PRESTADOR_SERVICO", "DDD_TELEFONE", "NUM_TELEFONE" }) })
+//@Table(name = "TB_TELEFONE", schema = "public")
+@Table(name = "TB_TELEFONE",schema = "public", uniqueConstraints = { @UniqueConstraint(name = "UNQ_TELEFONE", columnNames = {
+		"COD_PRESTADOR_SERVICO", "DDD_TELEFONE", "NUM_TELEFONE" }) })
 @SequenceGenerator(name = "SQ_TELEFONE", sequenceName = "SQ_TELEFONE", initialValue = 1, allocationSize = 1)
 //@JsonIgnoreProperties(value = { "prestadorServico" })
 public class Telefone {
@@ -31,7 +31,7 @@ public class Telefone {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_TELEFONE")
 	private Integer codigo;
 
-	@Column(name = "DDD_TELEFONE", nullable = true)
+	@Column(name = "DDD_TELEFONE", nullable = false)
 	private Integer ddd;
 
 	@Column(name = "NUM_TELEFONE", nullable = false)
@@ -101,6 +101,8 @@ public class Telefone {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((codigo == null) ? 0 : codigo.hashCode());
+		result = prime * result + ((ddd == null) ? 0 : ddd.hashCode());
+		result = prime * result + ((numero == null) ? 0 : numero.hashCode());
 		return result;
 	}
 
@@ -118,8 +120,22 @@ public class Telefone {
 				return false;
 		} else if (!codigo.equals(other.codigo))
 			return false;
+		if (ddd == null) {
+			if (other.ddd != null)
+				return false;
+		} else if (!ddd.equals(other.ddd))
+			return false;
+		if (numero == null) {
+			if (other.numero != null)
+				return false;
+		} else if (!numero.equals(other.numero))
+			return false;
 		return true;
 	}
+
+
+
+
 
 
 }

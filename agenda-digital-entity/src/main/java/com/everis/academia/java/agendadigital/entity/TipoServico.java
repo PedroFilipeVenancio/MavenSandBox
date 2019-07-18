@@ -12,9 +12,12 @@ import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
 
-//@Table(name = "TB_TIPO_SERVICO", uniqueConstraints = {
-//		@UniqueConstraint(name = "UNQ_TIPO_SERVICO", columnNames = { "NOM_TIPO_SERVICO" }) })
+
+
+
 @Entity
+//@Table(name = "TB_TIPO_SERVICO", uniqueConstraints = {
+//@UniqueConstraint(name = "UNQ_TIPO_SERVICO", columnNames = { "NOM_TIPO_SERVICO" }) })
 @Table(name="TB_TIPO_SERVICO", schema = "public")
 @SequenceGenerator(name = "SQ_TIPO_SERVICO", sequenceName = "SQ_TIPO_SERVICO",schema = "public", initialValue = 1, allocationSize = 1)
 public class TipoServico implements Serializable{
