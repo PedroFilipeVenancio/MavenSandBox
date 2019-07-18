@@ -75,9 +75,10 @@ public class PrestadorServicoHibernateDAO implements IPrestadorServicoDAO {
 		Criteria criteria = session.createCriteria(Telefone.class);		
 		
 			criteria.add(Restrictions.and(
-					Restrictions.or(
-								Restrictions.eq("numero", var.getNumero()),
-								Restrictions.eq("ddd", var.getDdd())),
+					Restrictions.eq("numero", var.getNumero()),
+//					Restrictions.or(
+//								Restrictions.eq("numero", var.getNumero()),
+//								Restrictions.eq("ddd", var.getDdd())),
 					Restrictions.neOrIsNotNull("codigo", var.getCodigo())));
 		
 		criteria.setProjection(Projections.count("codigo"));

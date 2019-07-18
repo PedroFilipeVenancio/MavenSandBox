@@ -105,7 +105,7 @@ public class PrestadorServicosBusiness implements IPrestadorServicoBusiness {
 		
 		for (Telefone numero : prestadorServicoVar.getTelefones()) {
 			if (dao.jaExisteTelefone(numero)) {
-				throw new BusinessException("O numero: " +numero.getNumero() + "com o DDD: " + numero.getDdd() + " já existente na bd");
+				throw new BusinessException("O numero: " +numero.getNumero() + " já existe na bd");
 			}
 		}
 		
