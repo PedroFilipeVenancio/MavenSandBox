@@ -4,6 +4,7 @@ import java.util.Collection;
 import java.util.HashSet;
 
 import com.everis.academia.java.agendadigital.entity.PrestadorServico;
+import com.everis.academia.java.agendadigital.entity.Telefone;
 
 public class PrestadorServicosDAO implements IPrestadorServicoDAO {
 	
@@ -45,6 +46,12 @@ public class PrestadorServicosDAO implements IPrestadorServicoDAO {
 	@Override
 	public Collection<PrestadorServico> read() {
 		return prestadorServicosColl;
+	}
+
+	@Override
+	public Boolean jaExisteTelefone(Telefone var) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
